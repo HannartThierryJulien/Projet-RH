@@ -1,0 +1,102 @@
+<div class="row justify-content-center h-100">
+  <div class="col-md-6">
+    <div class="d-flex align-items-center justify-content-center h-100">
+
+      <mat-card id="card-auth" [class.wrapper-disable]="isLoading" class="my-2">
+        <div class="row align-items-center justify-content-center p-5">
+
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                 class="img-fluid" alt="Phone image">
+          </div>
+          <div class="col-md-7 col-lg-5 col-xl-6">
+            <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+
+              <div class="mb-4 text-center">
+                <h1 class="h1-auth mt-0 mb-0 px-0">
+                  {{ (isLoginMode ? 'Login' : 'Register') | translate }}
+                </h1>
+
+                <h1 class="h1-auth mt-0 px-0">{{ 'to HR Project' | translate }}</h1>
+              </div>
+
+              <div *ngIf="!isLoginMode">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>{{ 'Last name' | translate }}</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    ngModel
+                    name="lastname"
+                    required>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>{{ 'First name' | translate }}</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    ngModel
+                    name="firstname"
+                    required>
+                </mat-form-field>
+              </div>
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ 'E-mail' | translate }}</mat-label>
+                <input
+                  matInput
+                  placeholder="exemple@gmail.com"
+                  aria-label="Email input"
+                  type="email"
+                  id="email"
+                  ngModel
+                  name="email"
+                  required
+                  email>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ 'Password' | translate }}</mat-label>
+                <input
+                  matInput
+                  type="password"
+                  ngModel
+                  name="password"
+                  required
+                  minlength="1">
+              </mat-form-field>
+
+              <div class="d-flex justify-content-between align-items-center mb-4 w-100">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked/>
+                  <label class="form-check-label" for="form1Example3"> {{ 'Remember me' | translate }} </label>
+                </div>
+                <a href="/auth">{{ 'Forgot password?' | translate }}</a>
+              </div>
+
+              <div class="d-grid col-6 mx-auto text-center">
+                <button
+                  mat-raised-button
+                  [color]="errorHappened ? 'warn' : 'primary'"
+                  value="submit"
+                  [disabled]="!authForm.valid"
+                  class="rounded-pill mt-2">
+                  {{ (isLoginMode ? 'Login' : 'Sign Up') | translate }}
+                </button>
+                <a href="#" (click)="onSwitchMode(); $event.preventDefault();"
+                   class="my-2 mx-auto">{{ (isLoginMode ? 'No account yet?' : 'Already an account?') | translate }}</a>
+              </div>
+
+            </form>
+          </div>
+        </div>
+        <mat-card-footer class="mx-3" *ngIf="isLoading">
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+
+    </div>
+  </div>
+</div>

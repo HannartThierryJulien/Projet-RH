@@ -1,0 +1,34 @@
+#card-auth {
+  //background-color: lightsteelblue;
+  border-radius: 20px;
+}
+
+#card-auth p {
+  font-family: Roboto, sans-serif;
+  font-size: 1rem !important;
+}
+
+#card-auth a {
+  font-size: unset !important;
+}
+
+.h1-auth {
+  font-weight: normal;
+  font-size: calc(1.2rem + 1.5vw);
+}
+
+.wrapper-disable{
+  z-index: -1 !important;
+  position: relative;
+  opacity: 0.5;
+  pointer-events:none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+.wrapper-disable *{
+  pointer-events:none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}

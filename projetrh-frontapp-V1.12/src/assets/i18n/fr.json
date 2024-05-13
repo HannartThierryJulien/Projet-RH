@@ -1,0 +1,199 @@
+{
+  "Id": "Id",
+  "id": "id",
+  "Label": "Libellé",
+  "label": "libellé",
+  "Points": "Points",
+  "points": "points",
+  "Time limit": "Limite de temps",
+  "Weight": "Poids",
+  "weight": "poids",
+  "Topics": "Thèmes",
+  "Topic": "Thème",
+  "topic": "sujet",
+  "Questions": "Questions",
+  "Questionnaires": "Questionnaires",
+  "Questionnaire": "Questionnaire",
+  "questionnaire": "questionnaire",
+  "Tests": "Tests",
+  "tests": "tests",
+  "test": "test",
+  "Switch to light mode": "Passer en mode clair",
+  "Switch to night mode": "Passer en mode nuit",
+  "Translate": "Traduire",
+  "English": "Anglais",
+  "French": "Français",
+  "Spanish": "Espagnol",
+  "Logout": "Se déconnecter",
+  "Login": "Se connecter",
+  "Register": "S'inscrire",
+  "to HR Project": "au Projet RH",
+  "First name": "Prénom",
+  "Last name": "Nom",
+  "E-mail": "E-Mail",
+  "Password": "Mot de passe",
+  "Remember me": "Se souvenir de moi",
+  "Forgot password?": "Mot de passe oublié ?",
+  "No account yet?": "Pas encore de compte ?",
+  "Already an account?": "Déjà un compte ?",
+  "Select list": "Sélectionner liste",
+  "Unarchived": {
+    "m": "Non archivé",
+    "f": "Non archivée",
+    "ms": "Non archivés",
+    "fs": "Non archivées"
+  },
+  "Archived": {
+    "m": "Archivé",
+    "f": "Archivée",
+    "ms": "Archivés",
+    "fs": "Archivées"
+  },
+  "Search": "Rechercher",
+  "Search filters": "Filtres de recherche",
+  "Add question": "Ajouter question",
+  "Refresh list": "Rafraîchir liste",
+  "Searching by ": "Recherche par ",
+  "No": "Non",
+  "Yes": "Oui",
+  "Linked": {
+    "answers": "Réponses liées",
+    "questions": "Questions liées",
+    "questionnaires": "Questionnaires liés"
+  },
+  "Correct": "Correcte",
+  "Incorrect": "Incorrecte",
+  "Options": "Options",
+  "Edit": "Modifier",
+  "Unarchive": "Désarchiver",
+  "Archive": "Archiver",
+  "Create": {
+    "answer": "Créer une réponse",
+    "question": "Créer une question",
+    "questionnaire": "Créer un questionnaire",
+    "topic": "Créer un thème",
+    "test": "Créer une test"
+  },
+  "Update": {
+    "question": "Modifier une question",
+    "questionnaire": "Modifier un questionnaire",
+    "topic": "Modifier un thème",
+    "test": "Modifier une test"
+  },
+  "Add answer": "Ajouter une réponse",
+  "Cancel": "Annuler",
+  "Close": "Fermer",
+  "btn_Create": "Créer",
+  "btn_Update": "Modifier",
+  "Delete": "Supprimer",
+  "Answer": "Réponse",
+  "Are you sure you want to delete this question ?": "Êtes-vous sûr de vouloir supprimer cette question ?",
+  "Deleting questions is a permanent and irreversible operation.": "La suppression de questions est une opération permanente et irréversible.",
+  "error_msg_load_items": {
+    "answer": "Erreur lors du chargement des réponses.",
+    "question": "Erreur lors du chargement des questions.",
+    "questionnaire": "Erreur lors du chargement des questionnaire.",
+    "topic": "Erreur lors du chargement des thèmes.",
+    "test": "Erreur lors du chargement des tests."
+  },
+  "error_msg_load_item": {
+    "answer": "Erreur lors du chargement d'une réponse.",
+    "question": "Erreur lors du chargement d'une question.",
+    "questionnaire": "Erreur lors du chargement d'un questionnaire.",
+    "topic": "Erreur lors du chargement d'un thème.",
+    "test": "Erreur lors du chargement d'un test."
+  },
+  "error_msg_refresh_items": {
+    "answer": "Erreur lors du rafraîchissement de la liste des réponses.",
+    "question": "Erreur lors du rafraîchissement de la liste des questions.",
+    "questionnaire": "Erreur lors du rafraîchissement de la liste des questionnaires.",
+    "topic": "Erreur lors du rafraîchissement de la liste des thèmes.",
+    "test": "Erreur lors du rafraîchissement de la liste des tests."
+  },
+  "error_msg_add_item": {
+    "answer": "Erreur lors de l'ajout d'une réponse.",
+    "question": "Erreur lors de l'ajout d'une question.",
+    "questionnaire": "Erreur lors de l'ajout d'un questionnaire.",
+    "topic": "Erreur lors de l'ajout d'un thème.",
+    "test": "Erreur lors de l'ajout d'un test."
+  },
+  "error_msg_edit_item": {
+    "answer": "Erreur lors de la modification d'une réponse.",
+    "question": "Erreur lors de la modification d'une question.",
+    "questionnaire": "Erreur lors de la modification d'un questionnaire.",
+    "topic": "Erreur lors de la modification d'un thème.",
+    "test": "Erreur lors de la modification d'un test."
+  },
+  "errorMsg_testCompleted": "Erreur lors de l'envoi du formulaire de test.",
+  "error_msg_delete_item": {
+    "answer": "Erreur lors de la suppression d'une réponse.",
+    "question": "Erreur lors de la suppression d'une question.",
+    "questionnaire": "Erreur lors de la suppression d'un questionnaire.",
+    "topic": "Erreur lors de la suppression d'un thème.",
+    "test": "Erreur lors de la suppression d'un test."
+  },
+  "success_msg_refresh_items": {
+    "answer": "Liste des réponses rafraîchie avec succès.",
+    "question": "Liste des questions rafraîchie avec succès.",
+    "questionnaire": "Liste des questionnaires rafraîchie avec succès.",
+    "topic": "Liste des thèmes rafraîchie avec succès.",
+    "test": "Liste des tests rafraîchie avec succès."
+  },
+  "success_msg_add_item": {
+    "answer": "Réponse ajoutée avec succès.",
+    "question": "Question ajoutée avec succès.",
+    "questionnaire": "Questionnaire ajouté avec succès.",
+    "topic": "Thème ajouté avec succès.",
+    "test": "Test ajouté avec succès.",
+    "candidate-test": "Test assigné avec succès."
+  },
+  "success_msg_edit_item": {
+    "answer": "Réponse mise à jour avec succès.",
+    "question": "Question mise à jour avec succès.",
+    "questionnaire": "Questionnaire mis à jour avec succès.",
+    "topic": "Thème mis à jour avec succès.",
+    "test": "Test mis à jour avec succès."
+  },
+  "success_msg_delete_item": {
+    "answer": "Réponse supprimée avec succès.",
+    "question": "Question supprimée avec succès.",
+    "questionnaire": "Questionnaire supprimé avec succès.",
+    "topic": "Thème supprimé avec succès.",
+    "test": "Test supprimé avec succès."
+  },
+  "Connection error: Unable to reach the server.": "Erreur de connexion : Impossible de contacter le serveur.",
+  "Bad request.": "Requête incorrecte.",
+  "Unauthorized.": "Non autorisé.",
+  "Item not found.": "Élément non trouvé.",
+  "Conflict.": "Conflit.",
+  "Internal server error.": "Erreur interne du serveur.",
+  "Select": {
+    "question": "S'il vous plait, sélectionnez une question.",
+    "questionnaire": "S'il vous plait, sélectionnez un questionnaire.",
+    "topic": "S'il vous plait, sélectionnez un thème.",
+    "test": "S'il vous plait, sélectionnez un test."
+  },
+  "dialog-delete": {
+    "title": {
+      "question": "Êtes-vous sûr de vouloir supprimer cette question ?",
+      "questionnaire": "Êtes-vous sûr de vouloir supprimer ce questionnaire ?",
+      "topic": "Êtes-vous sûr de vouloir supprimer ce thème ?",
+      "test": "Êtes-vous sûr de vouloir supprimer ce test ?",
+      "candidate-test": "Êtes-vous sûr de vouloir supprimer supprimer cette assignation ?"
+    },
+    "note": {
+      "question": "La suppression de questions est une opération permanente et irréversible.",
+      "questionnaire": "La suppression de questionnaires est une opération permanente et irréversible.",
+      "topic": "La suppression de thèmes est une opération permanente et irréversible.",
+      "test": "La suppression de tests est une opération permanente et irréversible.",
+      "candidate-test": "La suppression d'assignations est une opération permanente et irréversible."
+    }
+  },
+  "Link copied !": "Lien copié !",
+  "Disconnection prohibited.": "Déconnexion interdite.",
+  "Not provided": "Non fourni",
+  "Mail": "Adresse mail",
+  "Birth date": "Date de naissance",
+  "Phone number" : "Numéro de téléphone",
+  "Professional profile url": "Url du profil professionnel"
+}

@@ -1,0 +1,44 @@
+<form [formGroup]="questionnaireForm" (ngSubmit)="onSubmit()" class="m-2">
+  <mat-dialog-content class="p-3 pb-1">
+    <h3 class="">{{ 'Update.questionnaire' | translate }}</h3>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{ 'Label' | translate }}</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="label"
+        required
+        maxlength="500">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{ 'Topic' | translate }}</mat-label>
+      <mat-select formControlName="topic" [value]="defaultTopic">
+        @for (topic of topics; track topic) {
+          <mat-option [value]="topic.id">{{ topic.label }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{ 'Description' | translate }}</mat-label>
+      <textarea
+        matInput
+        formControlName="description"
+        maxlength="3000">
+      </textarea>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions class="p-3 pt-1" align="end">
+    <button mat-stroked-button
+            color="primary"
+            type="button"
+            class="rounded-pill"
+            (click)="onClose()">{{ 'Cancel' | translate }}
+    </button>
+    <button mat-flat-button
+            type="submit"
+            class="rounded-pill"
+            color="primary"
+            [disabled]="questionnaireForm.invalid">{{ 'btn_Update' | translate }}
+    </button>
+  </mat-dialog-actions>
+</form>

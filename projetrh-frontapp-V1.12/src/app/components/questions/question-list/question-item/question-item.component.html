@@ -1,0 +1,19 @@
+<a
+  class="w-100 mb-2 unstyled-link"
+  [routerLink]="[question.id]">
+  <mat-card>
+    <mat-card-content class="d-flex align-items-center justify-content-between my-1 py-2">
+      <h4 class="text-truncate my-0">{{ question.label }}</h4>
+      <!--      <mat-chip-option-->
+      <!--        class="mx-1"-->
+      <!--        [selected]="isSelected"-->
+      <!--        selectable="false"-->
+      <!--        color="primary">{{ 'id' | translate }} {{ question.id }}</mat-chip-option>-->
+      <div *ngIf="(question.id == idSelectedQuestion)">
+        <mat-icon color="primary">
+          <span class="material-symbols-outlined"> done </span>
+        </mat-icon>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</a>

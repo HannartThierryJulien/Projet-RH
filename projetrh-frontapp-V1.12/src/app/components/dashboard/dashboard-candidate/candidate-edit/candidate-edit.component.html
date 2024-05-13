@@ -1,0 +1,51 @@
+<form [formGroup]="candidateForm" (ngSubmit)="onSubmit()" class="m-2">
+  <mat-dialog-content class="p-3 pb-1">
+    <h3 class="">{{ 'Update.candidate' | translate }}</h3>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{ 'Mail' | translate }}</mat-label>
+      <input
+        matInput
+        type="mail"
+        formControlName="mail"
+        required
+        maxlength="50">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{ 'Birth date' | translate }}</mat-label>
+      <input
+        matInput
+        type="date"
+        formControlName="birthDate">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{ 'Phone number' | translate }}</mat-label>
+      <input
+        matInput
+        type="tel"
+        formControlName="phoneNumber"
+        maxlength="15">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{ 'Professionnal profile url' | translate }}</mat-label>
+      <input
+        matInput
+        type="url"
+        formControlName="professionalProfileUrl"
+        maxlength="100">
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions class="p-3 pt-1" align="end">
+    <button mat-stroked-button
+            color="primary"
+            type="button"
+            class="rounded-pill"
+            (click)="onClose()">{{ 'Cancel' | translate }}
+    </button>
+    <button mat-flat-button
+            type="submit"
+            class="rounded-pill"
+            color="primary"
+            [disabled]="candidateForm.invalid">{{ 'btn_Update' | translate }}
+    </button>
+  </mat-dialog-actions>
+</form>

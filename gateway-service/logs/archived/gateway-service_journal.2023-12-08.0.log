@@ -1,0 +1,54 @@
+2023-12-08T13:33:53.575+01:00 INFO  [main] h.g.GatewayServiceApplication - Starting GatewayServiceApplication using Java 17.0.3 with PID 5488 (C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\gateway-service\target\classes started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\gateway-service)
+2023-12-08T13:33:53.557+01:00 INFO  [background-preinit] o.h.v.i.u.Version - HV000001: Hibernate Validator 8.0.1.Final
+2023-12-08T13:33:53.630+01:00 INFO  [main] h.g.GatewayServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-12-08T13:33:56.816+01:00 INFO  [main] o.s.c.c.s.GenericScope - BeanFactory id=ef7668ea-017d-3c31-ab90-25f65938b0d9
+2023-12-08T13:33:57.341+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 1001 (http)
+2023-12-08T13:33:57.351+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1001"]
+2023-12-08T13:33:57.353+01:00 INFO  [main] o.a.c.c.StandardService - Starting service [Tomcat]
+2023-12-08T13:33:57.354+01:00 INFO  [main] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-08T13:34:00.321+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+2023-12-08T13:34:00.322+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+2023-12-08T13:34:00.322+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+2023-12-08T13:34:00.322+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+2023-12-08T13:34:00.322+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+2023-12-08T13:34:00.322+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+2023-12-08T13:34:00.322+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+2023-12-08T13:34:00.322+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+2023-12-08T13:34:00.322+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+2023-12-08T13:34:00.322+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBody]
+2023-12-08T13:34:00.323+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+2023-12-08T13:34:00.323+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2023-12-08T13:34:00.323+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+2023-12-08T13:34:00.323+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2023-12-08T13:34:01.793+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1001"]
+2023-12-08T13:34:01.821+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 1001 (http) with context path ''
+2023-12-08T13:34:05.456+01:00 INFO  [main] h.g.GatewayServiceApplication - Started GatewayServiceApplication in 14.114 seconds (process running for 16.569)
+2023-12-08T13:39:00.637+01:00 INFO  [RMI TCP Connection(12)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-12-08T13:39:00.641+01:00 INFO  [RMI TCP Connection(12)-127.0.0.1] o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-1001"]
+2023-12-08T13:50:34.148+01:00 INFO  [main] h.g.GatewayServiceApplication - Starting GatewayServiceApplication using Java 17.0.3 with PID 9556 (C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\gateway-service\target\classes started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\gateway-service)
+2023-12-08T13:50:34.151+01:00 INFO  [main] h.g.GatewayServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-12-08T13:50:34.267+01:00 INFO  [background-preinit] o.h.v.i.u.Version - HV000001: Hibernate Validator 8.0.1.Final
+2023-12-08T13:50:37.504+01:00 INFO  [main] o.s.c.c.s.GenericScope - BeanFactory id=ef7668ea-017d-3c31-ab90-25f65938b0d9
+2023-12-08T13:50:38.239+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 1001 (http)
+2023-12-08T13:50:38.250+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1001"]
+2023-12-08T13:50:38.253+01:00 INFO  [main] o.a.c.c.StandardService - Starting service [Tomcat]
+2023-12-08T13:50:38.253+01:00 INFO  [main] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-08T13:50:40.059+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+2023-12-08T13:50:40.060+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+2023-12-08T13:50:40.061+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+2023-12-08T13:50:40.061+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+2023-12-08T13:50:40.062+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+2023-12-08T13:50:40.062+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+2023-12-08T13:50:40.062+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+2023-12-08T13:50:40.062+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+2023-12-08T13:50:40.062+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+2023-12-08T13:50:40.062+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBody]
+2023-12-08T13:50:40.062+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+2023-12-08T13:50:40.062+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2023-12-08T13:50:40.062+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+2023-12-08T13:50:40.062+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2023-12-08T13:50:42.199+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1001"]
+2023-12-08T13:50:42.228+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 1001 (http) with context path ''
+2023-12-08T13:50:43.406+01:00 INFO  [main] h.g.GatewayServiceApplication - Started GatewayServiceApplication in 12.292 seconds (process running for 14.528)
+2023-12-08T15:52:43.914+01:00 INFO  [RMI TCP Connection(126)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-12-08T15:52:43.940+01:00 INFO  [RMI TCP Connection(126)-127.0.0.1] o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-1001"]

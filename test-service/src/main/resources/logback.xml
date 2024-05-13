@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+      
+   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder>
+         <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %highlight(%-5level) [%thread] %logger{15} - %msg%n</pattern>
+      </encoder>
+   
+   </appender>
+   
+   <appender name="SIZE_TIME_OUTPUT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>logs/test-service_journal.log</file>
+      <encoder>
+         <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %-5level [%thread] %logger{15} - %msg%n</pattern>
+      </encoder>
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+         <fileNamePattern>logs/archived/test-service_journal.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+         <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+            <!--Max Size of file to start Archive -->
+            <maxFileSize>100KB</maxFileSize>
+         </timeBasedFileNamingAndTriggeringPolicy>
+         <!-- Days till log history to keep -->
+         <maxHistory>10</maxHistory>
+      </rollingPolicy>
+   </appender>
+   
+   <root level="INFO">
+      <appender-ref ref="SIZE_TIME_OUTPUT_FILE" />
+      <appender-ref ref="STDOUT" />
+   </root>
+   
+</configuration>

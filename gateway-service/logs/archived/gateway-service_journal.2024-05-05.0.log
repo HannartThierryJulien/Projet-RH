@@ -1,0 +1,21 @@
+2024-05-05T14:46:19.481+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.gatewayservice.GatewayServiceApplicationTests]: GatewayServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-05T14:46:19.582+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.gatewayservice.GatewayServiceApplication for test class htj.gatewayservice.GatewayServiceApplicationTests
+2024-05-05T14:46:20.027+02:00 INFO  [background-preinit] o.h.v.i.u.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-05-05T14:46:20.088+02:00 INFO  [main] h.g.GatewayServiceApplicationTests - Starting GatewayServiceApplicationTests using Java 17.0.3 with PID 20620 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\gateway-service)
+2024-05-05T14:46:20.090+02:00 INFO  [main] h.g.GatewayServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-05-05T14:46:20.933+02:00 INFO  [main] o.s.c.c.s.GenericScope - BeanFactory id=23a5485b-1fd5-340b-9ea9-9fd9e275e01f
+2024-05-05T14:46:21.870+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+2024-05-05T14:46:21.870+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+2024-05-05T14:46:21.870+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+2024-05-05T14:46:21.870+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+2024-05-05T14:46:21.870+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+2024-05-05T14:46:21.870+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+2024-05-05T14:46:21.870+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+2024-05-05T14:46:21.871+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+2024-05-05T14:46:21.871+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+2024-05-05T14:46:21.871+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBody]
+2024-05-05T14:46:21.871+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+2024-05-05T14:46:21.871+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2024-05-05T14:46:21.871+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+2024-05-05T14:46:21.871+02:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2024-05-05T14:46:22.190+02:00 INFO  [main] h.g.GatewayServiceApplicationTests - Started GatewayServiceApplicationTests in 2.458 seconds (process running for 3.53)

@@ -1,0 +1,80 @@
+2023-12-08T13:33:50.764+01:00 INFO  [main] h.q.QuestionServiceApplication - Starting QuestionServiceApplication using Java 17.0.3 with PID 18964 (C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\question-service\target\classes started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\question-service)
+2023-12-08T13:33:50.796+01:00 INFO  [main] h.q.QuestionServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-12-08T13:33:54.119+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-08T13:33:54.261+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 129 ms. Found 1 JPA repository interface.
+2023-12-08T13:33:56.205+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 1006 (http)
+2023-12-08T13:33:56.224+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1006"]
+2023-12-08T13:33:56.227+01:00 INFO  [main] o.a.c.c.StandardService - Starting service [Tomcat]
+2023-12-08T13:33:56.227+01:00 INFO  [main] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-08T13:33:56.481+01:00 INFO  [main] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2023-12-08T13:33:56.482+01:00 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5576 ms
+2023-12-08T13:33:57.160+01:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-08T13:33:57.746+01:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-08T13:33:57.996+01:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2023-12-08T13:33:58.813+01:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-08T13:33:58.883+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2023-12-08T13:34:01.214+01:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1fc3df43
+2023-12-08T13:34:01.218+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2023-12-08T13:34:01.323+01:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-12-08T13:34:05.989+01:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-08T13:34:06.458+01:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T13:34:07.152+01:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-08T13:34:07.587+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1006"]
+2023-12-08T13:34:07.621+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 1006 (http) with context path ''
+2023-12-08T13:34:07.632+01:00 INFO  [main] h.q.QuestionServiceApplication - Started QuestionServiceApplication in 18.049 seconds (process running for 19.471)
+2023-12-08T13:39:00.649+01:00 INFO  [RMI TCP Connection(11)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-12-08T13:39:00.653+01:00 INFO  [RMI TCP Connection(11)-127.0.0.1] o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-1006"]
+2023-12-08T13:39:00.672+01:00 INFO  [RMI TCP Connection(11)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T13:39:00.678+01:00 INFO  [RMI TCP Connection(11)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-12-08T13:39:00.760+01:00 INFO  [RMI TCP Connection(11)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-12-08T13:50:30.672+01:00 INFO  [main] h.q.QuestionServiceApplication - Starting QuestionServiceApplication using Java 17.0.3 with PID 624 (C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\question-service\target\classes started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\question-service)
+2023-12-08T13:50:30.674+01:00 INFO  [main] h.q.QuestionServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-12-08T13:50:33.151+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-08T13:50:33.371+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 203 ms. Found 1 JPA repository interface.
+2023-12-08T13:50:35.131+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 1006 (http)
+2023-12-08T13:50:35.148+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1006"]
+2023-12-08T13:50:35.150+01:00 INFO  [main] o.a.c.c.StandardService - Starting service [Tomcat]
+2023-12-08T13:50:35.150+01:00 INFO  [main] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-08T13:50:35.426+01:00 INFO  [main] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2023-12-08T13:50:35.426+01:00 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4666 ms
+2023-12-08T13:50:36.496+01:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-08T13:50:37.153+01:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-08T13:50:37.251+01:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2023-12-08T13:50:38.051+01:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-08T13:50:38.126+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2023-12-08T13:50:39.971+01:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@526893f
+2023-12-08T13:50:39.974+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2023-12-08T13:50:40.093+01:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-12-08T13:50:43.321+01:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-08T13:50:45.142+01:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T13:50:46.055+01:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-08T13:50:46.484+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1006"]
+2023-12-08T13:50:46.534+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 1006 (http) with context path ''
+2023-12-08T13:50:46.547+01:00 INFO  [main] h.q.QuestionServiceApplication - Started QuestionServiceApplication in 16.958 seconds (process running for 18.436)
+2023-12-08T14:02:53.963+01:00 INFO  [http-nio-1006-exec-4] o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-08T14:02:53.963+01:00 INFO  [http-nio-1006-exec-4] o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-12-08T14:02:53.964+01:00 INFO  [http-nio-1006-exec-4] o.s.w.s.DispatcherServlet - Completed initialization in 1 ms
+2023-12-08T14:03:47.106+01:00 INFO  [http-nio-1006-exec-7] h.q.c.QuestionRestController - Sending the list of Question objects that can be copied.
+2023-12-08T14:04:24.539+01:00 INFO  [http-nio-1006-exec-3] h.q.c.QuestionRestController - Sending the list of Question objects that can be copied.
+2023-12-08T14:09:28.929+01:00 INFO  [http-nio-1006-exec-8] h.q.c.QuestionRestController - Sending the list of Question objects that can be copied.
+2023-12-08T14:10:15.706+01:00 INFO  [http-nio-1006-exec-4] h.q.c.QuestionRestController - Sending the list of Question objects that can be copied.
+2023-12-08T14:10:18.770+01:00 INFO  [http-nio-1006-exec-7] h.q.c.QuestionRestController - Sending the list of Question objects that can be copied.
+2023-12-08T14:10:53.928+01:00 INFO  [http-nio-1006-exec-3] h.q.c.QuestionRestController - Sending the list of Question objects that can be copied.
+2023-12-08T14:17:46.570+01:00 INFO  [http-nio-1006-exec-6] h.q.c.QuestionRestController - Sending the list of Question objects that can be copied.
+2023-12-08T14:18:03.789+01:00 INFO  [http-nio-1006-exec-8] h.q.c.QuestionRestController - Resource added.
+2023-12-08T14:18:03.875+01:00 ERROR [http-nio-1006-exec-9] h.q.s.ExceptionHandler - Error: Resource not found.
+2023-12-08T14:23:20.843+01:00 INFO  [http-nio-1006-exec-10] h.q.c.QuestionRestController - Resource deleted.
+2023-12-08T14:23:26.284+01:00 INFO  [http-nio-1006-exec-5] h.q.c.QuestionRestController - Sending the list of Question objects that can be copied.
+2023-12-08T14:23:34.235+01:00 INFO  [http-nio-1006-exec-6] h.q.c.QuestionRestController - Resource added.
+2023-12-08T14:23:34.300+01:00 INFO  [http-nio-1006-exec-8] h.q.c.QuestionRestController - Resource sent.
+2023-12-08T14:23:46.721+01:00 INFO  [http-nio-1006-exec-9] h.q.c.QuestionRestController - Resource sent.
+2023-12-08T14:23:46.871+01:00 INFO  [http-nio-1006-exec-4] h.q.c.QuestionRestController - Resource sent.
+2023-12-08T14:23:48.316+01:00 INFO  [http-nio-1006-exec-1] h.q.c.QuestionRestController - Resource sent.
+2023-12-08T14:23:48.417+01:00 INFO  [http-nio-1006-exec-7] h.q.c.QuestionRestController - Resource sent.
+2023-12-08T14:23:51.307+01:00 INFO  [http-nio-1006-exec-3] h.q.c.QuestionRestController - Sending the list of Question objects that can be copied.
+2023-12-08T14:24:01.547+01:00 INFO  [http-nio-1006-exec-2] h.q.c.QuestionRestController - Resource sent.
+2023-12-08T15:52:43.934+01:00 INFO  [RMI TCP Connection(153)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-12-08T15:52:44.014+01:00 INFO  [RMI TCP Connection(153)-127.0.0.1] o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-1006"]
+2023-12-08T15:52:44.077+01:00 INFO  [RMI TCP Connection(153)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T15:52:44.095+01:00 INFO  [RMI TCP Connection(153)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-12-08T15:52:44.113+01:00 INFO  [RMI TCP Connection(153)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -1,0 +1,37 @@
+server:
+  error:
+    include-binding-errors: always
+    include-exception: true
+    include-message: always
+    include-stacktrace: never
+    whitelabel:
+      enabled: true
+  port: 1008
+  
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:9999/projet_rh?createDatabaseIfNotExist=true
+    username: root
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        enable_lazy_load_no_trans: true
+    show-sql: true
+  output:
+    ansi:
+      enabled: always
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092 # adresse broker Kafka
+      group-id: my-group # identifiant de groupe Kafka pour les consommateurs
+      
+url:
+  auth-service: ${URL_AUTH-SERVICE:http://localhost:1002}

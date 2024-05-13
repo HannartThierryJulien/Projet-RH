@@ -1,0 +1,112 @@
+2023-12-08T13:33:51.499+01:00 INFO  [main] h.q.QuestionnaireServiceApplication - Starting QuestionnaireServiceApplication using Java 17.0.3 with PID 19200 (C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\questionnaire-service\target\classes started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\questionnaire-service)
+2023-12-08T13:33:51.581+01:00 INFO  [main] h.q.QuestionnaireServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-12-08T13:33:53.421+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-08T13:33:53.773+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 343 ms. Found 1 JPA repository interface.
+2023-12-08T13:33:56.208+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 1011 (http)
+2023-12-08T13:33:56.224+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1011"]
+2023-12-08T13:33:56.228+01:00 INFO  [main] o.a.c.c.StandardService - Starting service [Tomcat]
+2023-12-08T13:33:56.230+01:00 INFO  [main] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-08T13:33:56.452+01:00 INFO  [main] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2023-12-08T13:33:56.452+01:00 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4760 ms
+2023-12-08T13:33:57.069+01:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-08T13:33:57.190+01:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-08T13:33:57.305+01:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2023-12-08T13:33:58.016+01:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-08T13:33:58.132+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2023-12-08T13:34:00.282+01:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3a9c11fb
+2023-12-08T13:34:00.286+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2023-12-08T13:34:00.558+01:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-12-08T13:34:03.588+01:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-08T13:34:05.762+01:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T13:34:06.588+01:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-08T13:34:07.000+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1011"]
+2023-12-08T13:34:07.026+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 1011 (http) with context path ''
+2023-12-08T13:34:07.037+01:00 INFO  [main] h.q.QuestionnaireServiceApplication - Started QuestionnaireServiceApplication in 16.654 seconds (process running for 18.608)
+2023-12-08T13:39:00.654+01:00 INFO  [RMI TCP Connection(11)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-12-08T13:39:00.658+01:00 INFO  [RMI TCP Connection(11)-127.0.0.1] o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-1011"]
+2023-12-08T13:39:00.702+01:00 INFO  [RMI TCP Connection(11)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T13:39:00.704+01:00 INFO  [RMI TCP Connection(11)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-12-08T13:39:00.766+01:00 INFO  [RMI TCP Connection(11)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-12-08T13:50:30.663+01:00 INFO  [main] h.q.QuestionnaireServiceApplication - Starting QuestionnaireServiceApplication using Java 17.0.3 with PID 18352 (C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\questionnaire-service\target\classes started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\questionnaire-service)
+2023-12-08T13:50:30.667+01:00 INFO  [main] h.q.QuestionnaireServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-12-08T13:50:31.969+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-08T13:50:32.071+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 86 ms. Found 1 JPA repository interface.
+2023-12-08T13:50:33.034+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 1011 (http)
+2023-12-08T13:50:33.048+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1011"]
+2023-12-08T13:50:33.051+01:00 INFO  [main] o.a.c.c.StandardService - Starting service [Tomcat]
+2023-12-08T13:50:33.051+01:00 INFO  [main] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-08T13:50:33.140+01:00 INFO  [main] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2023-12-08T13:50:33.141+01:00 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2336 ms
+2023-12-08T13:50:33.518+01:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-08T13:50:33.601+01:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-08T13:50:33.646+01:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2023-12-08T13:50:34.173+01:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-08T13:50:34.206+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2023-12-08T13:50:35.084+01:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@51cca357
+2023-12-08T13:50:35.088+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2023-12-08T13:50:35.187+01:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-12-08T13:50:36.748+01:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-08T13:50:37.686+01:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T13:50:38.868+01:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-08T13:50:39.757+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1011"]
+2023-12-08T13:50:39.793+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 1011 (http) with context path ''
+2023-12-08T13:50:39.833+01:00 INFO  [main] h.q.QuestionnaireServiceApplication - Started QuestionnaireServiceApplication in 9.889 seconds (process running for 11.577)
+2023-12-08T14:03:43.812+01:00 INFO  [http-nio-1011-exec-2] o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-08T14:03:43.813+01:00 INFO  [http-nio-1011-exec-2] o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-12-08T14:03:43.813+01:00 INFO  [http-nio-1011-exec-2] o.s.w.s.DispatcherServlet - Completed initialization in 0 ms
+2023-12-08T14:03:44.010+01:00 INFO  [http-nio-1011-exec-2] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:03:46.722+01:00 INFO  [http-nio-1011-exec-3] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:04:24.450+01:00 INFO  [http-nio-1011-exec-5] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:09:27.951+01:00 INFO  [http-nio-1011-exec-8] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:09:28.839+01:00 INFO  [http-nio-1011-exec-9] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:10:15.606+01:00 INFO  [http-nio-1011-exec-1] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:10:18.687+01:00 INFO  [http-nio-1011-exec-4] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:10:34.587+01:00 INFO  [http-nio-1011-exec-7] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:10:38.016+01:00 INFO  [http-nio-1011-exec-10] h.q.c.QuestionnaireControllerRest - Resource deleted.
+2023-12-08T14:10:38.059+01:00 INFO  [http-nio-1011-exec-2] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:10:51.174+01:00 INFO  [http-nio-1011-exec-3] h.q.c.QuestionnaireControllerRest - Resource added.
+2023-12-08T14:10:51.216+01:00 INFO  [http-nio-1011-exec-5] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:10:53.846+01:00 INFO  [http-nio-1011-exec-6] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:17:46.459+01:00 INFO  [http-nio-1011-exec-9] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:18:03.700+01:00 INFO  [http-nio-1011-exec-1] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:23:21.863+01:00 INFO  [http-nio-1011-exec-7] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:23:26.196+01:00 INFO  [http-nio-1011-exec-10] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:23:34.195+01:00 INFO  [http-nio-1011-exec-2] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:23:50.180+01:00 INFO  [http-nio-1011-exec-3] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:23:51.222+01:00 INFO  [http-nio-1011-exec-5] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:31:48.520+01:00 INFO  [http-nio-1011-exec-8] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:31:56.148+01:00 INFO  [http-nio-1011-exec-9] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:36:57.597+01:00 INFO  [http-nio-1011-exec-4] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T14:37:32.542+01:00 INFO  [http-nio-1011-exec-7] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:10:00.722+01:00 INFO  [http-nio-1011-exec-2] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:10:45.674+01:00 INFO  [http-nio-1011-exec-3] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:10:48.851+01:00 INFO  [http-nio-1011-exec-5] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:11:18.623+01:00 INFO  [http-nio-1011-exec-6] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:11:26.218+01:00 INFO  [http-nio-1011-exec-8] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:11:29.849+01:00 INFO  [http-nio-1011-exec-9] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:13:03.945+01:00 INFO  [http-nio-1011-exec-4] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:13:41.173+01:00 INFO  [http-nio-1011-exec-7] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:21:15.827+01:00 INFO  [http-nio-1011-exec-2] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:22:12.874+01:00 INFO  [http-nio-1011-exec-3] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:24:25.203+01:00 INFO  [http-nio-1011-exec-6] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:24:29.164+01:00 INFO  [http-nio-1011-exec-8] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:31:48.471+01:00 INFO  [http-nio-1011-exec-1] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:32:09.689+01:00 INFO  [http-nio-1011-exec-4] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:33:12.382+01:00 INFO  [http-nio-1011-exec-10] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:33:22.047+01:00 INFO  [http-nio-1011-exec-2] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:33:23.879+01:00 INFO  [http-nio-1011-exec-3] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:33:36.030+01:00 INFO  [http-nio-1011-exec-5] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:42:57.451+01:00 INFO  [http-nio-1011-exec-8] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:50:03.573+01:00 INFO  [http-nio-1011-exec-1] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:50:05.634+01:00 INFO  [http-nio-1011-exec-4] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:50:34.918+01:00 INFO  [http-nio-1011-exec-7] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:51:56.833+01:00 INFO  [http-nio-1011-exec-2] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:52:10.551+01:00 INFO  [http-nio-1011-exec-3] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:52:13.819+01:00 INFO  [http-nio-1011-exec-5] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:52:16.916+01:00 INFO  [http-nio-1011-exec-6] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:52:21.853+01:00 INFO  [http-nio-1011-exec-8] h.q.c.QuestionnaireControllerRest - Resource sent.
+2023-12-08T15:52:43.925+01:00 INFO  [RMI TCP Connection(127)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-12-08T15:52:43.940+01:00 INFO  [RMI TCP Connection(127)-127.0.0.1] o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-1011"]
+2023-12-08T15:52:43.964+01:00 INFO  [RMI TCP Connection(127)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T15:52:43.973+01:00 INFO  [RMI TCP Connection(127)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-12-08T15:52:44.076+01:00 INFO  [RMI TCP Connection(127)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

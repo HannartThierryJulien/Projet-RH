@@ -1,0 +1,344 @@
+version: latest
+
+services:
+
+  gateway-service:
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-gateway-service
+    build: ./gateway-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_KAFKA_PRODUCER_BOOSTRAP-SERVERS: http://kafka:29092
+      URL_AUTH-SERVICE: http://auth-service:$AUTH_DOCKER_PORT
+      URL_ANSWER-SERVICE: http://answer-service:$ANSWER_DOCKER_PORT
+      URL_QUESTION-SERVICE: http://question-service:$QUESTION_DOCKER_PORT
+      URL_TEST-SERVICE: http://test-service:$TEST_DOCKER_PORT
+      URL_QUESTION-TEST-SERVICE: http://question-test-service:$QUESTIONTEST_DOCKER_PORT
+      URL_CANDIDATE-TEST-SERVICE: http://candidate-test-service:$CANDIDATETEST_DOCKER_PORT
+      URL_RESULT-SERVICE: http://result-service:$RESULT_DOCKER_PORT
+      URL_TOPIC-SERVICE: http://topic-service:$TOPIC_DOCKER_PORT
+      URL_QUESTIONNAIRE-SERVICE: http://questionnaire-service:$QUESTIONNAIRE_DOCKER_PORT
+      #JWT_SECRET: "MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP"
+      SERVER_PORT: $GATEWAY_DOCKER_PORT
+    ports:
+      - "$GATEWAY_LOCAL_PORT:$GATEWAY_DOCKER_PORT"
+    depends_on:
+      - mysql
+    networks:
+      - internal-app-network
+
+#============================================
+
+  auth-service:
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-auth-service
+    build: ./auth-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      JWT_SECRET: "MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP"
+      JWT_EXPIRATION: 86400
+      SERVER_PORT: $AUTH_DOCKER_PORT
+    ports:
+      - "$AUTH_LOCAL_PORT:$AUTH_DOCKER_PORT"
+    depends_on:
+      - mysql
+    networks:
+      - internal-app-network
+
+#============================================
+
+  test-service:
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-test-service
+    build: ./test-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      URL_AUTH-SERVICE: http://auth-service:$AUTH_DOCKER_PORT
+      SERVER_PORT: $TEST_DOCKER_PORT
+    ports:
+      - "$TEST_LOCAL_PORT:$TEST_DOCKER_PORT"
+    depends_on:
+      - mysql
+    networks:
+      - internal-app-network
+
+#============================================
+
+  answer-service:
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-answer-service
+    build: ./answer-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      URL_AUTH-SERVICE: http://auth-service:$AUTH_LOCAL_PORT
+      SERVER_PORT: $ANSWER_DOCKER_PORT
+    ports:
+      - "$ANSWER_LOCAL_PORT:$ANSWER_DOCKER_PORT"
+    depends_on:
+      - mysql
+    networks:
+      - internal-app-network
+
+#============================================
+
+  question-service:
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-question-service
+    build: ./question-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      URL_AUTH-SERVICE: http://auth-service:$AUTH_DOCKER_PORT
+      SERVER_PORT: $QUESTION_DOCKER_PORT
+    ports:
+      - "$QUESTION_LOCAL_PORT:$QUESTION_DOCKER_PORT"
+    depends_on:
+      - mysql
+    networks:
+      - internal-app-network
+
+#============================================
+
+  question-test-service:
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-question-test-service
+    build: ./question_test-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      URL_AUTH-SERVICE: http://auth-service:$AUTH_DOCKER_PORT
+      SERVER_PORT: $QUESTIONTEST_DOCKER_PORT
+    ports:
+      - "$QUESTIONTEST_LOCAL_PORT:$QUESTIONTEST_DOCKER_PORT"
+    depends_on:
+      - mysql
+    networks:
+      - internal-app-network
+
+#============================================
+
+  candidate-test-service:
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-candidate-test-service
+    build: ./candidate_test-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      URL_AUTH-SERVICE: http://auth-service:$AUTH_DOCKER_PORT
+      SERVER_PORT: $CANDIDATETEST_DOCKER_PORT
+    ports:
+      - "$CANDIDATETEST_LOCAL_PORT:$CANDIDATETEST_DOCKER_PORT"
+    depends_on:
+      - mysql
+    networks:
+      - internal-app-network
+
+#============================================
+
+  result-service:
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-result-service
+    build: ./result-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_KAFKA_CONSUMER_BOOSTRAP-SERVERS: http://kafka:29092
+      URL_AUTH-SERVICE: http://auth-service:$AUTH_DOCKER_PORT
+      SERVER_PORT: $RESULT_DOCKER_PORT
+    ports:
+      - "$RESULT_LOCAL_PORT:$RESULT_DOCKER_PORT"
+    depends_on:
+      - mysql
+      - kafka
+    networks:
+      - internal-app-network
+
+#============================================
+
+  topic-service:
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-topic-service
+    build: ./topic-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      URL_AUTH-SERVICE: http://auth-service:$AUTH_DOCKER_PORT
+      SERVER_PORT: $TOPIC_DOCKER_PORT
+    ports:
+      - "$TOPIC_LOCAL_PORT:$TOPIC_DOCKER_PORT"
+    depends_on:
+      - mysql
+      - kafka
+    networks:
+      - internal-app-network
+
+#============================================
+
+  questionnaire-service:
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-questionnaire-service
+    build: ./questionnaire-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      URL_AUTH-SERVICE: http://auth-service:$AUTH_DOCKER_PORT
+      SERVER_PORT: $QUESTIONNAIRE_DOCKER_PORT
+    ports:
+      - "$QUESTIONNAIRE_LOCAL_PORT:$QUESTIONNAIRE_DOCKER_PORT"
+    depends_on:
+      - mysql
+    networks:
+      - internal-app-network
+
+
+#============================================
+
+  front:
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-front
+    build: ./projetrh-frontapp-V1.12
+    ports:
+      - "$FRONT_LOCAL_PORT:$FRONT_DOCKER_PORT"
+    depends_on:
+      - mysql
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.projetrh.rule=Host(`projetrh-v3.tjhannart.dev`)"
+      - "traefik.http.routers.projetrh.entrypoints=websecure"
+      - "traefik.http.routers.projetrh.tls=true"
+      - "traefik.http.routers.projetrh.tls.certresolver=letsencryptresolver"
+      - "traefik.http.services.projetrh.loadbalancer.server.port=$FRONT_LOCAL_PORT"
+      - "traefik.docker.network=traefik-network"
+    networks:
+      - internal-app-network
+
+
+#============================================
+
+  mysql:
+    image: mysql:latest
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-db_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: $MYSQL_DB_NAME
+      MYSQL_TCP_PORT: $MYSQL_DOCKER_PORT
+    ports:
+      - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
+    volumes:
+      - ./$MYSQL_DB_FILE:/docker-entrypoint-initdb.d/$MYSQL_DB_FILE
+    #  - ./mysql-data:/var/lib/mysql
+    #depends_on:
+    #  - kafka
+    networks:
+      - internal-app-network
+
+#============================================
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-db_phpmyadmin
+    ports:
+      - "$PHPMYADMIN_LOCAL_PORT:$PHPMYADMIN_DOCKER_PORT"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: $MYSQL_DOCKER_PORT
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - mysql
+    networks:
+      - internal-app-network
+
+#============================================
+
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-kafka_zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      ALLOW_ANONYMOUS_LOGIN: "yes"
+    ports:
+      - 2181
+      #- 2888:2888
+      #- 3888:3888
+    networks:
+      - internal-app-network
+
+#============================================
+
+  kafka:
+    image: bitnami/kafka:latest
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-kafka_kafka
+    links:
+      - zookeeper
+    ports:
+      - 9092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: INTERNAL://:29092,EXTERNAL://:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:29092,EXTERNAL://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      #https://github.com/wurstmeister/kafka-docker/issues/553
+    networks:
+      - internal-app-network
+      
+
+#============================================
+
+  kafdrop:
+    image: obsidiandynamics/kafdrop
+    restart: unless-stopped
+    env_file: ./.env
+    container_name: v3-kafka_kafdrop
+    environment:
+      KAFKA_BROKERCONNECT: "kafka:29092"
+      # JVM_OPTS: "-Xms16M -Xmx512M -Xss180K -XX:-TieredCompilation -XX:+UseStringDeduplication -noverify"
+    ports:
+      - $KAFDROP_LOCAL_PORT:$KAFDROP_DOCKER_PORT
+    depends_on:
+      - kafka
+    networks:
+      - internal-app-network
+
+#============================================
+
+networks:
+  traefik-network:
+    external: true
+  internal-app-network:
+    driver: bridge

@@ -1,0 +1,16 @@
+{
+  "E-mail": "E-Mail",
+  "Password": "Password",
+  "Archived": {
+    "m": "Archived",
+    "f": "Archived",
+    "ms": "Archived",
+    "fs": "Archived"
+  },
+
+  "Translate": "Translate",
+  "English": "English",
+  "French": "French",
+  "Spanish": "Spanish",
+  "Logout": "Logout"
+}

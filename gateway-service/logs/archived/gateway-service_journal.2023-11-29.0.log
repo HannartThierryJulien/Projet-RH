@@ -1,0 +1,48 @@
+2023-11-29T09:59:26.560+01:00 INFO  [background-preinit] o.h.v.i.u.Version - HV000001: Hibernate Validator 8.0.1.Final
+2023-11-29T09:59:26.609+01:00 INFO  [main] h.g.GatewayServiceApplication - Starting GatewayServiceApplication using Java 17.0.3 with PID 19612 (C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\gateway-service\target\classes started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\gateway-service)
+2023-11-29T09:59:26.610+01:00 INFO  [main] h.g.GatewayServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-11-29T09:59:26.914+01:00 WARN  [main] o.s.b.w.r.c.AnnotationConfigReactiveWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'customRouteLocatorTest' defined in class path resource [htj/gatewayservice/security/GatewayConfigurationTest.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=gatewayConfigurationTest; factoryMethodName=customRouteLocatorTest; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [htj/gatewayservice/security/GatewayConfigurationTest.class]] for bean 'customRouteLocatorTest' since there is already [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=gatewayConfigurationAuth; factoryMethodName=customRouteLocatorTest; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [htj/gatewayservice/security/GatewayConfigurationAuth.class]] bound.
+2023-11-29T09:59:26.921+01:00 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-11-29T09:59:26.937+01:00 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'customRouteLocatorTest', defined in class path resource [htj/gatewayservice/security/GatewayConfigurationTest.class], could not be registered. A bean with that name has already been defined in class path resource [htj/gatewayservice/security/GatewayConfigurationAuth.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2023-11-29T09:59:56.450+01:00 INFO  [background-preinit] o.h.v.i.u.Version - HV000001: Hibernate Validator 8.0.1.Final
+2023-11-29T09:59:56.498+01:00 INFO  [main] h.g.GatewayServiceApplication - Starting GatewayServiceApplication using Java 17.0.3 with PID 9972 (C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\gateway-service\target\classes started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\gateway-service)
+2023-11-29T09:59:56.499+01:00 INFO  [main] h.g.GatewayServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-11-29T09:59:57.136+01:00 INFO  [main] o.s.c.c.s.GenericScope - BeanFactory id=ef7668ea-017d-3c31-ab90-25f65938b0d9
+2023-11-29T09:59:57.357+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 1001 (http)
+2023-11-29T09:59:57.365+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1001"]
+2023-11-29T09:59:57.366+01:00 INFO  [main] o.a.c.c.StandardService - Starting service [Tomcat]
+2023-11-29T09:59:57.367+01:00 INFO  [main] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBody]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+2023-11-29T09:59:57.911+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2023-11-29T09:59:57.912+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+2023-11-29T09:59:57.912+01:00 INFO  [main] o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2023-11-29T09:59:58.137+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1001"]
+2023-11-29T09:59:58.151+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 1001 (http) with context path ''
+2023-11-29T09:59:58.243+01:00 INFO  [main] h.g.GatewayServiceApplication - Started GatewayServiceApplication in 2.119 seconds (process running for 2.806)
+2023-11-29T10:08:36.039+01:00 INFO  [RMI TCP Connection(17)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-11-29T10:08:36.043+01:00 INFO  [RMI TCP Connection(17)-127.0.0.1] o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-1001"]

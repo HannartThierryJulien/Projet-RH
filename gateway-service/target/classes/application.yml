@@ -1,0 +1,24 @@
+server:
+  port: 1001
+  
+spring:
+  main:
+    web-application-type: reactive
+  kafka:
+    producer:
+      bootstrap-servers: ${SPRING_KAFKA_PRODUCER_BOOSTRAP-SERVERS:http://localhost:9092} # adresse broker Kafka
+  
+url:
+  auth-service: ${URL_AUTH-SERVICE:http://localhost:1002}
+  answer-service: ${URL_ANSWER-SERVICE:http://localhost:1005}
+  question-service: ${URL_QUESTION-SERVICE:http://localhost:1006}
+  test-service: ${URL_TEST-SERVICE:http://localhost:1003}
+  question_test-service: ${URL_QUESTION-TEST-SERVICE:http://localhost:1007}
+  candidate_test-service: ${URL_CANDIDATE-TEST-SERVICE:http://localhost:1008}
+  result-service: ${URL_RESULT-SERVICE:http://localhost:1009}
+  topic-service: ${URL_TOPIC-SERVICE:http://localhost:1010}
+  questionnaire-service: ${URL_QUESTIONNAIRE-SERVICE:http://localhost:1011}
+
+jwt:
+  secret: ${JWT_SECRET:MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP}
+  #secret: MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP

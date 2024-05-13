@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      @for (topic of topics | filterByProperty: searchText: selectedFilterProperty; track topic) {
+        <app-topic-item [topic]="topic"
+                        (click)="onSelectTopic(topic.id)">
+        </app-topic-item>
+      }
+    </div>
+  </div>
+</div>

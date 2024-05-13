@@ -1,0 +1,10 @@
+<div class="px-lg-1 px-xl-1">
+  <mat-slide-toggle
+    id="themeToggle"
+    (change)="switchTheme()"
+    color="primary"
+    [checked]="isDarkModeOn"
+    [matTooltip]="(isDarkModeOn ? 'Switch to light mode' : 'Switch to night mode') | translate"
+    [matTooltipShowDelay]="1000">
+  </mat-slide-toggle>
+</div>

@@ -1,0 +1,141 @@
+2023-12-08T13:33:51.296+01:00 INFO  [main] h.t.TestServiceApplication - Starting TestServiceApplication using Java 17.0.3 with PID 5656 (C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\test-service\target\classes started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\test-service)
+2023-12-08T13:33:51.310+01:00 INFO  [main] h.t.TestServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-12-08T13:33:53.305+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-08T13:33:53.449+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 84 ms. Found 1 JPA repository interface.
+2023-12-08T13:33:55.135+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 1003 (http)
+2023-12-08T13:33:55.159+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1003"]
+2023-12-08T13:33:55.161+01:00 INFO  [main] o.a.c.c.StandardService - Starting service [Tomcat]
+2023-12-08T13:33:55.162+01:00 INFO  [main] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-08T13:33:55.419+01:00 INFO  [main] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2023-12-08T13:33:55.420+01:00 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3854 ms
+2023-12-08T13:33:56.667+01:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-08T13:33:56.752+01:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-08T13:33:56.838+01:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2023-12-08T13:33:57.554+01:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-08T13:33:57.603+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2023-12-08T13:33:58.454+01:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@8ef1d58
+2023-12-08T13:33:58.457+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2023-12-08T13:33:58.620+01:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-12-08T13:34:01.616+01:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-08T13:34:04.436+01:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T13:34:05.095+01:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-08T13:34:05.796+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1003"]
+2023-12-08T13:34:05.836+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 1003 (http) with context path ''
+2023-12-08T13:34:05.850+01:00 INFO  [main] h.t.TestServiceApplication - Started TestServiceApplication in 15.483 seconds (process running for 17.53)
+2023-12-08T13:39:00.630+01:00 INFO  [RMI TCP Connection(12)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-12-08T13:39:00.640+01:00 INFO  [RMI TCP Connection(12)-127.0.0.1] o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-1003"]
+2023-12-08T13:39:00.683+01:00 INFO  [RMI TCP Connection(12)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T13:39:00.687+01:00 INFO  [RMI TCP Connection(12)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-12-08T13:39:00.776+01:00 INFO  [RMI TCP Connection(12)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-12-08T13:50:31.429+01:00 INFO  [main] h.t.TestServiceApplication - Starting TestServiceApplication using Java 17.0.3 with PID 18692 (C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\test-service\target\classes started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Activites professionnelles de formation\App - code\PROJETRH.V2.7.3\test-service)
+2023-12-08T13:50:31.431+01:00 INFO  [main] h.t.TestServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-12-08T13:50:33.021+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-08T13:50:33.132+01:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 97 ms. Found 1 JPA repository interface.
+2023-12-08T13:50:35.154+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 1003 (http)
+2023-12-08T13:50:35.165+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1003"]
+2023-12-08T13:50:35.167+01:00 INFO  [main] o.a.c.c.StandardService - Starting service [Tomcat]
+2023-12-08T13:50:35.167+01:00 INFO  [main] o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-08T13:50:35.654+01:00 INFO  [main] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2023-12-08T13:50:35.654+01:00 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4012 ms
+2023-12-08T13:50:36.739+01:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-08T13:50:36.923+01:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-08T13:50:36.998+01:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2023-12-08T13:50:37.731+01:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-08T13:50:37.792+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2023-12-08T13:50:39.971+01:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@11295cb1
+2023-12-08T13:50:39.974+01:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2023-12-08T13:50:40.100+01:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-12-08T13:50:43.004+01:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-08T13:50:44.471+01:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T13:50:45.455+01:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-08T13:50:46.400+01:00 INFO  [main] o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1003"]
+2023-12-08T13:50:46.501+01:00 INFO  [main] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 1003 (http) with context path ''
+2023-12-08T13:50:46.510+01:00 INFO  [main] h.t.TestServiceApplication - Started TestServiceApplication in 16.406 seconds (process running for 18.26)
+2023-12-08T14:09:16.809+01:00 INFO  [http-nio-1003-exec-2] o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-08T14:09:16.810+01:00 INFO  [http-nio-1003-exec-2] o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-12-08T14:09:16.811+01:00 INFO  [http-nio-1003-exec-2] o.s.w.s.DispatcherServlet - Completed initialization in 1 ms
+2023-12-08T14:09:16.994+01:00 INFO  [http-nio-1003-exec-2] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:09:17.131+01:00 INFO  [http-nio-1003-exec-5] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:09:18.696+01:00 INFO  [http-nio-1003-exec-8] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:09:21.042+01:00 INFO  [http-nio-1003-exec-3] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:18:11.383+01:00 INFO  [http-nio-1003-exec-4] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:31:28.117+01:00 INFO  [http-nio-1003-exec-7] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:31:30.350+01:00 INFO  [http-nio-1003-exec-9] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:31:33.507+01:00 INFO  [http-nio-1003-exec-10] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:31:49.554+01:00 INFO  [http-nio-1003-exec-2] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:31:56.010+01:00 INFO  [http-nio-1003-exec-5] h.t.c.TestRestController - Resource added.
+2023-12-08T14:31:56.071+01:00 INFO  [http-nio-1003-exec-8] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:32:05.404+01:00 INFO  [http-nio-1003-exec-3] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:32:06.335+01:00 INFO  [http-nio-1003-exec-1] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:32:09.038+01:00 INFO  [http-nio-1003-exec-4] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:32:09.191+01:00 INFO  [http-nio-1003-exec-6] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:32:12.153+01:00 INFO  [http-nio-1003-exec-7] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:33:21.124+01:00 INFO  [http-nio-1003-exec-10] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:33:22.847+01:00 INFO  [http-nio-1003-exec-2] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:33:28.333+01:00 INFO  [http-nio-1003-exec-5] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:34:14.055+01:00 INFO  [http-nio-1003-exec-8] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:34:17.151+01:00 INFO  [http-nio-1003-exec-3] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:34:28.911+01:00 INFO  [http-nio-1003-exec-1] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:34:42.554+01:00 INFO  [http-nio-1003-exec-4] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:35:06.260+01:00 INFO  [http-nio-1003-exec-6] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:35:07.007+01:00 INFO  [http-nio-1003-exec-7] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:35:08.585+01:00 INFO  [http-nio-1003-exec-9] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:36:55.290+01:00 INFO  [http-nio-1003-exec-2] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:36:57.537+01:00 INFO  [http-nio-1003-exec-5] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:37:31.074+01:00 INFO  [http-nio-1003-exec-8] h.t.c.TestRestController - Resource sent.
+2023-12-08T14:37:32.489+01:00 INFO  [http-nio-1003-exec-3] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:09:59.309+01:00 INFO  [http-nio-1003-exec-4] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:10:00.657+01:00 INFO  [http-nio-1003-exec-6] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:10:03.034+01:00 INFO  [http-nio-1003-exec-7] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:10:04.041+01:00 INFO  [http-nio-1003-exec-9] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:10:41.316+01:00 INFO  [http-nio-1003-exec-10] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:10:45.615+01:00 INFO  [http-nio-1003-exec-2] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:10:48.797+01:00 INFO  [http-nio-1003-exec-5] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:11:18.568+01:00 INFO  [http-nio-1003-exec-8] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:11:26.167+01:00 INFO  [http-nio-1003-exec-3] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:11:28.610+01:00 INFO  [http-nio-1003-exec-1] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:11:29.797+01:00 INFO  [http-nio-1003-exec-4] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:13:03.888+01:00 INFO  [http-nio-1003-exec-7] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:13:41.117+01:00 INFO  [http-nio-1003-exec-9] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:21:15.763+01:00 INFO  [http-nio-1003-exec-2] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:22:12.818+01:00 INFO  [http-nio-1003-exec-5] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:24:25.145+01:00 INFO  [http-nio-1003-exec-3] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:24:29.110+01:00 INFO  [http-nio-1003-exec-1] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:31:48.412+01:00 INFO  [http-nio-1003-exec-6] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:32:09.638+01:00 INFO  [http-nio-1003-exec-7] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:33:12.324+01:00 INFO  [http-nio-1003-exec-10] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:33:21.991+01:00 INFO  [http-nio-1003-exec-2] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:33:23.823+01:00 INFO  [http-nio-1003-exec-5] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:33:35.980+01:00 INFO  [http-nio-1003-exec-8] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:42:57.395+01:00 INFO  [http-nio-1003-exec-1] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:47:18.164+01:00 INFO  [http-nio-1003-exec-6] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:47:19.552+01:00 INFO  [http-nio-1003-exec-7] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:47:19.587+01:00 INFO  [http-nio-1003-exec-9] h.t.c.TestRestController - Resource added.
+2023-12-08T15:47:19.648+01:00 INFO  [http-nio-1003-exec-10] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:49:55.014+01:00 INFO  [http-nio-1003-exec-5] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:49:56.279+01:00 INFO  [http-nio-1003-exec-8] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:49:58.057+01:00 INFO  [http-nio-1003-exec-3] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:49:59.607+01:00 INFO  [http-nio-1003-exec-1] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:50:01.032+01:00 INFO  [http-nio-1003-exec-4] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:50:03.519+01:00 INFO  [http-nio-1003-exec-6] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:50:04.835+01:00 INFO  [http-nio-1003-exec-7] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:50:05.586+01:00 INFO  [http-nio-1003-exec-9] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:50:34.868+01:00 INFO  [http-nio-1003-exec-10] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:51:56.777+01:00 INFO  [http-nio-1003-exec-5] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:04.037+01:00 INFO  [http-nio-1003-exec-8] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:04.074+01:00 INFO  [http-nio-1003-exec-3] h.t.c.TestRestController - Resource added.
+2023-12-08T15:52:04.135+01:00 INFO  [http-nio-1003-exec-1] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:10.500+01:00 INFO  [http-nio-1003-exec-4] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:12.525+01:00 INFO  [http-nio-1003-exec-6] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:13.769+01:00 INFO  [http-nio-1003-exec-7] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:16.024+01:00 INFO  [http-nio-1003-exec-9] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:16.867+01:00 INFO  [http-nio-1003-exec-10] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:18.967+01:00 INFO  [http-nio-1003-exec-2] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:19.897+01:00 INFO  [http-nio-1003-exec-5] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:21.069+01:00 INFO  [http-nio-1003-exec-8] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:21.806+01:00 INFO  [http-nio-1003-exec-3] h.t.c.TestRestController - Resource sent.
+2023-12-08T15:52:43.925+01:00 INFO  [RMI TCP Connection(152)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-12-08T15:52:43.942+01:00 INFO  [RMI TCP Connection(152)-127.0.0.1] o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-1003"]
+2023-12-08T15:52:43.970+01:00 INFO  [RMI TCP Connection(152)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-08T15:52:43.981+01:00 INFO  [RMI TCP Connection(152)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-12-08T15:52:44.032+01:00 INFO  [RMI TCP Connection(152)-127.0.0.1] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      @for (questionnaire of questionnaires | filterByProperty: searchText: selectedFilterProperty; track questionnaire) {
+        <app-questionnaire-item [questionnaire]="questionnaire"
+                           (click)="onSelectQuestionnaire(questionnaire.id)">
+        </app-questionnaire-item>
+      }
+    </div>
+  </div>
+</div>

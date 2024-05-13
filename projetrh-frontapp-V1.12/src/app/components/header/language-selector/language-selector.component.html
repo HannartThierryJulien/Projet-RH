@@ -1,0 +1,12 @@
+<button mat-icon-button color="primary" [matMenuTriggerFor]="languagesMenu"
+        [matTooltip]="'Translate' | translate" [matTooltipShowDelay]="1000">
+  <mat-icon><span class="material-symbols-outlined"> translate </span></mat-icon>
+</button>
+<mat-menu #languagesMenu="matMenu">
+  <button mat-menu-item *ngFor="let language of languages"
+          (click)="onSwitchLanguage(language.code)">
+              <span *ngIf="language.code == selectedLanguage"
+                    class="material-symbols-outlined"> done </span>
+    {{ language.label | translate }}
+  </button>
+</mat-menu>
