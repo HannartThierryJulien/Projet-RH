@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {catchError, map, Observable} from "rxjs";
 import {Answer} from "../models/answer.model";
@@ -16,8 +16,7 @@ export class LanguageService {
   private readonly defaultLanguage: string = 'en';
   private appliedLanguage!: string;
 
-  constructor(private translateService: TranslateService) {
-  }
+  private translateService = inject(TranslateService);
 
   public initializeLanguage(): string {
     if (!this.hasVisitedSiteBefore()) {

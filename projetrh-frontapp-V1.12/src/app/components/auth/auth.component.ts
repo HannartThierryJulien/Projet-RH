@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {AuthAPIService} from "../../services/API/authAPI.service";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
@@ -19,9 +19,10 @@ export class AuthComponent implements OnDestroy {
   errorMessage: string = '';
   errorHappened: boolean = false;
 
+  private notificationService = inject(NotificationService);
+
   constructor(private authAPIService: AuthAPIService,
-              private router: Router,
-              private notificationService: NotificationService) {
+              private router: Router) {
   }
 
   ngOnDestroy() {

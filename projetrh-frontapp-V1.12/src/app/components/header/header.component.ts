@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, inject, OnDestroy} from '@angular/core';
 import {BehaviorSubject, Subject, Subscription, takeUntil} from "rxjs";
 import {AuthAPIService} from "../../services/API/authAPI.service";
 import {NavigationEnd, Router} from "@angular/router";
@@ -21,9 +21,10 @@ export class HeaderComponent implements OnDestroy {
   isAuthPage: boolean = false;
   isLogoutButtonClickableSubject: boolean = true;
 
+  private notificationService = inject(NotificationService);
+
   constructor(private authAPIService: AuthAPIService,
-              private router: Router,
-              private notificationService: NotificationService) {
+              private router: Router) {
   }
 
   ngOnInit() {
