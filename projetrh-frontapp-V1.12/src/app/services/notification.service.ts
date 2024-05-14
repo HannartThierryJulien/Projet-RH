@@ -1,4 +1,4 @@
-import {inject, Injectable} from "@angular/core";
+import {Injectable} from "@angular/core";
 
 ;
 import {
@@ -13,8 +13,9 @@ import {TranslateService} from "@ngx-translate/core";
   providedIn: 'root',
 })
 export class NotificationService {
-  private snackBar = inject(MatSnackBar);
-  private translateService = inject(TranslateService);
+  constructor(private snackBar: MatSnackBar,
+              private translateService: TranslateService) {
+  }
 
   showNotification(message: string, action: string, config?: MatSnackBarConfig) {
     message = this.translateService.instant(message);

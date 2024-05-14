@@ -48,7 +48,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb", 
+                  "maximumWarning": "2mb",
                   "maximumError": "4mb"
                 },
                 {
@@ -75,10 +75,12 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "projetrh-frontapp-V1.12:build:production"
+              "buildTarget": "projetrh-frontapp-V1.12:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
-              "buildTarget": "projetrh-frontapp-V1.12:build:development"
+              "buildTarget": "projetrh-frontapp-V1.12:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

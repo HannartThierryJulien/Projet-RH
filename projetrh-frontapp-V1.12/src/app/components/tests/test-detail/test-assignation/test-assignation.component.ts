@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, inject, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {BehaviorSubject, concat, Observable, of, Subject, takeUntil} from "rxjs";
 import {Test} from "../../../../models/test.model";
 import {CandidateTest} from "../../../../models/candidate-test.model";
@@ -27,11 +27,9 @@ export class TestAssignationComponent implements OnInit, OnDestroy, AfterViewIni
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  private notificationService = inject(NotificationService);
-
-
   constructor(private dialog: MatDialog,
-              private candidateTestAPIService: CandidateTestAPIService) {
+              private candidateTestAPIService: CandidateTestAPIService,
+              private notificationService: NotificationService) {
   }
 
   ngOnInit() {

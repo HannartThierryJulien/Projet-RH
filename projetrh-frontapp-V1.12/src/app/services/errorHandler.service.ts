@@ -1,4 +1,4 @@
-import {inject, Injectable} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {Observable, throwError} from "rxjs";
 import {NotificationService} from "./notification.service";
 import {TranslateService} from "@ngx-translate/core";
@@ -8,9 +8,9 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class ErrorHandlerService {
 
-  private notificationService = inject(NotificationService);
-  private translateService = inject(TranslateService);
-
+  constructor(private notificationService: NotificationService,
+              private translateService: TranslateService) {
+  }
 
   public handleError(error: any, errorMessage: string): Observable<never> {
     const errorDetail = `Backend returned code ${error.status}, body was: ${JSON.stringify(error.error)}`;

@@ -228,11 +228,11 @@ services:
       - mysql
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.projetrh.rule=Host(`projetrh-v3.tjhannart.dev`)"
-      - "traefik.http.routers.projetrh.entrypoints=websecure"
-      - "traefik.http.routers.projetrh.tls=true"
-      - "traefik.http.routers.projetrh.tls.certresolver=letsencryptresolver"
-      - "traefik.http.services.projetrh.loadbalancer.server.port=$FRONT_LOCAL_PORT"
+      - "traefik.http.routers.projetrh-v3.rule=Host(`projetrh-v3.tjhannart.dev`)"
+      - "traefik.http.routers.projetrh-v3.entrypoints=websecure"
+      - "traefik.http.routers.projetrh-v3.tls=true"
+      - "traefik.http.routers.projetrh-v3.tls.certresolver=letsencryptresolver"
+      - "traefik.http.services.projetrh-v3.loadbalancer.server.port=$FRONT_LOCAL_PORT"
       - "traefik.docker.network=traefik-network"
     networks:
       - internal-app-network

@@ -1,13 +1,14 @@
 version: latest
 
 services:
-  angular-app:
-    build: .
-    container_name: angular-app
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - '4200:4200'
-    volumes:
-      - ./:/angular-app
+      - "8080:80"
+    restart: unless-stopped
+
       
 networks:
   internal-app-network:
