@@ -1,0 +1,60 @@
+<div class="container my-3">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="m-0">{{ 'Questionnaires' | translate }}</h1>
+        <button
+          mat-icon-button color="primary"
+          [matMenuTriggerFor]="listMenu"
+          [matTooltip]="'Select list' | translate"
+          [matTooltipShowDelay]="1000"
+          class="mx-1">
+          <mat-icon><span class="material-symbols-outlined"> filter_list </span></mat-icon>
+        </button>
+        <mat-menu #listMenu="matMenu">
+          @for (listFilter of listFilters; track listFilter) {
+            <button mat-menu-item (click)="onSelectListFilter(listFilter.value === 'archived')">
+              <span *ngIf="(listFilter.value === 'archived') === isArchivedListSelected "
+                    class="material-symbols-outlined"> done </span>
+              {{ listFilter.viewValue + '.ms' | translate }}
+            </button>
+          }
+        </mat-menu>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center">
+        <button color="primary" mat-icon-button [matTooltip]="'Search' | translate"
+                [matTooltipShowDelay]="1000"
+                (click)="onSearch()">
+          <mat-icon><span class="material-symbols-outlined"> search </span></mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="openAddDialog('0ms', '0ms')"
+                [matTooltip]="'Add questionnaire' | translate"
+                [matTooltipShowDelay]="1000">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="refreshQuestionnairesList()"
+                [matTooltip]="'Refresh list' | translate"
+                [matTooltipShowDelay]="1000">
+          <span class="material-symbols-outlined"> refresh </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-3">
+    <!--    <hr>-->
+    <mat-progress-bar [mode]="isLoading ? 'indeterminate' : 'determinate'" value="0"></mat-progress-bar>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5">
+      <app-questionnaire-list [isSearching]="isSearching">
+      </app-questionnaire-list>
+
+    </div>
+    <div class="col-md-7">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

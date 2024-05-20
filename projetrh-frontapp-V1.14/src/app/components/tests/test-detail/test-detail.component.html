@@ -1,0 +1,90 @@
+<ng-container *ngIf="test$ | async as test">
+  <ng-container *ngIf="candidateTestsSubject | async as ct">
+
+    <div class="container my-3">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h1 class="m-0">{{ "Test" | translate }}: {{ test.label }}</h1>
+            <p class="m-0">{{ "Created on" | translate }} {{ test.createdAt | date: 'dd/MM/yy' }}</p>
+          </div>
+          <div>
+            <button mat-icon-button
+                    [matMenuTriggerFor]="menu"
+                    color="primary"
+                    [matTooltip]="'Options' | translate"
+                    [matTooltipShowDelay]="1000">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <div mat-menu-item (click)="onEdit(test)">
+                <mat-icon color="primary"><span class="material-symbols-outlined">edit</span></mat-icon>
+                <p>{{ 'Edit' | translate }}</p>
+              </div>
+              <div mat-menu-item (click)="onRefresh()">
+                <mat-icon color="primary"><span class="material-symbols-outlined">refresh</span></mat-icon>
+                <p>{{ 'Refresh' | translate }}</p>
+              </div>
+              <div mat-menu-item (click)="ct.length === 0 && openDeleteDialog(test.id)" [disabled]="ct.length > 0">
+                <mat-icon color="warn"><span class="material-symbols-outlined">delete</span></mat-icon>
+                <p>{{ 'Delete' | translate }}</p>
+              </div>
+              <div mat-menu-item (click)="onChangeArchivedValue(test)">
+                <mat-icon><span
+                  class="material-symbols-outlined">{{ test.archived ? 'unarchive' : 'archive' }}</span>
+                </mat-icon>
+                <p>{{ (test.archived ? 'Unarchive' : 'Archive') | translate }}</p>
+              </div>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container my-3">
+        <!--    <hr>-->
+        <mat-progress-bar [mode]="isLoading ? 'indeterminate' : 'determinate'" value="0"></mat-progress-bar>
+      </div>
+
+      <div class="container my-3">
+        <mat-tab-group [selectedIndex]="ct.length > 0 ? 1 : 0">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              {{ "Details" | translate }}
+              <mat-icon *ngIf="ct.length > 0" color="warn"><span class="material-symbols-outlined"> lock </span>
+              </mat-icon>
+            </ng-template>
+            <app-test-details [questionTestsSubject]="questionTestsSubject"
+                              [testSubject]="test$"
+                              [testAssignedAtLeastOnce]="ct.length > 0"
+                              [testMaxDurationInSeconds]="testMaxDurationInSeconds"
+                              [testPointsSum]="testPointsSum">
+            </app-test-details>
+          </mat-tab>
+
+          <ng-container *ngIf="questionTestsSubject | async as qt">
+            <mat-tab [disabled]="!(qt.length > 0)">
+              <ng-template mat-tab-label>
+                {{ "Assignment" | translate }}
+              </ng-template>
+              <app-test-assignation [candidateTestsSubject]="candidateTestsSubject"
+                                    [testSubject]="test$"
+                                    [testPointsSum]="testPointsSum">
+              </app-test-assignation>
+            </mat-tab>
+            <mat-tab [disabled]="!(qt.length > 0)">
+              <ng-template mat-tab-label>
+                {{ "Statistics" | translate }}
+              </ng-template>
+              <app-chart-tests-status [candidateTestsSubject]="candidateTestsSubject"></app-chart-tests-status>
+              <app-chart-average-questions-results [questionTestsSubject]="questionTestsSubject"
+                                                   [candidateTestsSubject]="candidateTestsSubject"></app-chart-average-questions-results>
+            </mat-tab>
+          </ng-container>
+        </mat-tab-group>
+      </div>
+
+    </div>
+  </ng-container>
+</ng-container>
+

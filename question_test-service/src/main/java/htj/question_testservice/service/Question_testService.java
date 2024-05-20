@@ -39,11 +39,6 @@ public class Question_testService {
 	 * Supprimer cette méthode et la remplacer par un appel au test_service pour update les deux attributs
 	 */
 	public Question_test add(Question_test question_test) {
-		Test test = testServ.getById(question_test.getTest().getId());
-		test.addTimeToTimeLimit(question_test.getQuestion().getTimeLimit());
-		test.setPointsSum(test.getPointsSum()+(question_test.getQuestion().getPoints()*question_test.getQuestion().getWeight()));
-		testServ.update(test);
-		
 		return question_testRep.save(question_test);
 	}
 	
@@ -51,12 +46,7 @@ public class Question_testService {
 		return question_testRep.save(question_test);
 	}
 	
-	public void delete(Question_test question_test) {
-		Test test = testServ.getById(question_test.getTest().getId());
-		test.subtractTimeFromTimeLimit(question_test.getQuestion().getTimeLimit());
-		test.setPointsSum(test.getPointsSum()-(question_test.getQuestion().getPoints()*question_test.getQuestion().getWeight()));
-		testServ.update(test);
-		
+	public void delete(Question_test question_test) {	
 		question_testRep.delete(question_test);
 	}
 

@@ -1,8 +1,0 @@
-{
-  "/aubay-HRProject/**": {
-        "target": "http://gateway-service:2001",
-//    "target": "http://195.35.28.240:2001",
-    "secure": false,
-    "changeOrigin": true
-  }
-}

@@ -1,0 +1,286 @@
+{
+  "Id": "Id",
+  "id": "id",
+  "Label": "Etiqueta",
+  "label": "etiqueta",
+  "Points total": "Puntos totales",
+  "Points": "Puntos",
+  "points": "puntos",
+  "Points sum": "Puntos totales",
+  "Time limit": "Límite de tiempo",
+  "Weight": "Peso",
+  "weight": "peso",
+  "Topics": "Temas",
+  "Topic": "Tema",
+  "topic": "tema",
+  "Questions": "Preguntas",
+  "Questionnaires": "Cuestionarios",
+  "Questionnaire": "Cuestionario",
+  "questionnaire": "cuestionario",
+  "Tests": "Pruebas",
+  "tests": "pruebas",
+  "test": "prueba",
+  "Results": "Resultados",
+  "Switch to light mode": "Cambiar a modo claro",
+  "Switch to night mode": "Cambiar a modo oscuro",
+  "Translate": "Traducir",
+  "English": "Inglés",
+  "French": "Francés",
+  "Spanish": "Español",
+  "Logout": "Cerrar sesión",
+  "Login": "Iniciar sesión",
+  "Register": "Registrarse",
+  "to HR Project": "al Proyecto de RRHH",
+  "First name": "Nombre",
+  "Last name": "Apellido",
+  "E-mail": "Correo electrónico",
+  "Password": "Contraseña",
+  "Remember me": "Recuérdame",
+  "Forgot password?": "¿Olvidaste tu contraseña?",
+  "No account yet?": "¿Todavía no tienes una cuenta?",
+  "Already an account?": "¿Ya tienes una cuenta?",
+  "Select list": "Seleccionar lista",
+  "Unarchived": {
+    "m": "No archivado",
+    "f": "No archivada",
+    "ms": "No archivados",
+    "fs": "No archivadas"
+  },
+  "Archived": {
+    "m": "Archivado",
+    "f": "Archivada",
+    "ms": "Archivados",
+    "fs": "Archivadas"
+  },
+  "Search": "Buscar",
+  "Search filters": "Filtros de búsqueda",
+  "Add question": "Agregar pregunta",
+  "Refresh list": "Actualizar lista",
+  "Searching by ": "Buscando por ",
+  "No": "No",
+  "Yes": "Sí",
+  "Linked": {
+    "answers": "Respuestas vinculadas",
+    "questions": "Preguntas vinculadas",
+    "questionnaires": "Cuestionarios vinculados"
+  },
+  "Correct": "Correcta",
+  "Incorrect": "Incorrecta",
+  "Options": "Opciones",
+  "Edit": "Editar",
+  "Unarchive": "Desarchivar",
+  "Archive": "Archivar",
+  "Create": {
+    "answer": "Crear una respuesta",
+    "question": "Crear una pregunta",
+    "questionnaire": "Crear un cuestionario",
+    "topic": "Crear un tema",
+    "test": "Crear un test"
+  },
+  "Update": {
+    "question": "Modificar una pregunta",
+    "questionnaire": "Modificar un cuestionario",
+    "topic": "Modificar un tema",
+    "test": "Modificar un test"
+  },
+  "Add answer": "Agregar una respuesta",
+  "Cancel": "Cancelar",
+  "Close": "Cerrar",
+  "btn_Create": "Crear",
+  "btn_Update": "Modificar",
+  "btn_Assign": "Asignar",
+  "Delete": "Eliminar",
+  "Refresh": "Actualizar",
+  "Answer": "Respuesta",
+  "Are you sure you want to delete this question ?": "¿Estás seguro de que quieres eliminar esta pregunta?",
+  "Deleting questions is a permanent and irreversible operation.": "Eliminar preguntas es una operación permanente e irreversible.",
+  "error_msg_load_items": {
+    "answer": "Error al cargar las respuestas.",
+    "question": "Error al cargar las preguntas.",
+    "questionnaire": "Error al cargar los cuestionarios.",
+    "topic": "Error al cargar los temas.",
+    "test": "Error al cargar los tests.",
+    "candidate-test": "Error al cargar los candidatos asignados al test.",
+    "question-test": "Error al cargar las preguntas vinculadas al test."
+  },
+  "error_msg_load_item": {
+    "answer": "Error al cargar una respuesta.",
+    "question": "Error al cargar una pregunta.",
+    "questionnaire": "Error al cargar un cuestionario.",
+    "topic": "Error al cargar un tema.",
+    "test": "Error al cargar un test."
+  },
+  "error_msg_refresh_items": {
+    "answer": "Error al actualizar la lista de respuestas.",
+    "question": "Error al actualizar la lista de preguntas.",
+    "questionnaire": "Error al actualizar la lista de cuestionarios.",
+    "topic": "Error al actualizar la lista de temas.",
+    "test": "Error al actualizar la lista de tests."
+  },
+  "error_msg_add_item": {
+    "answer": "Error al agregar una respuesta.",
+    "question": "Error al agregar una pregunta.",
+    "questionnaire": "Error al agregar un cuestionario.",
+    "topic": "Error al agregar un tema.",
+    "test": "Error al agregar un test."
+  },
+  "error_msg_edit_item": {
+    "answer": "Error al editar una respuesta.",
+    "question": "Error al editar una pregunta.",
+    "questionnaire": "Error al editar un cuestionario.",
+    "topic": "Error al editar un tema.",
+    "test": "Error al editar un test."
+  },
+  "errorMsg_testCompleted": "Error al enviar el formulario del test.",
+  "error_msg_delete_item": {
+    "answer": "Error al eliminar una respuesta.",
+    "question": "Error al eliminar una pregunta.",
+    "questionnaire": "Error al eliminar un cuestionario.",
+    "topic": "Error al eliminar un tema.",
+    "test": "Error al eliminar un test."
+  },
+  "success_msg_refresh_items": {
+    "answer": "Lista de respuestas actualizada correctamente.",
+    "question": "Lista de preguntas actualizada correctamente.",
+    "questionnaire": "Lista de cuestionarios actualizada correctamente.",
+    "topic": "Lista de temas actualizada correctamente.",
+    "test": "Lista de tests actualizada correctamente."
+  },
+  "success_msg_add_item": {
+    "answer": "Respuesta agregada correctamente.",
+    "question": "Pregunta agregada correctamente.",
+    "questionnaire": "Cuestionario agregado correctamente.",
+    "topic": "Tema agregado correctamente.",
+    "test": "Test agregado correctamente.",
+    "candidate-test": "Test asignado correctamente."
+  },
+  "success_msg_edit_item": {
+    "answer": "Respuesta actualizada correctamente.",
+    "question": "Pregunta actualizada correctamente.",
+    "questionnaire": "Cuestionario actualizado correctamente.",
+    "topic": "Tema actualizado correctamente.",
+    "test": "Test actualizado correctamente.",
+    "candidate": "Datos actualizados correctamente."
+  },
+  "success_msg_delete_item": {
+    "answer": "Respuesta eliminada correctamente.",
+    "question": "Pregunta eliminada correctamente.",
+    "questionnaire": "Cuestionario eliminado correctamente.",
+    "topic": "Tema eliminado correctamente.",
+    "test": "Test eliminado correctamente."
+  },
+  "Connection error: Unable to reach the server.": "Error de conexión: No se puede conectar al servidor.",
+  "Bad request.": "Solicitud incorrecta.",
+  "Unauthorized.": "No autorizado.",
+  "Item not found.": "Elemento no encontrado.",
+  "Conflict.": "Conflicto.",
+  "Internal server error.": "Error interno del servidor.",
+  "Select": {
+    "question": "Por favor, seleccione una pregunta.",
+    "questionnaire": "Por favor, seleccione un cuestionario.",
+    "topic": "Por favor, seleccione un tema.",
+    "test": "Por favor, seleccione un test."
+  },
+  "dialog-delete": {
+    "title": {
+      "question": "¿Estás seguro de que quieres eliminar esta pregunta?",
+      "questionnaire": "¿Estás seguro de que quieres eliminar este cuestionario?",
+      "topic": "¿Estás seguro de que quieres eliminar este tema?",
+      "test": "¿Estás seguro de que quieres eliminar este test?",
+      "candidate-test": "¿Estás seguro de que quieres eliminar esta asignación?"
+    },
+    "note": {
+      "question": "La eliminación de preguntas es una operación permanente e irreversible.",
+      "questionnaire": "La eliminación de cuestionarios es una operación permanente e irreversible.",
+      "topic": "La eliminación de temas es una operación permanente e irreversible.",
+      "test": "La eliminación de tests es una operación permanente e irreversible.",
+      "candidate-test": "La eliminación de asignaciones es una operación permanente e irreversible."
+    }
+  },
+  "Link copied !": "¡Enlace copiado!",
+  "Disconnection prohibited.": "Desconexión prohibida.",
+  "Not provided": "No proporcionado",
+  "Mail": "Correo electrónico",
+  "Birth date": "Fecha de nacimiento",
+  "Phone number": "Número de teléfono",
+  "Professional profile url": "URL del perfil profesional",
+  "Details": "Detalles",
+  "Assignation": "Asignación",
+  "Duplicate test": "Duplicar test",
+  "Manage questions": "Gestionar preguntas",
+  "New question": "Nueva pregunta",
+  "Language applied successfully": {
+    "en": "Idioma inglés aplicado correctamente.",
+    "fr": "Idioma francés aplicado correctamente.",
+    "es": "Idioma español aplicado correctamente."
+  },
+  "Error applying language": {
+    "en": "Error al aplicar inglés.",
+    "fr": "Error al aplicar francés.",
+    "es": "Error al aplicar español."
+  },
+  "Actions": "Acciones",
+  "Added questions": "Preguntas añadidas",
+  "Assignation date": "Fecha de asignación",
+  "Completion date": "Fecha de finalización",
+  "Completion time": "Tiempo de finalización",
+  "Score": "Puntuación",
+  "Assign to candidates": "Asignar a candidatos",
+  "Copy link": "Copiar enlace",
+  "Duration": "Duración",
+  "There is no test to display at the moment.": "No hay ningún test para mostrar en este momento.",
+  "Assigned": "Asignado",
+  "Assigned on": "Asignado el",
+  "Started": "Iniciado",
+  "Ended": "Finalizado",
+  "Dashboard": "Tablero",
+  "Tests to take": "Tests por hacer",
+  "Tests taken": "Tests realizados",
+  "My profile": "Mi perfil",
+  "There is no test to take at the moment.": "En este momento no hay ningún test por hacer.",
+  "No test have been taken at this time.": "En este momento no se ha realizado ningún test.",
+  "Creation date": "Fecha de creación",
+  "Assignment": "Asignación",
+  "Statistics": "Estadísticas",
+  "Status": "Estado",
+  "assigned": "asignado",
+  "started": "iniciado",
+  "ended": "finalizado",
+  "fraudSuspicion": "Sospecha de fraude",
+  "chart": {
+    "testStatus": {
+      "title": "Número de tests por estado"
+    },
+    "averageQuestionsResults": {
+      "title": "Resultados promedio obtenidos por pregunta",
+      "tooltip": " Puntuación promedio: "
+    }
+  },
+  "Feedback & Support": "Comentarios y Soporte",
+  "dashboard-candidate": {
+    "feedback": {
+      "txt": "¡Tu opinión es importante!",
+      "btn": "Dar opinión"
+    },
+    "support": {
+      "txt": "¿Has encontrado algún problema? ¡Házmelo saber!",
+      "btn": "Informar de un problema"
+    }
+  },
+  "Created on": "Creado el",
+  "test-take-confirmation": {
+    "title": "Información general",
+    "duration": "Este test tiene una duración de",
+    "warning": {
+      "text": "Este test se cancelará sin posibilidad de reanudarlo:",
+      "first": "Si cierras, sales o actualizas la ventana.",
+      "second": "Si cambias de pestaña o ventana.",
+      "third": "Si abandonas la página del test de cualquier otra manera."
+    },
+    "end-instruction": "Si estás listo para realizar este test, presiona 'Realizar'."
+  },
+  "Take": "Realizar",
+  "Maximum score": "Puntuación máxima",
+  "Duplicate test to add new question.": "Duplica el test para agregar una nueva pregunta.",
+  "Duplicate test to manage questions.": "Duplica el test para gestionar las preguntas."
+}

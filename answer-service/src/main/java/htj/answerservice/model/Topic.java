@@ -2,6 +2,7 @@ package htj.answerservice.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,9 +30,9 @@ public class Topic implements Serializable {
 	@Column(name = "label_topic", nullable = false, length = 500)
 	String label;
 
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	@Column(name = "creation_date_topic", nullable = false)
-	LocalDate creationDate;
+	
+	@Column(name = "created_at_topic")
+	LocalDateTime createdAt;
 
 	@Column(name = "description_topic", length = 3000)
 	String description;
@@ -49,10 +50,10 @@ public class Topic implements Serializable {
 		super();
 	}
 
-	public Topic(String label, LocalDate creationDate, String description, boolean archived) {
+	public Topic(String label, LocalDateTime createdAt, String description, boolean archived) {
 		super();
 		this.label = label;
-		this.creationDate = creationDate;
+		this.createdAt = createdAt;
 		this.description = description;
 		this.archived = archived;
 	}
@@ -73,12 +74,12 @@ public class Topic implements Serializable {
 		this.label = label;
 	}
 
-	public LocalDate getCreationDate() {
-		return creationDate;
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreationDate(LocalDate creationDate) {
-		this.creationDate = creationDate;
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public String getDescription() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="htj.questionnaireservice.QuestionnaireServiceApplicationTests" time="5.338" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="htj.questionnaireservice.QuestionnaireServiceApplicationTests" time="5.861" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="BE"/>
     <property name="sun.boot.library.path" value="C:\Program Files\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.3.v20220515-1416\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\t-jon\AppData\Local\Temp\surefire12177549108837471353\surefirebooter-20240512124413240_3.jar C:\Users\t-jon\AppData\Local\Temp\surefire12177549108837471353 2024-05-12T12-44-12_940-jvmRun1 surefire-20240512124413240_1tmp surefire_0-20240512124413240_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\t-jon\AppData\Local\Temp\surefire10027819829924531086\surefirebooter-20240519133017331_3.jar C:\Users\t-jon\AppData\Local\Temp\surefire10027819829924531086 2024-05-19T13-30-16_971-jvmRun1 surefire-20240519133017331_1tmp surefire_0-20240519133017331_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\questionnaire-service\target\test-classes;C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\questionnaire-service\target\classes;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.0-SNAPSHOT\spring-boot-starter-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot\3.2.0-SNAPSHOT\spring-boot-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-context\6.1.1\spring-context-6.1.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.0-SNAPSHOT\spring-boot-autoconfigure-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.0-SNAPSHOT\spring-boot-starter-logging-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\t-jon\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\t-jon\.m2\repository\org\slf4j\jul-to-slf4j\2.0.9\jul-to-slf4j-2.0.9.jar;C:\Users\t-jon\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-core\6.1.1\spring-core-6.1.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-jcl\6.1.1\spring-jcl-6.1.1.jar;C:\Users\t-jon\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.0-SNAPSHOT\spring-boot-starter-test-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-test\3.2.0-SNAPSHOT\spring-boot-test-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.0-SNAPSHOT\spring-boot-test-autoconfigure-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\com\jayway\jsonpath\json-path\2.8.0\json-path-2.8.0.jar;C:\Users\t-jon\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.1\jakarta.xml.bind-api-4.0.1.jar;C:\Users\t-jon\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.2\jakarta.activation-api-2.1.2.jar;C:\Users\t-jon\.m2\repository\net\minidev\json-smart\2.5.0\json-smart-2.5.0.jar;C:\Users\t-jon\.m2\repository\net\minidev\accessors-smart\2.5.0\accessors-smart-2.5.0.jar;C:\Users\t-jon\.m2\repository\org\ow2\asm\asm\9.3\asm-9.3.jar;C:\Users\t-jon\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\t-jon\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\t-jon\.m2\repository\org\awaitility\awaitility\4.2.0\awaitility-4.2.0.jar;C:\Users\t-jon\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\t-jon\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\t-jon\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\t-jon\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\t-jon\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\t-jon\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\t-jon\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\t-jon\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\t-jon\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\t-jon\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\t-jon\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\t-jon\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\t-jon\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\t-jon\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\t-jon\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-test\6.1.1\spring-test-6.1.1.jar;C:\Users\t-jon\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.0-SNAPSHOT\spring-boot-starter-web-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.0-SNAPSHOT\spring-boot-starter-json-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.3\jackson-datatype-jdk8-2.15.3.jar;C:\Users\t-jon\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.3\jackson-module-parameter-names-2.15.3.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.0-SNAPSHOT\spring-boot-starter-tomcat-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.16\tomcat-embed-core-10.1.16.jar;C:\Users\t-jon\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.16\tomcat-embed-el-10.1.16.jar;C:\Users\t-jon\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.16\tomcat-embed-websocket-10.1.16.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-web\6.1.1\spring-web-6.1.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-beans\6.1.1\spring-beans-6.1.1.jar;C:\Users\t-jon\.m2\repository\io\micrometer\micrometer-observation\1.12.0\micrometer-observation-1.12.0.jar;C:\Users\t-jon\.m2\repository\io\micrometer\micrometer-commons\1.12.0\micrometer-commons-1.12.0.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-webmvc\6.1.1\spring-webmvc-6.1.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-aop\6.1.1\spring-aop-6.1.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-expression\6.1.1\spring-expression-6.1.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.0-SNAPSHOT\spring-boot-starter-data-jpa-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.2.0-SNAPSHOT\spring-boot-starter-aop-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\org\aspectj\aspectjweaver\1.9.20.1\aspectjweaver-1.9.20.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.0-SNAPSHOT\spring-boot-starter-jdbc-3.2.0-SNAPSHOT.jar;C:\Users\t-jon\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-jdbc\6.1.1\spring-jdbc-6.1.1.jar;C:\Users\t-jon\.m2\repository\org\hibernate\orm\hibernate-core\6.3.1.Final\hibernate-core-6.3.1.Final.jar;C:\Users\t-jon\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\t-jon\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\t-jon\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\t-jon\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\t-jon\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\t-jon\.m2\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;C:\Users\t-jon\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.4\jaxb-runtime-4.0.4.jar;C:\Users\t-jon\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.4\jaxb-core-4.0.4.jar;C:\Users\t-jon\.m2\repository\org\eclipse\angus\angus-activation\2.0.1\angus-activation-2.0.1.jar;C:\Users\t-jon\.m2\repository\org\glassfish\jaxb\txw2\4.0.4\txw2-4.0.4.jar;C:\Users\t-jon\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\t-jon\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\t-jon\.m2\repository\org\antlr\antlr4-runtime\4.10.1\antlr4-runtime-4.10.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\data\spring-data-jpa\3.2.0\spring-data-jpa-3.2.0.jar;C:\Users\t-jon\.m2\repository\org\springframework\data\spring-data-commons\3.2.0\spring-data-commons-3.2.0.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-orm\6.1.1\spring-orm-6.1.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-tx\6.1.1\spring-tx-6.1.1.jar;C:\Users\t-jon\.m2\repository\org\springframework\spring-aspects\6.1.1\spring-aspects-6.1.1.jar;C:\Users\t-jon\.m2\repository\com\mysql\mysql-connector-j\8.1.0\mysql-connector-j-8.1.0.jar;C:\Users\t-jon\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\t-jon\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.3\jackson-datatype-jsr310-2.15.3.jar;C:\Users\t-jon\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.3\jackson-annotations-2.15.3.jar;C:\Users\t-jon\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.3\jackson-core-2.15.3.jar;C:\Users\t-jon\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;C:\Users\t-jon\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\t-jon\.m2\repository\ch\qos\logback\logback-classic\1.4.11\logback-classic-1.4.11.jar;C:\Users\t-jon\.m2\repository\ch\qos\logback\logback-core\1.4.11\logback-core-1.4.11.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -34,7 +34,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="FILE_LOG_CHARSET" value="windows-1252"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\t-jon\AppData\Local\Temp\surefire12177549108837471353\surefirebooter-20240512124413240_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\t-jon\AppData\Local\Temp\surefire10027819829924531086\surefirebooter-20240519133017331_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.3+7"/>
@@ -53,7 +53,7 @@
     <property name="user.dir" value="C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\questionnaire-service"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="2420"/>
+    <property name="PID" value="20860"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="CONSOLE_LOG_CHARSET" value="windows-1252"/>
     <property name="native.encoding" value="Cp1252"/>
@@ -65,66 +65,66 @@
     <property name="java.class.version" value="61.0"/>
   </properties>
   <testcase name="contextLoads" classname="htj.questionnaireservice.QuestionnaireServiceApplicationTests" time="0.49">
-    <system-out><![CDATA[12:44:13,925 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.4.11
-12:44:13,928 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Here is a list of configurators discovered as a service, by rank: 
-12:44:13,928 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e -   org.springframework.boot.logging.logback.RootLogLevelConfigurator
-12:44:13,928 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - They will be invoked in order until ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY is returned.
-12:44:13,928 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Constructed configurator of type class org.springframework.boot.logging.logback.RootLogLevelConfigurator
-12:44:13,935 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - org.springframework.boot.logging.logback.RootLogLevelConfigurator.configure() call lasted 0 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
-12:44:13,935 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
-12:44:13,936 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
-12:44:13,950 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
-12:44:13,950 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
-12:44:13,950 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 14 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
-12:44:13,950 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
-12:44:13,950 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
-12:44:13,951 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
-12:44:13,953 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/C:/Users/t-jon/OneDrive%20-%20IEPSCF%20Marche-en-Famenne/Bac%204%20-%20Info%20de%20gestion/Epreuve%20int%C3%A9gr%C3%A9e/m%C3%A9moire%20-%20code/PROJETRH.V3.1/questionnaire-service/target/classes/logback.xml]
-12:44:14,042 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [STDOUT]
-12:44:14,042 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
-12:44:14,047 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-12:44:14,093 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [SIZE_TIME_OUTPUT_FILE]
-12:44:14,093 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
-12:44:14,097 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-12:44:14,104 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1689924104 - No compression will be used
-12:44:14,106 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1689924104 - Will use the pattern logs/archived/topic-service_journal.%d{yyyy-MM-dd}.%i.log for the active file
-12:44:14,109 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@158a3b2e - The date pattern is 'yyyy-MM-dd' from file name pattern 'logs/archived/topic-service_journal.%d{yyyy-MM-dd}.%i.log'.
-12:44:14,109 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@158a3b2e - Roll-over at midnight.
-12:44:14,110 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@158a3b2e - Setting initial period to 2024-05-12T09:49:57.826Z
-12:44:14,110 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@158a3b2e - SizeAndTimeBasedFNATP is deprecated. Use SizeAndTimeBasedRollingPolicy instead
-12:44:14,110 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@158a3b2e - For more information see http://logback.qos.ch/manual/appenders.html#SizeAndTimeBasedRollingPolicy
-12:44:14,114 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[SIZE_TIME_OUTPUT_FILE] - Active log file name: logs/topic-service_journal.log
-12:44:14,115 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[SIZE_TIME_OUTPUT_FILE] - File property is set to [logs/topic-service_journal.log]
-12:44:14,116 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
-12:44:14,116 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [SIZE_TIME_OUTPUT_FILE] to Logger[ROOT]
-12:44:14,116 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [STDOUT] to Logger[ROOT]
-12:44:14,116 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@25a6944c - End of configuration.
-12:44:14,117 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@5e1fa5b1 - Registering current configuration as safe fallback point
-12:44:14,117 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 167 milliseconds. ExecutionStatus=DO_NOT_INVOKE_NEXT_IF_ANY
+    <system-out><![CDATA[13:30:18,098 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.4.11
+13:30:18,100 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Here is a list of configurators discovered as a service, by rank: 
+13:30:18,100 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e -   org.springframework.boot.logging.logback.RootLogLevelConfigurator
+13:30:18,100 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - They will be invoked in order until ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY is returned.
+13:30:18,100 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Constructed configurator of type class org.springframework.boot.logging.logback.RootLogLevelConfigurator
+13:30:18,108 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - org.springframework.boot.logging.logback.RootLogLevelConfigurator.configure() call lasted 1 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+13:30:18,108 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+13:30:18,108 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+13:30:18,125 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+13:30:18,125 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+13:30:18,125 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 17 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+13:30:18,125 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+13:30:18,125 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+13:30:18,126 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+13:30:18,127 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/C:/Users/t-jon/OneDrive%20-%20IEPSCF%20Marche-en-Famenne/Bac%204%20-%20Info%20de%20gestion/Epreuve%20int%C3%A9gr%C3%A9e/m%C3%A9moire%20-%20code/PROJETRH.V3.1/questionnaire-service/target/classes/logback.xml]
+13:30:18,213 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [STDOUT]
+13:30:18,213 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+13:30:18,220 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+13:30:18,262 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [SIZE_TIME_OUTPUT_FILE]
+13:30:18,262 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+13:30:18,265 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+13:30:18,274 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1689924104 - No compression will be used
+13:30:18,275 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1689924104 - Will use the pattern logs/archived/topic-service_journal.%d{yyyy-MM-dd}.%i.log for the active file
+13:30:18,280 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@158a3b2e - The date pattern is 'yyyy-MM-dd' from file name pattern 'logs/archived/topic-service_journal.%d{yyyy-MM-dd}.%i.log'.
+13:30:18,280 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@158a3b2e - Roll-over at midnight.
+13:30:18,281 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@158a3b2e - Setting initial period to 2024-05-19T11:03:50.760Z
+13:30:18,281 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@158a3b2e - SizeAndTimeBasedFNATP is deprecated. Use SizeAndTimeBasedRollingPolicy instead
+13:30:18,281 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@158a3b2e - For more information see http://logback.qos.ch/manual/appenders.html#SizeAndTimeBasedRollingPolicy
+13:30:18,287 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[SIZE_TIME_OUTPUT_FILE] - Active log file name: logs/topic-service_journal.log
+13:30:18,287 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[SIZE_TIME_OUTPUT_FILE] - File property is set to [logs/topic-service_journal.log]
+13:30:18,288 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
+13:30:18,288 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [SIZE_TIME_OUTPUT_FILE] to Logger[ROOT]
+13:30:18,289 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [STDOUT] to Logger[ROOT]
+13:30:18,289 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@25a6944c - End of configuration.
+13:30:18,289 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@5e1fa5b1 - Registering current configuration as safe fallback point
+13:30:18,289 |-INFO in ch.qos.logback.classic.util.ContextInitializer@23fb172e - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 164 milliseconds. ExecutionStatus=DO_NOT_INVOKE_NEXT_IF_ANY
 
-2024-05-12T12:44:14.198+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.questionnaireservice.QuestionnaireServiceApplicationTests]: QuestionnaireServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-05-12T12:44:14.314+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.questionnaireservice.QuestionnaireServiceApplication for test class htj.questionnaireservice.QuestionnaireServiceApplicationTests
-12:44:14,642 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [STDOUT]
-12:44:14,642 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
-12:44:14,642 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-12:44:14,643 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [SIZE_TIME_OUTPUT_FILE]
-12:44:14,643 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
-12:44:14,643 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-12:44:14,643 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1700078557 - No compression will be used
-12:44:14,643 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1700078557 - Will use the pattern logs/archived/topic-service_journal.%d{yyyy-MM-dd}.%i.log for the active file
-12:44:14,645 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@6f7e336b - The date pattern is 'yyyy-MM-dd' from file name pattern 'logs/archived/topic-service_journal.%d{yyyy-MM-dd}.%i.log'.
-12:44:14,645 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@6f7e336b - Roll-over at midnight.
-12:44:14,645 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@6f7e336b - Setting initial period to 2024-05-12T10:44:14.314Z
-12:44:14,645 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@6f7e336b - SizeAndTimeBasedFNATP is deprecated. Use SizeAndTimeBasedRollingPolicy instead
-12:44:14,645 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@6f7e336b - For more information see http://logback.qos.ch/manual/appenders.html#SizeAndTimeBasedRollingPolicy
-12:44:14,646 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[SIZE_TIME_OUTPUT_FILE] - Active log file name: logs/topic-service_journal.log
-12:44:14,646 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[SIZE_TIME_OUTPUT_FILE] - File property is set to [logs/topic-service_journal.log]
-12:44:14,646 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
-12:44:14,646 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@3a2b2322 - Propagating INFO level on Logger[ROOT] onto the JUL framework
-12:44:14,647 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [SIZE_TIME_OUTPUT_FILE] to Logger[ROOT]
-12:44:14,647 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [STDOUT] to Logger[ROOT]
-12:44:14,647 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@5e1218b4 - End of configuration.
-12:44:14,647 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@12958360 - Registering current configuration as safe fallback point
+2024-05-19T13:30:18.378+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.questionnaireservice.QuestionnaireServiceApplicationTests]: QuestionnaireServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-19T13:30:18.501+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.questionnaireservice.QuestionnaireServiceApplication for test class htj.questionnaireservice.QuestionnaireServiceApplicationTests
+13:30:18,829 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [STDOUT]
+13:30:18,829 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+13:30:18,829 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+13:30:18,830 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [SIZE_TIME_OUTPUT_FILE]
+13:30:18,830 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+13:30:18,830 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+13:30:18,831 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@311788384 - No compression will be used
+13:30:18,831 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@311788384 - Will use the pattern logs/archived/topic-service_journal.%d{yyyy-MM-dd}.%i.log for the active file
+13:30:18,831 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@c6e0f32 - The date pattern is 'yyyy-MM-dd' from file name pattern 'logs/archived/topic-service_journal.%d{yyyy-MM-dd}.%i.log'.
+13:30:18,831 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@c6e0f32 - Roll-over at midnight.
+13:30:18,832 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@c6e0f32 - Setting initial period to 2024-05-19T11:30:18.501Z
+13:30:18,832 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@c6e0f32 - SizeAndTimeBasedFNATP is deprecated. Use SizeAndTimeBasedRollingPolicy instead
+13:30:18,832 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@c6e0f32 - For more information see http://logback.qos.ch/manual/appenders.html#SizeAndTimeBasedRollingPolicy
+13:30:18,832 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[SIZE_TIME_OUTPUT_FILE] - Active log file name: logs/topic-service_journal.log
+13:30:18,832 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[SIZE_TIME_OUTPUT_FILE] - File property is set to [logs/topic-service_journal.log]
+13:30:18,833 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
+13:30:18,833 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6f3f0fae - Propagating INFO level on Logger[ROOT] onto the JUL framework
+13:30:18,834 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [SIZE_TIME_OUTPUT_FILE] to Logger[ROOT]
+13:30:18,834 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [STDOUT] to Logger[ROOT]
+13:30:18,834 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@21a66d45 - End of configuration.
+13:30:18,834 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@1f966492 - Registering current configuration as safe fallback point
 
 
   .   ____          _            __ _ _
@@ -135,22 +135,22 @@
  =========|_|==============|___/=/_/_/_/
 &amp#27;[32m :: Spring Boot :: &amp#27;[39m     &amp#27;[2m (v3.2.0-SNAPSHOT)&amp#27;[0;39m
 
-2024-05-12T12:44:14.696+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] h.q.QuestionnaireServiceApplicationTests - Starting QuestionnaireServiceApplicationTests using Java 17.0.3 with PID 2420 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\questionnaire-service)
-2024-05-12T12:44:14.700+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] h.q.QuestionnaireServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2024-05-12T12:44:15.297+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-12T12:44:15.361+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 1 JPA repository interface.
-2024-05-12T12:44:15.785+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-12T12:44:15.849+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
-2024-05-12T12:44:15.891+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-05-12T12:44:16.196+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-12T12:44:16.223+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
-2024-05-12T12:44:16.578+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5342eec5
-2024-05-12T12:44:16.581+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-2024-05-12T12:44:16.631+02:00 &amp#27;[31mWARN &amp#27;[0;39m [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-12T12:44:17.711+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-12T12:44:17.861+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-12T12:44:18.411+02:00 &amp#27;[31mWARN &amp#27;[0;39m [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-12T12:44:18.723+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] h.q.QuestionnaireServiceApplicationTests - Started QuestionnaireServiceApplicationTests in 4.268 seconds (process running for 5.376)
+2024-05-19T13:30:18.901+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] h.q.QuestionnaireServiceApplicationTests - Starting QuestionnaireServiceApplicationTests using Java 17.0.3 with PID 20860 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\questionnaire-service)
+2024-05-19T13:30:18.903+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] h.q.QuestionnaireServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-05-19T13:30:19.594+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-19T13:30:19.664+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interface.
+2024-05-19T13:30:20.171+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-19T13:30:20.272+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-05-19T13:30:20.329+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-19T13:30:20.666+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-19T13:30:20.699+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-05-19T13:30:21.091+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@714c74eb
+2024-05-19T13:30:21.093+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-19T13:30:21.152+02:00 &amp#27;[31mWARN &amp#27;[0;39m [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-19T13:30:22.246+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-19T13:30:22.411+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-19T13:30:23.069+02:00 &amp#27;[31mWARN &amp#27;[0;39m [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-19T13:30:23.417+02:00 &amp#27;[34mINFO &amp#27;[0;39m [main] h.q.QuestionnaireServiceApplicationTests - Started QuestionnaireServiceApplicationTests in 4.761 seconds (process running for 5.927)
 ]]></system-out>
   </testcase>
 </testsuite>

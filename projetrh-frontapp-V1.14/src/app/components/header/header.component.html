@@ -1,0 +1,84 @@
+<div class="row mb-4">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">HR Project</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+              aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <!--        <span class="navbar-toggler-icon"></span>-->
+        <span class="material-symbols-outlined"> menu </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ng-container *ngIf="isHRManager">
+            <li class="nav-item" routerLinkActive="active-link">
+              <a class="nav-link" routerLink="/questions" >
+                <h5 class="mb-0">{{ 'Questions' | translate }}</h5>
+              </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active-link">
+              <a class="nav-link" routerLink="/questionnaires">
+                <h5 class="mb-0">{{ 'Questionnaires' | translate }}</h5>
+              </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active-link">
+              <a class="nav-link" routerLink="/topics">
+                <h5 class="mb-0">{{ 'Topics' | translate }}</h5>
+              </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active-link">
+              <a class="nav-link" routerLink="/tests">
+                <h5 class="mb-0">{{ 'Tests' | translate }}</h5>
+              </a>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="isCandidate">
+            <li class="nav-item" routerLinkActive="active-link">
+              <a class="nav-link" routerLink="/dashboard">
+                <h5 class="mb-0">{{ 'Dashboard' | translate }}</h5>
+              </a>
+            </li>
+          </ng-container>
+        </ul>
+
+        <div class="d-lg-flex align-items-center">
+          <div class="py-2">
+            <app-theme-toggle></app-theme-toggle>
+          </div>
+
+          <div class="py-2 mx-1">
+            <app-language-selector></app-language-selector>
+          </div>
+
+          <div class="py-2 mx-1">
+            <button
+              *ngIf="!(isHRManager || isCandidate) && !isAuthPage"
+              routerLink="/auth"
+              type="button"
+              class="rounded-pill"
+              mat-flat-button
+              color="primary">{{ 'Login' | translate }}
+              <!--            <h6 class="mb-0">Login</h6>-->
+            </button>
+
+            <div *ngIf="isHRManager || isCandidate">
+              <button
+                class="rounded-pill"
+                mat-flat-button
+                color="primary"
+                [matMenuTriggerFor]="userMenu">
+                <div class="d-flex align-items-center">
+                  {{ username }}
+                  <span class="material-symbols-outlined"> expand_more </span>
+                </div>
+              </button>
+              <mat-menu #userMenu="matMenu">
+                <button *ngIf="isHRManager" mat-menu-item routerLink="/dashboard">{{ 'Dashboard' | translate }}</button>
+                <button mat-menu-item type="button" (click)="onLogout()">{{ 'Logout' | translate }}</button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

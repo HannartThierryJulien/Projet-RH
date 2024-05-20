@@ -1,20 +1,17 @@
 package htj.resultservice.controller;
 
 import java.nio.file.AccessDeniedException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,13 +48,24 @@ public class ResultRestController {
 
 	@GetMapping
 	@ResponseBody
-    public ResponseEntity<ResponseWrapper<List<Result>>> getAllResultsByCandidate_test(
+    public ResponseEntity<ResponseWrapper<List<Result>>> getResults(
     		@RequestHeader("Authorization") String authorizationHeader,
-    		@RequestParam(value = "candidate_testId") int candidate_testId) {
+    		@RequestParam(value = "candidate_testId", required = false) Integer candidate_testId,
+    		@RequestParam(value = "testId", required = false) Integer testId) {
 		try {
 			tokenValidator.validateAuthorizationHeader(authorizationHeader);
 
-			List<Result> results = resultServ.getAllByCandidate_testId(candidate_testId);
+			List<Result> results = new ArrayList<>();
+
+            if (candidate_testId != null) {
+                results = resultServ.getAllByCandidate_testId(candidate_testId);
+            } else if (testId != null) {
+                results = resultServ.getAllByTestId(testId);
+            }
+
+            if (results.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            }
 			
 			logger.info(MSG_GET_SUCCESS);
 			return ResponseEntity.ok(new ResponseWrapper<>(results, null));

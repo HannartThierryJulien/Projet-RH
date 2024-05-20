@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="container">
+    <div class="d-flex justify-content-between mx-2">
+      <ng-container *ngIf="candidateTest">
+        <div class="row w-100 mb-2">
+          <div class="col-6">
+            <h1 class="m-0">{{ candidateTest.test.label }}</h1>
+            <h1 class="m-0">{{ "Assigned on" | translate }} {{ candidateTest.assignedAt | date:'dd/MM/yy' }}</h1>
+          </div>
+          <div class="col-6 text-end">
+            <h1 class="m-0">{{ countdownService.calculateDurationInSeconds(candidateTest.startedAt, candidateTest.endedAt) | secondsToTimeString}} / {{ testMaxDurationInSeconds | secondsToTimeString}}</h1>
+            <h1 class="m-0">{{ candidateTest.score }} / {{ testPointsSum }}</h1>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+      <div style="height:70vh; overflow-y: scroll;">
+        <div *ngFor="let question of questions">
+          <mat-card class="m-2">
+            <mat-card-header>
+              <mat-card-title> {{ question.label }}</mat-card-title>
+              <mat-card-subtitle>Points : {{ question.points * question.weight }}</mat-card-subtitle>
+
+            </mat-card-header>
+            <mat-card-content>
+              <hr>
+              <div *ngFor="let result of results">
+                <ng-container *ngIf="result.question.id == question.id">
+                  <mat-checkbox color="primary" [checked]="result.answerSelected" (click)="$event.preventDefault()">{{ result.answer.label }}</mat-checkbox>
+                  <ng-container *ngIf="result.answer.right">
+                    <mat-icon style="color: #83B090"><span class="material-symbols-outlined"> check </span></mat-icon>
+                  </ng-container>
+                </ng-container>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+  </div>
+</div>

@@ -221,22 +221,22 @@ services:
     restart: unless-stopped
     env_file: ./.env
     container_name: v3.1-front
-    build: ./projetrh-frontapp-V1.12
+    build: ./projetrh-frontapp-V1.14
     ports:
       - "$FRONT_LOCAL_PORT:$FRONT_DOCKER_PORT"
     depends_on:
       - mysql
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.projetrh-v3.rule=Host(`projetrh-v3.tjhannart.dev`)"
-      - "traefik.http.routers.projetrh-v3.entrypoints=websecure"
-      - "traefik.http.routers.projetrh-v3.tls=true"
-      - "traefik.http.routers.projetrh-v3.tls.certresolver=letsencryptresolver"
-      - "traefik.http.services.projetrh-v3.loadbalancer.server.port=$FRONT_LOCAL_PORT"
+      - "traefik.http.routers.projetrh.rule=Host(`projetrh.tjhannart.dev`)"
+      - "traefik.http.routers.projetrh.entrypoints=websecure"
+      - "traefik.http.routers.projetrh.tls=true"
+      - "traefik.http.routers.projetrh.tls.certresolver=letsencryptresolver"
+      - "traefik.http.services.projetrh.loadbalancer.server.port=$FRONT_DOCKER_PORT"
       - "traefik.docker.network=traefik-network"
     networks:
       - internal-app-network
-
+      - traefik-network
 
 #============================================
 
@@ -316,7 +316,6 @@ services:
       #https://github.com/wurstmeister/kafka-docker/issues/553
     networks:
       - internal-app-network
-      
 
 #============================================
 

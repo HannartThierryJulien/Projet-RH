@@ -5,6 +5,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.time.LocalDateTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -32,15 +33,9 @@ public class Test implements Serializable {
 	@Column(name = "label_test", nullable = false, length = 500)
 	String label;
 
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	@Column(name = "creation_date_test", nullable = false)
-	LocalDate creationDate;
-
-	@Column(name = "points_sum_test", nullable = false)
-	double pointsSum;
-
-	@Column(name = "time_limit_test", nullable = false)
-	LocalTime timeLimit;
+	
+	@Column(name = "created_at_test")
+	LocalDateTime createdAt;
 	
 	@Column(name = "archived_test", nullable = false)
 	boolean archived;
@@ -54,12 +49,10 @@ public class Test implements Serializable {
 	public Test() {
 	}
 
-	public Test(String label, LocalDate creationDate, double pointsSum, LocalTime timeLimit, boolean archived) {
+	public Test(String label, LocalDateTime createdAt, boolean archived) {
 		super();
 		this.label = label;
-		this.creationDate = creationDate;
-		this.pointsSum = pointsSum;
-		this.timeLimit = timeLimit;
+		this.createdAt = createdAt;
 		this.archived = archived;
 	}
 
@@ -79,28 +72,12 @@ public class Test implements Serializable {
 		this.label = label;
 	}
 
-	public LocalDate getCreationDate() {
-		return creationDate;
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreationDate(LocalDate creationDate) {
-		this.creationDate = creationDate;
-	}
-
-	public double getPointsSum() {
-		return pointsSum;
-	}
-
-	public void setPointsSum(double points) {
-		this.pointsSum = points;
-	}
-
-	public LocalTime getTimeLimit() {
-		return timeLimit;
-	}
-
-	public void setTimeLimit(LocalTime timeLimit) {
-		this.timeLimit = timeLimit;
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
 	}
 	
 	public boolean isArchived() {
@@ -111,17 +88,17 @@ public class Test implements Serializable {
 		this.archived = archived;
 	}
 
-	public void addTimeToTimeLimit(LocalTime additionalTime) {
+	/*public void addTimeToTimeLimit(LocalTime additionalTime) {
 
 		Duration timeSum = Duration.between(LocalTime.MIN, additionalTime)
-				.plus(Duration.between(LocalTime.MIN, this.timeLimit));
-		this.timeLimit = LocalTime.MIN.plus(timeSum);
+				.plus(Duration.between(LocalTime.MIN, this.maxDurationInSeconds));
+		this.maxDurationInSeconds = LocalTime.MIN.plus(timeSum);
 	}
 
 	public void subtractTimeFromTimeLimit(LocalTime subtractionTime) {
-		Duration timeDifference = Duration.between(LocalTime.MIN, this.timeLimit)
+		Duration timeDifference = Duration.between(LocalTime.MIN, this.maxDurationInSeconds)
 				.minus(Duration.between(LocalTime.MIN, subtractionTime));
-		this.timeLimit = LocalTime.MIN.plus(timeDifference);
-	}
+		this.maxDurationInSeconds = LocalTime.MIN.plus(timeDifference);
+	}*/
 
 }

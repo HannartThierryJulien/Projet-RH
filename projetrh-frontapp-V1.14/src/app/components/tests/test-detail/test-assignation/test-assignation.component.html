@@ -1,0 +1,130 @@
+<div class="d-flex justify-content-end align-items-center m-2">
+  <button
+    class="rounded-pill mx-1"
+    [disabled]="test.archived"
+    (click)="onAssignToCandidates()"
+    mat-stroked-button
+    color="primary">
+    {{ "Assign to candidates" | translate }}
+  </button>
+  <button color="primary" mat-icon-button [matTooltip]="'Search' | translate"
+          [matTooltipShowDelay]="1000"
+          (click)="onSearch()">
+    <mat-icon><span class="material-symbols-outlined"> search </span></mat-icon>
+  </button>
+</div>
+
+<ng-container *ngIf="isSearching">
+  <mat-form-field class="w-100">
+    <mat-label>{{ "Search" | translate }}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" [(ngModel)]="searchInput">
+  </mat-form-field>
+</ng-container>
+<table mat-table [dataSource]="dataSource" matSort>
+
+  <ng-container matColumnDef="lastname">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "Last name" | translate }}</th>
+    <td mat-cell *matCellDef="let candidateTest"> {{ candidateTest.candidate.person.lastName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="firstname">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "First name" | translate }}</th>
+    <td mat-cell *matCellDef="let candidateTest"> {{ candidateTest.candidate.person.firstName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="assignedAt">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "Assigned" | translate }}</th>
+    <td mat-cell *matCellDef="let candidateTest">
+      {{ candidateTest.assignedAt | date: 'dd/MM/yy' }} {{ candidateTest.assignedAt | date: 'HH:mm:ss' }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="startedAt">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "Started" | translate }}</th>
+    <td mat-cell *matCellDef="let candidateTest">
+      {{ candidateTest.startedAt | date: 'dd/MM/yy' }} {{ candidateTest.startedAt | date: 'HH:mm:ss' }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="endedAt">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "Ended" | translate }}</th>
+    <td mat-cell *matCellDef="let candidateTest">
+      {{ candidateTest.endedAt | date: 'dd/MM/yy' }} {{ candidateTest.endedAt | date: 'HH:mm:ss' }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="duration">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "Duration" | translate }}</th>
+    <td mat-cell
+        *matCellDef="let candidateTest"> {{ countdownService.calculateDurationInSeconds(candidateTest.startedAt, candidateTest.endedAt) | secondsToTimeString }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="score">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "Score" | translate }}</th>
+    <td mat-cell
+        *matCellDef="let candidateTest"> {{ (candidateTest.score / testPointsSum * 100) | number:'1.0-2' }}%
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "Status" | translate }}</th>
+    <td mat-cell *matCellDef="let candidateTest">
+      <span class="status-dot" [ngClass]="'dot-' + candidateTest.status"></span>
+      {{ candidateTest.status | translate }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>{{ "Actions" | translate }}</th>
+    <td mat-cell *matCellDef="let candidateTest;">
+      <div class="d-flex">
+        <ng-container *ngIf="candidateTest.status == 'assigned'">
+          <button mat-icon-button
+                  color="warn"
+                  [matTooltip]="'Delete' | translate"
+                  [matTooltipShowDelay]="1000"
+                  (click)="openDeleteDialog(candidateTest.id, '0ms', '0ms')"
+                  *ngIf="!candidateTest.endedAt">
+            <span class="material-symbols-outlined"> delete </span>
+          </button>
+        </ng-container>
+        <ng-container *ngIf="candidateTest.status == 'assigned'">
+          <button
+            mat-icon-button
+            color="primary"
+            [matTooltip]="'Copy link' | translate"
+            [matTooltipShowDelay]="1000"
+            (cdkCopyToClipboardCopied)="onCopyLink()"
+            [cdkCopyToClipboard]="location.origin+ '/tests/' + candidateTest.id + '/take'">
+            <span class="material-symbols-outlined"> link </span>
+          </button>
+        </ng-container>
+        <ng-container *ngIf="candidateTest.status == 'ended'">
+          <a [routerLink]="'/results/' + candidateTest.id" class="unstyled-link">
+            <button
+              mat-icon-button
+              color="primary"
+              [matTooltip]="'Results' | translate"
+              [matTooltipShowDelay]="1000">
+              <span class="material-symbols-outlined"> description </span>
+            </button>
+          </a>
+        </ng-container>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{ searchInput }}"</td>
+  </tr>
+</table>
+
+<mat-paginator [pageSize]="pageSize"
+               [style]="dataSource.data.length<=pageSize ? 'display: none' : ''"
+               [pageSizeOptions]="pageSizeOptions">
+</mat-paginator>

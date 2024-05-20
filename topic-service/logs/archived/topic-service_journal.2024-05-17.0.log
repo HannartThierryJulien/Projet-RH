@@ -1,0 +1,84 @@
+2024-05-17T17:30:20.259+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.topicservice.TopicServiceApplicationTests]: TopicServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-17T17:30:20.374+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.topicservice.TopicServiceApplication for test class htj.topicservice.TopicServiceApplicationTests
+2024-05-17T17:30:20.742+02:00 INFO  [main] h.t.TopicServiceApplicationTests - Starting TopicServiceApplicationTests using Java 17.0.3 with PID 19928 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\topic-service)
+2024-05-17T17:30:20.743+02:00 INFO  [main] h.t.TopicServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-05-17T17:30:21.302+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-17T17:30:21.365+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 1 JPA repository interface.
+2024-05-17T17:30:21.755+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-17T17:30:21.812+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-05-17T17:30:21.847+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-17T17:30:22.136+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-17T17:30:22.164+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-05-17T17:30:22.482+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c69e1e1
+2024-05-17T17:30:22.484+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-17T17:30:22.533+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-17T17:30:23.638+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-17T17:30:23.796+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-17T17:30:24.328+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-17T17:30:24.639+02:00 INFO  [main] h.t.TopicServiceApplicationTests - Started TopicServiceApplicationTests in 4.126 seconds (process running for 5.215)
+2024-05-17T17:30:25.223+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-17T17:30:25.225+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-17T17:30:25.240+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-17T20:17:29.155+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.topicservice.TopicServiceApplicationTests]: TopicServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-17T20:17:29.296+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.topicservice.TopicServiceApplication for test class htj.topicservice.TopicServiceApplicationTests
+2024-05-17T20:17:29.685+02:00 INFO  [main] h.t.TopicServiceApplicationTests - Starting TopicServiceApplicationTests using Java 17.0.3 with PID 2776 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\topic-service)
+2024-05-17T20:17:29.687+02:00 INFO  [main] h.t.TopicServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-05-17T20:17:30.286+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-17T20:17:30.357+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 1 JPA repository interface.
+2024-05-17T20:17:30.767+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-17T20:17:30.827+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-05-17T20:17:30.868+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-17T20:17:31.176+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-17T20:17:31.203+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-05-17T20:17:31.526+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e5b33e5
+2024-05-17T20:17:31.529+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-17T20:17:31.577+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-17T20:17:32.622+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-17T20:17:32.775+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-17T20:17:33.358+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-17T20:17:33.678+02:00 INFO  [main] h.t.TopicServiceApplicationTests - Started TopicServiceApplicationTests in 4.228 seconds (process running for 5.351)
+2024-05-17T20:17:34.242+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-17T20:17:34.244+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-17T20:17:34.261+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-17T21:54:19.761+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.topicservice.TopicServiceApplicationTests]: TopicServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-17T21:54:19.869+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.topicservice.TopicServiceApplication for test class htj.topicservice.TopicServiceApplicationTests
+2024-05-17T21:54:20.246+02:00 INFO  [main] h.t.TopicServiceApplicationTests - Starting TopicServiceApplicationTests using Java 17.0.3 with PID 1568 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\topic-service)
+2024-05-17T21:54:20.247+02:00 INFO  [main] h.t.TopicServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-05-17T21:54:20.856+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-17T21:54:20.920+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
+2024-05-17T21:54:21.321+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-17T21:54:21.388+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-05-17T21:54:21.429+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-17T21:54:21.697+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-17T21:54:21.727+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-05-17T21:54:22.045+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6d35ff7b
+2024-05-17T21:54:22.047+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-17T21:54:22.104+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-17T21:54:23.164+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-17T21:54:23.312+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-17T21:54:23.835+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-17T21:54:24.139+02:00 INFO  [main] h.t.TopicServiceApplicationTests - Started TopicServiceApplicationTests in 4.121 seconds (process running for 5.188)
+2024-05-17T21:54:24.693+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-17T21:54:24.696+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-17T21:54:24.712+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-17T22:13:40.680+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.topicservice.TopicServiceApplicationTests]: TopicServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-17T22:13:40.785+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.topicservice.TopicServiceApplication for test class htj.topicservice.TopicServiceApplicationTests
+2024-05-17T22:13:41.171+02:00 INFO  [main] h.t.TopicServiceApplicationTests - Starting TopicServiceApplicationTests using Java 17.0.3 with PID 9436 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\topic-service)
+2024-05-17T22:13:41.171+02:00 INFO  [main] h.t.TopicServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-05-17T22:13:41.804+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-17T22:13:41.869+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 1 JPA repository interface.
+2024-05-17T22:13:42.287+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-17T22:13:42.346+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-05-17T22:13:42.384+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-17T22:13:42.685+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-17T22:13:42.711+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-05-17T22:13:43.033+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ef31221
+2024-05-17T22:13:43.035+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-17T22:13:43.086+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-17T22:13:44.171+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-17T22:13:44.319+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-17T22:13:44.908+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-17T22:13:45.272+02:00 INFO  [main] h.t.TopicServiceApplicationTests - Started TopicServiceApplicationTests in 4.338 seconds (process running for 5.434)
+2024-05-17T22:13:45.963+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-17T22:13:45.965+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-17T22:13:45.984+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

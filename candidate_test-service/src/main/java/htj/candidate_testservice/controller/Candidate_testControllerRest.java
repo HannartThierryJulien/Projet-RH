@@ -1,8 +1,6 @@
 package htj.candidate_testservice.controller;
 
 import java.nio.file.AccessDeniedException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -111,38 +109,15 @@ public class Candidate_testControllerRest {
 		}
 	}
 
-	@GetMapping("/{candidate_testId}/completed")
-	public ResponseEntity<ResponseWrapper<Object>> setCandidateTestCompleted(
-			@RequestHeader("Authorization") String authorizationHeader, @PathVariable int candidate_testId) {
-		try {
-			tokenValidator.validateAuthorizationHeader(authorizationHeader);
-
-			Candidate_test candidateTest = candidate_testServ.getById(candidate_testId);
-			if (candidateTest == null) {
-				logger.error("ERROR : Candidate_test not found.");
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-			}
-
-			candidateTest.setCompletionDate(LocalDate.now());
-			candidate_testServ.update(candidateTest);
-			logger.info("Updated completionDate attribute of Candidate_test.");
-			return ResponseEntity
-					.ok(new ResponseWrapper<>(null, "Updated completionDate attribute of Candidate_test."));
-		} catch (AccessDeniedException e) {
-			return exceptionHandler.handleAccessDeniedException(e);
-		} catch (Exception e) {
-			return exceptionHandler.handleInternalServerError(e);
-		}
-	}
-
 	@PostMapping
 	@ResponseBody
 	public ResponseEntity<ResponseWrapper<Candidate_test>> addCandidate_test(
 			@RequestHeader(AUTH_HEADER) String authorizationHeader, @RequestBody Candidate_test candidate_test) {
 		try {
 			tokenValidator.validateAuthorizationHeader(authorizationHeader);
-
+			System.out.println("candidate_test.assignedAt = " + candidate_test.getAssignedAt());
 			Candidate_test addedCandidate_test = candidate_testServ.add(candidate_test);
+			System.out.println("addedCandidate_test.assignedAt = " + addedCandidate_test.getAssignedAt());
 			logger.info(MSG_ADD_SUCCESS);
 			return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseWrapper<>(addedCandidate_test, null));
 		} catch (AccessDeniedException e) {

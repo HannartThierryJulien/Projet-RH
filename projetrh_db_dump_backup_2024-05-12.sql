@@ -57,6 +57,9 @@ CREATE TABLE `candidate` (
   `mail_candidate` varchar(50) NOT NULL,
   `password_candidate` varchar(3000) NOT NULL,
   `fk_person` int DEFAULT NULL,
+  `birth_date_candidate` date DEFAULT NULL,
+  `phone_number_candidate` varchar(15) DEFAULT NULL,
+  `professional_profile_url_candidate` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_candidate`),
   KEY `FKk87qkxunki5wa1he5u8qpboo8` (`fk_person`),
   CONSTRAINT `FKk87qkxunki5wa1he5u8qpboo8` FOREIGN KEY (`fk_person`) REFERENCES `person` (`id_person`)
@@ -69,7 +72,7 @@ CREATE TABLE `candidate` (
 
 LOCK TABLES `candidate` WRITE;
 /*!40000 ALTER TABLE `candidate` DISABLE KEYS */;
-INSERT INTO `candidate` VALUES (1,_binary '\0','boblebrun@gmail.com','$2a$10$BUCqlAhYSmFZcQSG17NjjeGn9a5HEnuUoNYH.M55bfvsNJdUt7GBi',1),(2,_binary '\0','tjhannart@gmail.com','$2a$10$NEW3h/5olK8iAWfHZdlT/.4LDjQHc3np.gsTYFPU7qCth7WK7UP/K',2);
+INSERT INTO `candidate` VALUES (1,_binary '\0','boblebrun@gmail.com','$2a$10$BUCqlAhYSmFZcQSG17NjjeGn9a5HEnuUoNYH.M55bfvsNJdUt7GBi',1,NULL,NULL,NULL),(2,_binary '\0','tjhannart@gmail.com','$2a$10$NEW3h/5olK8iAWfHZdlT/.4LDjQHc3np.gsTYFPU7qCth7WK7UP/K',2,NULL,NULL,'www.linkedin.com/in/thierry-julien-hannart-76a113256');
 /*!40000 ALTER TABLE `candidate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -301,7 +304,7 @@ CREATE TABLE `test` (
   `creation_date_test` date NOT NULL,
   `label_test` varchar(500) NOT NULL,
   `points_sum_test` double NOT NULL,
-  `time_limit_test` time(6) NOT NULL,
+  `max_duration_in_seconds_test` time(6) NOT NULL,
   PRIMARY KEY (`id_test`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -352,4 +355,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-12 11:25:46
+-- Dump completed on 2024-05-12 12:52:18

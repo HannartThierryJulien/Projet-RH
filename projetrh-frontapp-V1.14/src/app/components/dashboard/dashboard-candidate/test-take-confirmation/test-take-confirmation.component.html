@@ -1,0 +1,26 @@
+<div class="m-2">
+  <h2 mat-dialog-title class="text-center m-0">{{ "test-take-confirmation.title" | translate }} </h2>
+
+  <mat-dialog-content class="my-2">
+    <br>
+    <p>{{ "test-take-confirmation.duration" | translate }} <b>{{ + testMaxDurationInSeconds | secondsToTimeString}}</b></p>
+    <p><b>{{ "test-take-confirmation.warning.text" | translate }}</b></p>
+    <ul>
+      <li>{{ "test-take-confirmation.warning.first" | translate }}</li>
+      <li>{{ "test-take-confirmation.warning.second" | translate }}</li>
+      <li>{{ "test-take-confirmation.warning.third" | translate }}</li>
+    </ul>
+    <br>
+    <p>{{ "test-take-confirmation.end-instruction" | translate }}</p>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-stroked-button class="rounded-pill" (click)="onClose()">{{ "Cancel" | translate }}</button>
+<!--    <button mat-flat-button color="primary" class="rounded-pill" (click)="onTakeTest()">{{ "Take" | translate }}</button>-->
+    <a mat-flat-button
+       [routerLink]="['/tests', data.id, 'take']"
+       class="rounded-pill"
+       (click)="onTakeTest()"
+       color="primary">{{ "Take" | translate }}</a>
+  </mat-dialog-actions>
+</div>

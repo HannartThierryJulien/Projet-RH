@@ -1,10 +1,12 @@
 package htj.candidate_testservice.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import org.hibernate.annotations.TimeZoneStorage;
+import org.hibernate.annotations.TimeZoneStorageType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,19 +28,21 @@ public class Candidate_test implements Serializable {
 	@Column(name = "id_candidate_test")
 	int id;
 
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	@Column(name = "assignation_date_candidate_test")
-	LocalDate assignationDate;
+	//JDBC maps OffsetDateTime class to the SQL standard type TIMESTAMP WITH TIME ZONE.
+	@Column(name = "assigned_at_candidate_test")
+	OffsetDateTime assignedAt;
+	
+	@Column(name = "started_at_candidate_test")
+	OffsetDateTime startedAt;
 
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	@Column(name = "completion_date_candidate_test")
-	LocalDate completionDate;
+	@Column(name = "ended_at_candidate_test")
+	OffsetDateTime endedAt;
 
-	@Column(name = "completion_time_candidate_test")
-	LocalTime completionTime;
+	@Column(name = "score_candidate_test")
+	double score;
 
-	@Column(name = "obtained_points_candidate_test")
-	double obtainedPoints;
+	@Column(name = "status_candidate_test", nullable = true, length = 50)
+	String status;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_candidate", referencedColumnName = "id_candidate")
@@ -51,67 +55,114 @@ public class Candidate_test implements Serializable {
 	public Candidate_test() {
 	}
 
-	public Candidate_test(LocalDate assignationDate, Candidate candidate, Test test) {
+
+	public Candidate_test(OffsetDateTime assignedAt, OffsetDateTime startedAt, OffsetDateTime endedAt,
+			double score, String status, Candidate candidate, Test test) {
 		super();
-		this.assignationDate = assignationDate;
+		this.assignedAt = assignedAt;
+		this.startedAt = startedAt;
+		this.endedAt = endedAt;
+		this.score = score;
+		this.status = status;
 		this.candidate = candidate;
 		this.test = test;
 	}
+
 
 	public int getId() {
 		return id;
 	}
 
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public LocalDate getAssignationDate() {
-		return assignationDate;
+
+
+	public OffsetDateTime getAssignedAt() {
+		return assignedAt;
 	}
 
-	public void setAssignationDate(LocalDate assignationDate) {
-		this.assignationDate = assignationDate;
+
+
+	public void setAssignedAt(OffsetDateTime assignedAt) {
+		this.assignedAt = assignedAt;
 	}
 
-	public LocalDate getCompletionDate() {
-		return completionDate;
+
+
+	public OffsetDateTime getStartedAt() {
+		return startedAt;
 	}
 
-	public void setCompletionDate(LocalDate completionDate) {
-		this.completionDate = completionDate;
+
+
+	public void setStartedAt(OffsetDateTime startedAt) {
+		this.startedAt = startedAt;
 	}
 
-	public LocalTime getCompletionTime() {
-		return completionTime;
+
+
+	public OffsetDateTime getEndedAt() {
+		return endedAt;
 	}
 
-	public void setCompletionTime(LocalTime completionTime) {
-		this.completionTime = completionTime;
+
+
+	public void setEndedAt(OffsetDateTime endedAt) {
+		this.endedAt = endedAt;
 	}
 
-	public double getObtainedPoints() {
-		return obtainedPoints;
+
+
+
+	public double getScore() {
+		return score;
 	}
 
-	public void setObtainedPoints(double obtainedPoints) {
-		this.obtainedPoints = obtainedPoints;
+
+
+	public void setScore(double score) {
+		this.score = score;
 	}
+
+
+	
+	public String getStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
 
 	public Candidate getCandidate() {
 		return candidate;
 	}
 
+
+
 	public void setCandidate(Candidate candidate) {
 		this.candidate = candidate;
 	}
+
+
 
 	public Test getTest() {
 		return test;
 	}
 
+
+
 	public void setTest(Test test) {
 		this.test = test;
 	}
 
+	
 }

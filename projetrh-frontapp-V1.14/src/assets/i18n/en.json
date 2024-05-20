@@ -1,0 +1,286 @@
+{
+  "Id": "Id",
+  "id": "id",
+  "Label": "Label",
+  "label": "label",
+  "Points total": "Total points",
+  "Points": "Points",
+  "points": "points",
+  "Points sum": "Total points",
+  "Time limit": "Time limit",
+  "Weight": "Weight",
+  "weight": "weight",
+  "Topics": "Topics",
+  "Topic": "Topic",
+  "topic": "tema",
+  "Questions": "Questions",
+  "Questionnaires": "Questionnaires",
+  "Questionnaire": "Questionnaire",
+  "questionnaire": "questionnaire",
+  "Tests": "Tests",
+  "tests": "tests",
+  "test": "test",
+  "Results": "Results",
+  "Switch to light mode": "Switch to light mode",
+  "Switch to night mode": "Switch to night mode",
+  "Translate": "Translate",
+  "English": "English",
+  "French": "French",
+  "Spanish": "Spanish",
+  "Logout": "Logout",
+  "Login": "Login",
+  "Register": "Register",
+  "to HR Project": "to HR Project",
+  "First name": "First name",
+  "Last name": "Last name",
+  "E-mail": "E-mail",
+  "Password": "Password",
+  "Remember me": "Remember me",
+  "Forgot password?": "Forgot password?",
+  "No account yet?": "No account yet?",
+  "Already an account?": "Already an account?",
+  "Select list": "Select list",
+  "Unarchived": {
+    "m": "Unarchived",
+    "f": "Unarchived",
+    "ms": "Unarchived",
+    "fs": "Unarchived"
+  },
+  "Archived": {
+    "m": "Archived",
+    "f": "Archived",
+    "ms": "Archived",
+    "fs": "Archived"
+  },
+  "Search": "Search",
+  "Search filters": "Search filters",
+  "Add question": "Add question",
+  "Refresh list": "Refresh list",
+  "Searching by ": "Searching by ",
+  "No": "No",
+  "Yes": "Yes",
+  "Linked": {
+    "answers": "Linked answers",
+    "questions": "Linked questions",
+    "questionnaires": "Linked questionnaires"
+  },
+  "Correct": "Correct",
+  "Incorrect": "Incorrect",
+  "Options": "Options",
+  "Edit": "Edit",
+  "Unarchive": "Unarchive",
+  "Archive": "Archive",
+  "Create": {
+    "answer": "Create an answer",
+    "question": "Create a question",
+    "questionnaire": "Create a questionnaire",
+    "topic": "Create a topic",
+    "test": "Create a test"
+  },
+  "Update": {
+    "question": "Update a question",
+    "questionnaire": "Update a questionnaire",
+    "topic": "Update a topic",
+    "test": "Update a test"
+  },
+  "Add answer": "Add an answer",
+  "Cancel": "Cancel",
+  "Close": "Close",
+  "btn_Create": "Create",
+  "btn_Update": "Update",
+  "btn_Assign": "Assign",
+  "Delete": "Delete",
+  "Refresh": "Refresh",
+  "Answer": "Answer",
+  "Are you sure you want to delete this question ?": "Are you sure you want to delete this question?",
+  "Deleting questions is a permanent and irreversible operation.": "Deleting questions is a permanent and irreversible operation.",
+  "error_msg_load_items": {
+    "answer": "Error loading answers.",
+    "question": "Error loading questions.",
+    "questionnaire": "Error loading questionnaires.",
+    "topic": "Error loading topics.",
+    "test": "Error loading tests.",
+    "candidate-test": "Error loading candidates assigned to the test.",
+    "question-test": "Error loading questions linked to the test."
+  },
+  "error_msg_load_item": {
+    "answer": "Error loading an answer.",
+    "question": "Error loading a question.",
+    "questionnaire": "Error loading a questionnaire.",
+    "topic": "Error loading a topic.",
+    "test": "Error loading a test."
+  },
+  "error_msg_refresh_items": {
+    "answer": "Error refreshing the list of answers.",
+    "question": "Error refreshing the list of questions.",
+    "questionnaire": "Error refreshing the list of questionnaires.",
+    "topic": "Error refreshing the list of topics.",
+    "test": "Error refreshing the list of tests."
+  },
+  "error_msg_add_item": {
+    "answer": "Error adding an answer.",
+    "question": "Error adding a question.",
+    "questionnaire": "Error adding a questionnaire.",
+    "topic": "Error adding a topic.",
+    "test": "Error adding a test."
+  },
+  "error_msg_edit_item": {
+    "answer": "Error editing an answer.",
+    "question": "Error editing a question.",
+    "questionnaire": "Error editing a questionnaire.",
+    "topic": "Error editing a topic.",
+    "test": "Error editing a test."
+  },
+  "errorMsg_testCompleted": "Error submitting the test form.",
+  "error_msg_delete_item": {
+    "answer": "Error deleting an answer.",
+    "question": "Error deleting a question.",
+    "questionnaire": "Error deleting a questionnaire.",
+    "topic": "Error deleting a topic.",
+    "test": "Error deleting a test."
+  },
+  "success_msg_refresh_items": {
+    "answer": "List of answers refreshed successfully.",
+    "question": "List of questions refreshed successfully.",
+    "questionnaire": "List of questionnaires refreshed successfully.",
+    "topic": "List of topics refreshed successfully.",
+    "test": "List of tests refreshed successfully."
+  },
+  "success_msg_add_item": {
+    "answer": "Answer added successfully.",
+    "question": "Question added successfully.",
+    "questionnaire": "Questionnaire added successfully.",
+    "topic": "Topic added successfully.",
+    "test": "Test added successfully.",
+    "candidate-test": "Test assigned successfully."
+  },
+  "success_msg_edit_item": {
+    "answer": "Answer updated successfully.",
+    "question": "Question updated successfully.",
+    "questionnaire": "Questionnaire updated successfully.",
+    "topic": "Topic updated successfully.",
+    "test": "Test updated successfully.",
+    "candidate": "Data updated successfully."
+  },
+  "success_msg_delete_item": {
+    "answer": "Answer deleted successfully.",
+    "question": "Question deleted successfully.",
+    "questionnaire": "Questionnaire deleted successfully.",
+    "topic": "Topic deleted successfully.",
+    "test": "Test deleted successfully."
+  },
+  "Connection error: Unable to reach the server.": "Connection error: Unable to reach the server.",
+  "Bad request.": "Bad request.",
+  "Unauthorized.": "Unauthorized.",
+  "Item not found.": "Item not found.",
+  "Conflict.": "Conflict.",
+  "Internal server error.": "Internal server error.",
+  "Select": {
+    "question": "Please select a question.",
+    "questionnaire": "Please select a questionnaire.",
+    "topic": "Please select a topic.",
+    "test": "Please select a test."
+  },
+  "dialog-delete": {
+    "title": {
+      "question": "Are you sure you want to delete this question?",
+      "questionnaire": "Are you sure you want to delete this questionnaire?",
+      "topic": "Are you sure you want to delete this topic?",
+      "test": "Are you sure you want to delete this test?",
+      "candidate-test": "Are you sure you want to delete this assignment?"
+    },
+    "note": {
+      "question": "Deleting questions is a permanent and irreversible operation.",
+      "questionnaire": "Deleting questionnaires is a permanent and irreversible operation.",
+      "topic": "Deleting topics is a permanent and irreversible operation.",
+      "test": "Deleting tests is a permanent and irreversible operation.",
+      "candidate-test": "Deleting assignments is a permanent and irreversible operation."
+    }
+  },
+  "Link copied !": "Link copied!",
+  "Disconnection prohibited.": "Disconnection prohibited.",
+  "Not provided": "Not provided",
+  "Mail": "Mail",
+  "Birth date": "Birth date",
+  "Phone number": "Phone number",
+  "Professional profile url": "Professional profile url",
+  "Details": "Details",
+  "Assignation": "Assignation",
+  "Duplicate test": "Duplicate test",
+  "Manage questions": "Manage questions",
+  "New question": "New question",
+  "Language applied successfully": {
+    "en": "English applied successfully.",
+    "fr": "French applied successfully.",
+    "es": "Spanish applied successfully."
+  },
+  "Error applying language": {
+    "en": "Error applying English.",
+    "fr": "Error applying French.",
+    "es": "Error applying Spanish."
+  },
+  "Actions": "Actions",
+  "Added questions": "Added questions",
+  "Assignation date": "Assignation date",
+  "Completion date": "Completion date",
+  "Completion time": "Completion time",
+  "Score": "Score",
+  "Assign to candidates": "Assign to candidates",
+  "Copy link": "Copy link",
+  "Duration": "Duration",
+  "There is no test to display at the moment.": "There is no test to display at the moment.",
+  "Assigned": "Assigned",
+  "Assigned on": "Assigned on",
+  "Started": "Started",
+  "Ended": "Ended",
+  "Dashboard": "Dashboard",
+  "Tests to take": "Tests to take",
+  "Tests taken": "Tests taken",
+  "My profile": "My profile",
+  "There is no test to take at the moment.": "There is no test to take at the moment.",
+  "No test have been taken at this time.": "No test have been taken at this time.",
+  "Creation date": "Creation date",
+  "Assignment": "Assignment",
+  "Statistics": "Statistics",
+  "Status": "Status",
+  "assigned": "assigned",
+  "started": "started",
+  "ended": "ended",
+  "fraudSuspicion": "Fraud suspicion",
+  "chart": {
+    "testStatus": {
+      "title": "Number of tests by status"
+    },
+    "averageQuestionsResults": {
+      "title": "Average results obtained per question",
+      "tooltip": " Average score: "
+    }
+  },
+  "Feedback & Support": "Feedback & Support",
+  "dashboard-candidate": {
+    "feedback": {
+      "txt": "Your feedback matters!",
+      "btn": "Give feedback"
+    },
+    "support": {
+      "txt": "Encountered an issue? Let me know!",
+      "btn": "Report an issue"
+    }
+  },
+  "Created on": "Created on",
+  "test-take-confirmation": {
+    "title": "General Information",
+    "duration": "This test has a duration of",
+    "warning": {
+      "text": "This test will be canceled without the possibility of resuming it:",
+      "first": "If you close, exit, or refresh the window.",
+      "second": "If you change tabs or windows.",
+      "third": "If you leave the test page in any other way."
+    },
+    "end-instruction": "If you are ready to take this test, press 'Take'."
+  },
+  "Take": "Take",
+  "Maximum score": "Maximum score",
+  "Duplicate test to add new question.": "Duplicate test to add new question.",
+  "Duplicate test to manage questions.": "Duplicate test to manage questions."
+}

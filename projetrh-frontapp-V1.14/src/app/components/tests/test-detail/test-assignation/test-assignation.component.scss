@@ -1,0 +1,23 @@
+.status-dot {
+  display: inline-block;
+  width: 10px; /* Ajustez la taille selon vos préférences */
+  height: 10px; /* Ajustez la taille selon vos préférences */
+  border-radius: 50%; /* Pour un rond */
+  margin-right: 5px; /* Ajustez la marge entre le point et le texte */
+}
+
+.dot-assigned {
+  background-color: #70A1D7 !important;
+}
+
+.dot-started {
+  background-color: #FFC55A !important;
+}
+
+.dot-ended {
+  background-color: #A1DE93 !important;
+}
+
+.dot-fraudSuspicion {
+  background-color: #F47C7C !important;
+}

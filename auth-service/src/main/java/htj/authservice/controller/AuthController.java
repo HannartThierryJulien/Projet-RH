@@ -58,7 +58,7 @@ public class AuthController {
 	        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already exists");
 	    }
 	    
-	    Person newPerson = new Person(lastname, firstname, "", true);
+	    Person newPerson = new Person(lastname, firstname, "", false);
 	    try {
 	    	persServ.addPerson(newPerson);
 	    } catch (IOException ie) {
@@ -66,7 +66,7 @@ public class AuthController {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 	    }
 	    
-	    Candidate newCandidate = new Candidate(username, password, null, null, null, true, newPerson);
+	    Candidate newCandidate = new Candidate(username, password, null, null, null, false, newPerson);
 	    try {
 	    	candidateServ.addCandidate(newCandidate);
 	    	userRole = "candidate";

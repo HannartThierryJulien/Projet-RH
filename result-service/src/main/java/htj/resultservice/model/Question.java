@@ -35,8 +35,8 @@ public class Question implements Serializable {
 	@Column(name = "weight_question", nullable = false)
 	int weight;
 
-	@Column(name = "timeLimit_question", nullable = false)
-	LocalTime timeLimit;
+	@Column(name = "max_duration_in_seconds_question", nullable = false)
+	int maxDurationInSeconds;
 
 	@Column(name = "archived_question", nullable = false)
 	boolean archived;
@@ -58,23 +58,23 @@ public class Question implements Serializable {
 	public Question() {
 	}
 
-	public Question(String label, double points, int weight, LocalTime timeLimit, boolean archived, Topic topic, Questionnaire questionnaire) {
+	public Question(String label, double points, int weight, int maxDurationInSeconds, boolean archived, Topic topic, Questionnaire questionnaire) {
 		super();
 		this.label = label;
 		this.points = points;
 		this.weight = weight;
-		this.timeLimit = timeLimit;
+		this.maxDurationInSeconds = maxDurationInSeconds;
 		this.archived = archived;
 		this.topic = topic;
 		this.questionnaire = questionnaire;
 	}
 	
-	public Question(String label, double points, int weight, LocalTime timeLimit, boolean archived, Topic topic) {
+	public Question(String label, double points, int weight, int maxDurationInSeconds, boolean archived, Topic topic) {
 		super();
 		this.label = label;
 		this.points = points;
 		this.weight = weight;
-		this.timeLimit = timeLimit;
+		this.maxDurationInSeconds = maxDurationInSeconds;
 		this.archived = archived;
 		this.topic = topic;
 	}
@@ -111,12 +111,12 @@ public class Question implements Serializable {
 		this.weight = weight;
 	}
 
-	public LocalTime getTimeLimit() {
-		return timeLimit;
+	public int getMaxDurationInSeconds() {
+		return maxDurationInSeconds;
 	}
 
-	public void setTimeLimit(LocalTime timeLimit) {
-		this.timeLimit = timeLimit;
+	public void setMaxDurationInSeconds(int maxDurationInSeconds) {
+		this.maxDurationInSeconds = maxDurationInSeconds;
 	}
 
 	public boolean isArchived() {

@@ -1,0 +1,116 @@
+<ng-container *ngIf="question$ | async as question">
+  <mat-card>
+    <mat-card-header>
+      <div class="d-flex justify-content-between w-100">
+        <div>
+          <mat-card-title>
+            <h4 class="m-0">{{ question.label }}</h4>
+          </mat-card-title>
+          <mat-card-subtitle>id {{ question.id }}</mat-card-subtitle>
+        </div>
+        <div>
+          <button mat-icon-button
+                  [matMenuTriggerFor]="menu"
+                  color="primary"
+                  [matTooltip]="'Options' | translate"
+                  [matTooltipShowDelay]="1000">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <ng-container *ngIf="answers">
+              <div mat-menu-item (click)="openEditDialog(question, answers,'0ms', '0ms')">
+                <mat-icon><span class="material-symbols-outlined">edit</span></mat-icon>
+                <p>{{ 'Edit' | translate }}</p>
+              </div>
+            </ng-container>
+            <div mat-menu-item (click)="openDeleteDialog('0ms', '0ms')">
+              <mat-icon color="warn"><span class="material-symbols-outlined">delete</span></mat-icon>
+              <p>{{ 'Delete' | translate }}</p>
+            </div>
+            <div mat-menu-item (click)="onChangeArchivedValue(question)">
+              <mat-icon><span
+                class="material-symbols-outlined">{{ question.archived ? 'unarchive' : 'archive' }}</span>
+              </mat-icon>
+              <p>{{ (question.archived ? 'Unarchive' : 'Archive') | translate }}</p>
+            </div>
+          </mat-menu>
+        </div>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <hr>
+      <div class="d-flex justify-content-around">
+        <div class="d-flex flex-column align-items-center">
+          <p class="mb-0">{{ 'Points' | translate }}</p>
+          <mat-chip>{{ question.points }}</mat-chip>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <p class="mb-0">{{ 'Weight' | translate }}</p>
+          <mat-chip>{{ question.weight }}</mat-chip>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <p class="mb-0">{{ 'Time limit' | translate }}</p>
+          <mat-chip>{{ question.maxDurationInSeconds | secondsToTimeString }}</mat-chip>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <p class="mb-0">{{ 'Archived.f' | translate }}</p>
+          <mat-chip>{{ (question.archived ? 'Yes' : 'No') | translate }}</mat-chip>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-around">
+        <div class="d-flex flex-column align-items-center">
+          <p class="mb-0">{{ 'Topic' | translate }}</p>
+          <a [routerLink]="['/topics', question.topic.id]">
+            <button mat-flat-button
+                    color="primary"
+                    class="rounded-pill">
+              {{ question.topic.label }}
+            </button>
+          </a>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <p class="mb-0">{{ 'Questionnaire' | translate }}</p>
+          <a [routerLink]="['/questionnaires', question.questionnaire.id]">
+            <button mat-flat-button
+                    color="primary"
+                    class="rounded-pill">
+              {{ question.questionnaire.label }}
+            </button>
+          </a>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+
+<mat-card class="my-3">
+  <mat-card-header>
+    <mat-card-title>
+      <h4 class="m-0">{{ 'Linked.answers' | translate }}</h4>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <hr>
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="right">
+        <td mat-cell *matCellDef="let answer" class="px-0">
+          <mat-chip class="mx-1"
+                    [class.chip-success]="answer.right">
+            {{ (answer.right ? 'Correct' : 'Incorrect') | translate }}
+          </mat-chip>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="label">
+        <td mat-cell *matCellDef="let answer" class="px-0 w-100">
+          <h3 class="m-2" style="font-weight: normal">{{ answer.label }}</h3>
+        </td>
+      </ng-container>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+    <mat-paginator [pageSize]="pageSize" hidePageSize
+                   [style]="dataSource.data.length<=pageSize ? 'display: none' : ''">
+    </mat-paginator>
+  </mat-card-content>
+</mat-card>
