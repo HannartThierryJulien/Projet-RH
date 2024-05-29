@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: htj.questionnaireservice.QuestionnaireServiceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.861 s -- in htj.questionnaireservice.QuestionnaireServiceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.475 s -- in htj.questionnaireservice.QuestionnaireServiceApplicationTests

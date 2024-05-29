@@ -4,37 +4,49 @@
       <ng-container *ngIf="candidateTest">
         <div class="row w-100 mb-2">
           <div class="col-6">
-            <h1 class="m-0">{{ candidateTest.test.label }}</h1>
-            <h1 class="m-0">{{ "Assigned on" | translate }} {{ candidateTest.assignedAt | date:'dd/MM/yy' }}</h1>
+            <h1 class="m-0">{{ candidateTest.test.label }} : {{ "Results" | translate }}</h1>
+            <h3 class="m-0">
+              {{ candidateTest.candidate.person.lastName | uppercase }} {{ candidateTest.candidate.person.firstName }}
+              ⋅
+              {{ "Assigned on" | translate }} {{ candidateTest.assignedAt | date:'dd/MM/yy' }}
+            </h3>
           </div>
           <div class="col-6 text-end">
-            <h1 class="m-0">{{ countdownService.calculateDurationInSeconds(candidateTest.startedAt, candidateTest.endedAt) | secondsToTimeString}} / {{ testMaxDurationInSeconds | secondsToTimeString}}</h1>
-            <h1 class="m-0">{{ candidateTest.score }} / {{ testPointsSum }}</h1>
+            <h1 class="m-0">{{ "Score" | translate }} : {{ ((candidateTest.score ?? 0) / testPointsSum * 100) | number:'1.2-2' }}%</h1>
+            <h3 class="m-0">
+              {{ countdownService.calculateDurationInSeconds(candidateTest.startedAt, candidateTest.endedAt) | secondsToTimeString }}
+              {{ "used out of" | translate }}
+              {{ testMaxDurationInSeconds | secondsToTimeString }}
+            </h3>
           </div>
         </div>
       </ng-container>
     </div>
-      <div style="height:70vh; overflow-y: scroll;">
-        <div *ngFor="let question of questions">
-          <mat-card class="m-2">
-            <mat-card-header>
-              <mat-card-title> {{ question.label }}</mat-card-title>
-              <mat-card-subtitle>Points : {{ question.points * question.weight }}</mat-card-subtitle>
+    <div style="height:75vh; overflow-y: scroll;">
+      @for (question of questions; track question) {
+        <mat-card class="m-2">
+          <mat-card-header>
+            <mat-card-title> {{ question.question.label }}</mat-card-title>
+            <mat-card-subtitle>Score : {{ question.score }}
+              / {{ question.question.points * question.question.weight }}
+            </mat-card-subtitle>
 
-            </mat-card-header>
-            <mat-card-content>
-              <hr>
-              <div *ngFor="let result of results">
-                <ng-container *ngIf="result.question.id == question.id">
-                  <mat-checkbox color="primary" [checked]="result.answerSelected" (click)="$event.preventDefault()">{{ result.answer.label }}</mat-checkbox>
-                  <ng-container *ngIf="result.answer.right">
-                    <mat-icon style="color: #83B090"><span class="material-symbols-outlined"> check </span></mat-icon>
-                  </ng-container>
+          </mat-card-header>
+          <mat-card-content>
+            <hr>
+            @for (result of question.results; track result) {
+              <div>
+                <mat-checkbox color="primary" [checked]="result.answerSelected"
+                              (click)="$event.preventDefault()">{{ result.answer.label }}
+                </mat-checkbox>
+                <ng-container *ngIf="result.answer.right">
+                  <mat-icon style="color: #83B090"><span class="material-symbols-outlined"> check </span></mat-icon>
                 </ng-container>
               </div>
-            </mat-card-content>
-          </mat-card>
-        </div>
-      </div>
+            }
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
   </div>
 </div>

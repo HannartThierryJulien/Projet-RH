@@ -13,6 +13,8 @@ import {TestTakeConfirmationComponent} from "./test-take-confirmation/test-take-
 import {CandidateEditComponent} from "./candidate-edit/candidate-edit.component";
 import {CountdownService} from "../../../services/countdown.service";
 import {TestService} from "../../../services/test.service";
+import {AuthAPIService} from "../../../services/API/authAPI.service";
+import {DialogDeleteComponent} from "../../shared/dialog-delete/dialog-delete.component";
 
 @Component({
   selector: 'app-dashboard-candidate',
@@ -23,6 +25,7 @@ export class DashboardCandidateComponent implements OnInit, OnDestroy {
   private candidateTestAPIService = inject(CandidateTestAPIService);
   private dialog = inject(MatDialog);
   countdownService = inject(CountdownService);
+  private authAPIService = inject(AuthAPIService);
 
   private unsubscribe$ = new Subject<void>();
   @Input() candidateSubject: BehaviorSubject<Candidate | HrManager | null> = new BehaviorSubject<Candidate | HrManager | null>(null);
@@ -31,7 +34,7 @@ export class DashboardCandidateComponent implements OnInit, OnDestroy {
   testsTaken: CandidateTest[] = [];
   testsToTakeTableColumns: string[] = ['label', 'assignationDate', 'actions'];
   testsToTakeTableSource: MatTableDataSource<CandidateTest> = new MatTableDataSource<CandidateTest>();
-  testsTakenTableColumns: string[] = ['label', 'assignedAt', 'duration'];
+  testsTakenTableColumns: string[] = ['label', 'assignedAt', 'duration', 'actions'];
   testsTakenTableSource: MatTableDataSource<CandidateTest> = new MatTableDataSource<CandidateTest>();
 
   ngOnInit() {
@@ -95,4 +98,38 @@ export class DashboardCandidateComponent implements OnInit, OnDestroy {
         }
       });
   }
+
+  /**
+   * Anonymize user from database
+   */
+  deleteUser(candidateId: number) {
+    this.authAPIService.anonymizeUser(candidateId)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(() => this.authAPIService.logout());
+  }
+
+  /**
+   * First, configure MatDialog settings for DialogDelete component.
+   * Second, open DialogDelete component.
+   * Finally, listen for response and cancel/confirm deleting action.
+   * @param enterAnimationDuration
+   * @param exitAnimationDuration
+   */
+  onDeleteDialog(candidate: Candidate, enterAnimationDuration?: string, exitAnimationDuration?: string) {
+    const dialogConfig = new MatDialogConfig();
+    let dataType = 'user';
+    let dataNote = ''; // Handled with json files of ngx-translate
+    dialogConfig.data = {dataType, dataNote};
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    // Check if returned value by DialogDelete component is true. If it is the case, execute @deleteQuestion()
+    const dialogRef = this.dialog.open(DialogDeleteComponent, dialogConfig);
+    dialogRef.afterClosed()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(
+        data => data ? this.deleteUser(candidate.id) : null
+      );
+  }
+
 }

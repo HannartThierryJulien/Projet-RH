@@ -1,4 +1,5 @@
 {
+  "HR Project": "RH Proyecto",
   "Id": "Id",
   "id": "id",
   "Label": "Etiqueta",
@@ -101,7 +102,9 @@
     "topic": "Error al cargar los temas.",
     "test": "Error al cargar los tests.",
     "candidate-test": "Error al cargar los candidatos asignados al test.",
-    "question-test": "Error al cargar las preguntas vinculadas al test."
+    "question-test": "Error al cargar las preguntas vinculadas al test.",
+    "result": "Error al cargar resultados."
+
   },
   "error_msg_load_item": {
     "answer": "Error al cargar una respuesta.",
@@ -139,6 +142,8 @@
     "topic": "Error al eliminar un tema.",
     "test": "Error al eliminar un test."
   },
+  "error_msg_anonymize_user": "Error al anonimizar al usuario.",
+  "success_msg_anonymize_user": "Usuario anonimizado exitosamente.",
   "success_msg_refresh_items": {
     "answer": "Lista de respuestas actualizada correctamente.",
     "question": "Lista de preguntas actualizada correctamente.",
@@ -187,14 +192,16 @@
       "questionnaire": "¿Estás seguro de que quieres eliminar este cuestionario?",
       "topic": "¿Estás seguro de que quieres eliminar este tema?",
       "test": "¿Estás seguro de que quieres eliminar este test?",
-      "candidate-test": "¿Estás seguro de que quieres eliminar esta asignación?"
+      "candidate-test": "¿Estás seguro de que quieres eliminar esta asignación?",
+      "user": "¿Estás seguro de que quieres eliminar tu cuenta?"
     },
     "note": {
       "question": "La eliminación de preguntas es una operación permanente e irreversible.",
       "questionnaire": "La eliminación de cuestionarios es una operación permanente e irreversible.",
       "topic": "La eliminación de temas es una operación permanente e irreversible.",
       "test": "La eliminación de tests es una operación permanente e irreversible.",
-      "candidate-test": "La eliminación de asignaciones es una operación permanente e irreversible."
+      "candidate-test": "La eliminación de asignaciones es una operación permanente e irreversible.",
+      "user": "Eliminar una cuenta es una operación permanente e irreversible."
     }
   },
   "Link copied !": "¡Enlace copiado!",
@@ -282,5 +289,10 @@
   "Take": "Realizar",
   "Maximum score": "Puntuación máxima",
   "Duplicate test to add new question.": "Duplica el test para agregar una nueva pregunta.",
-  "Duplicate test to manage questions.": "Duplica el test para gestionar las preguntas."
+  "Duplicate test to manage questions.": "Duplica el test para gestionar las preguntas.",
+  "Share results": "Compartir resultados",
+  "Results aren't shared.": "No se autoriza la consulta de los resultados de esta prueba.",
+  "You aren't authorized to consult this page.": "No estás autorizado a consultar esta página.",
+  "used out of": "usados de",
+  "Delete account": "Borrar cuenta"
 }

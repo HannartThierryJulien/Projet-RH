@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: htj.answerservice.AnswerServiceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.912 s -- in htj.answerservice.AnswerServiceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.284 s -- in htj.answerservice.AnswerServiceApplicationTests

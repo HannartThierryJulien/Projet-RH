@@ -10,13 +10,22 @@
         required
         maxlength="50">
     </mat-form-field>
-    <mat-form-field appearance="outline" class="w-100">
+<!--    <mat-form-field appearance="outline" class="w-100">-->
+<!--      <mat-label>{{ 'Birth date' | translate }}</mat-label>-->
+<!--      <input-->
+<!--        matInput-->
+<!--        type="date"-->
+<!--        formControlName="birthDate">-->
+<!--    </mat-form-field>-->
+    <mat-form-field>
       <mat-label>{{ 'Birth date' | translate }}</mat-label>
-      <input
-        matInput
-        type="date"
-        formControlName="birthDate">
+      <input matInput [matDatepicker]="picker" formControlName="birthDate">
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+
+
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>{{ 'Phone number' | translate }}</mat-label>
       <input

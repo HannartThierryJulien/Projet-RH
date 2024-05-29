@@ -10,6 +10,13 @@
             </div>
             <div>
               <button mat-icon-button
+                      color="warn"
+                      (click)="onDeleteDialog(candidate)"
+                      [matTooltip]="'Delete account' | translate"
+                      [matTooltipShowDelay]="1000">
+                <span class="material-symbols-outlined"> delete_forever </span>
+              </button>
+              <button mat-icon-button
                       color="primary"
                       (click)="onEditDialog(candidate)"
                       [matTooltip]="'Edit' | translate"
@@ -50,21 +57,21 @@
                    *ngIf="testsToTakeTableSource.data.length > 0; else noTestToTake">
               <ng-container matColumnDef="label">
                 <th mat-header-cell *matHeaderCellDef> {{ "Label" | translate }}</th>
-                <td mat-cell *matCellDef="let element"> {{ element.test.label }}</td>
+                <td mat-cell *matCellDef="let candidateTest"> {{ candidateTest.test.label }}</td>
               </ng-container>
 
               <ng-container matColumnDef="assignationDate">
-                <th mat-header-cell *matHeaderCellDef> Assignation date</th>
-                <td mat-cell *matCellDef="let element"> {{ element.assignedAt | date: 'dd/MM/yy' }}</td>
+                <th mat-header-cell *matHeaderCellDef>{{ "Assignation date" | translate }}</th>
+                <td mat-cell *matCellDef="let candidateTest"> {{ candidateTest.assignedAt | date: 'dd/MM/yy' }}</td>
               </ng-container>
 
               <ng-container matColumnDef="actions">
-                <th mat-header-cell *matHeaderCellDef>Actions</th>
-                <td mat-cell *matCellDef="let element;">
+                <th mat-header-cell *matHeaderCellDef>{{ "Actions" | translate }}</th>
+                <td mat-cell *matCellDef="let candidateTest;">
                   <button mat-stroked-button
                           class="rounded-pill"
                           type="button"
-                          (click)="onDisplayConfirmation(element)"
+                          (click)="onDisplayConfirmation(candidateTest)"
                           color="primary">{{ "Take" | translate }}
                   </button>
                 </td>
@@ -96,30 +103,37 @@
                    *ngIf="testsTakenTableSource.data.length > 0; else noTestTaken">
               <ng-container matColumnDef="label">
                 <th mat-header-cell *matHeaderCellDef>{{ "Label" | translate }}</th>
-                <td mat-cell *matCellDef="let element"> {{ element.test.label }}</td>
+                <td mat-cell *matCellDef="let candidateTest"> {{ candidateTest.test.label }}</td>
               </ng-container>
 
               <ng-container matColumnDef="assignedAt">
                 <th mat-header-cell *matHeaderCellDef>{{ "Assigned" | translate }}</th>
-                <td mat-cell *matCellDef="let element"> {{ element.assignedAt | date: 'dd/MM/yy' }}</td>
+                <td mat-cell *matCellDef="let candidateTest"> {{ candidateTest.assignedAt | date: 'dd/MM/yy' }}</td>
               </ng-container>
 
               <ng-container matColumnDef="duration">
                 <th mat-header-cell *matHeaderCellDef>{{ "Duration" | translate }}</th>
                 <td mat-cell
-                    *matCellDef="let element"> {{ countdownService.calculateDurationInSeconds(element.startedAt, element.endedAt) | secondsToTimeString }}
+                    *matCellDef="let candidateTest"> {{ countdownService.calculateDurationInSeconds(candidateTest.startedAt, candidateTest.endedAt) | secondsToTimeString }}
                 </td>
               </ng-container>
 
-              <!--              <ng-container matColumnDef="actions">-->
-              <!--                <th mat-header-cell *matHeaderCellDef>Actions</th>-->
-              <!--                <td mat-cell *matCellDef="let element;">-->
-              <!--                  <button mat-icon-button-->
-              <!--                          color="primary">-->
-              <!--                    <mat-icon>see</mat-icon>-->
-              <!--                  </button>-->
-              <!--                </td>-->
-              <!--              </ng-container>-->
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>{{ "Results" | translate }}</th>
+                <td mat-cell *matCellDef="let candidateTest;">
+                  <ng-container *ngIf="candidateTest.resultsShared == true">
+                    <a [routerLink]="'/results/' + candidateTest.id" class="unstyled-link">
+                      <button
+                        mat-icon-button
+                        color="primary"
+                        [matTooltip]="'Results' | translate"
+                        [matTooltipShowDelay]="1000">
+                        <span class="material-symbols-outlined"> description </span>
+                      </button>
+                    </a>
+                  </ng-container>
+                </td>
+              </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="testsTakenTableColumns"></tr>
               <tr mat-row *matRowDef="let row; columns: testsTakenTableColumns;"></tr>

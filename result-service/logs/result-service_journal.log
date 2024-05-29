@@ -1,403 +1,22 @@
-2024-05-19T12:13:48.490+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.resultservice.ResultServiceApplicationTests]: ResultServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-05-19T12:13:48.683+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.resultservice.ResultServiceApplication for test class htj.resultservice.ResultServiceApplicationTests
-2024-05-19T12:13:49.308+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Starting ResultServiceApplicationTests using Java 17.0.3 with PID 20916 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\result-service)
-2024-05-19T12:13:49.310+02:00 INFO  [main] h.r.ResultServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2024-05-19T12:13:50.327+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-19T12:13:50.428+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 81 ms. Found 1 JPA repository interface.
-2024-05-19T12:13:51.312+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-19T12:13:51.420+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
-2024-05-19T12:13:51.495+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-05-19T12:13:51.958+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-19T12:13:52.019+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
-2024-05-19T12:13:52.544+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e2975ca
-2024-05-19T12:13:52.550+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-2024-05-19T12:13:52.629+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-19T12:13:54.766+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-19T12:13:54.854+02:00 WARN  [main] o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "alter table questionnaire add column creation_at_questionnaire datetime(6) not null" via JDBC [Data truncation: Incorrect datetime value: '0000-00-00 00:00:00' for column 'creation_at_questionnaire' at row 1]
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table questionnaire add column creation_at_questionnaire datetime(6) not null" via JDBC [Data truncation: Incorrect datetime value: '0000-00-00 00:00:00' for column 'creation_at_questionnaire' at row 1]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:333)
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
-	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1442)
-	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:552)
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:247)
-	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
-	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
-	at java.base/java.util.Optional.orElseGet(Optional.java:364)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
-	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
-	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
-	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Incorrect datetime value: '0000-00-00 00:00:00' for column 'creation_at_questionnaire' at row 1
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
-	... 116 common frames omitted
-2024-05-19T12:13:54.865+02:00 WARN  [main] o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "alter table test add column creation_at_test datetime(6) not null" via JDBC [Data truncation: Incorrect datetime value: '0000-00-00 00:00:00' for column 'creation_at_test' at row 1]
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table test add column creation_at_test datetime(6) not null" via JDBC [Data truncation: Incorrect datetime value: '0000-00-00 00:00:00' for column 'creation_at_test' at row 1]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:333)
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
-	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1442)
-	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:552)
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:247)
-	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
-	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
-	at java.base/java.util.Optional.orElseGet(Optional.java:364)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
-	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
-	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
-	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Incorrect datetime value: '0000-00-00 00:00:00' for column 'creation_at_test' at row 1
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
-	... 116 common frames omitted
-2024-05-19T12:13:54.873+02:00 WARN  [main] o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "alter table topic add column creation_at_topic datetime(6) not null" via JDBC [Data truncation: Incorrect datetime value: '0000-00-00 00:00:00' for column 'creation_at_topic' at row 1]
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table topic add column creation_at_topic datetime(6) not null" via JDBC [Data truncation: Incorrect datetime value: '0000-00-00 00:00:00' for column 'creation_at_topic' at row 1]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:333)
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
-	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
-	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1442)
-	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:552)
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:247)
-	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
-	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
-	at java.base/java.util.Optional.orElseGet(Optional.java:364)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
-	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
-	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
-	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Incorrect datetime value: '0000-00-00 00:00:00' for column 'creation_at_topic' at row 1
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
-	... 116 common frames omitted
-2024-05-19T12:13:55.041+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-19T12:13:55.680+02:00 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-05-19T12:13:56.601+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-19T12:13:57.371+02:00 INFO  [main] o.a.k.c.c.ConsumerConfig - ConsumerConfig values: 
+2024-05-29T17:01:31.056+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.resultservice.ResultServiceApplicationTests]: ResultServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-29T17:01:31.158+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.resultservice.ResultServiceApplication for test class htj.resultservice.ResultServiceApplicationTests
+2024-05-29T17:01:31.569+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Starting ResultServiceApplicationTests using Java 17.0.3 with PID 2704 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.3\result-service)
+2024-05-29T17:01:31.571+02:00 INFO  [main] h.r.ResultServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-05-29T17:01:32.218+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-29T17:01:32.273+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 1 JPA repository interface.
+2024-05-29T17:01:32.738+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-29T17:01:32.809+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-05-29T17:01:32.840+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-29T17:01:33.120+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-29T17:01:33.150+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-05-29T17:01:33.462+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1f75fd1d
+2024-05-29T17:01:33.466+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-29T17:01:33.524+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-29T17:01:34.837+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-29T17:01:34.975+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-29T17:01:35.300+02:00 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-29T17:01:35.834+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-29T17:01:36.290+02:00 INFO  [main] o.a.k.c.c.ConsumerConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -491,55 +110,52 @@ Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: In
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2024-05-19T12:13:57.607+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka version: 3.6.0
-2024-05-19T12:13:57.607+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka commitId: 60e845626d8a465a
-2024-05-19T12:13:57.607+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka startTimeMs: 1716113637604
-2024-05-19T12:13:57.613+02:00 INFO  [main] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Subscribed to topic(s): results_add
-2024-05-19T12:13:57.634+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Started ResultServiceApplicationTests in 8.725 seconds (process running for 10.543)
-2024-05-19T12:13:58.036+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T12:13:58.039+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T12:13:58.039+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T12:13:58.138+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T12:13:58.138+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T12:13:58.139+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T12:13:58.309+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T12:13:58.309+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T12:13:58.310+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T12:13:58.543+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T12:13:58.544+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T12:13:58.544+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T12:13:58.942+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-05-19T12:13:58.942+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
-2024-05-19T12:13:58.943+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Unsubscribed all topics or patterns and assigned partitions
-2024-05-19T12:13:58.944+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-05-19T12:13:58.944+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
-2024-05-19T12:13:58.947+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics scheduler closed
-2024-05-19T12:13:58.947+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2024-05-19T12:13:58.947+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics reporters closed
-2024-05-19T12:13:58.951+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.u.AppInfoParser - App info kafka.consumer for consumer-my-group-1 unregistered
-2024-05-19T12:13:58.952+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - my-group: Consumer stopped
-2024-05-19T12:13:58.957+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-05-19T12:13:58.960+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2024-05-19T12:13:58.986+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-2024-05-19T12:47:10.405+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.resultservice.ResultServiceApplicationTests]: ResultServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-05-19T12:47:10.569+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.resultservice.ResultServiceApplication for test class htj.resultservice.ResultServiceApplicationTests
-2024-05-19T12:47:11.206+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Starting ResultServiceApplicationTests using Java 17.0.3 with PID 13028 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\result-service)
-2024-05-19T12:47:11.209+02:00 INFO  [main] h.r.ResultServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2024-05-19T12:47:12.248+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-19T12:47:12.350+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 84 ms. Found 1 JPA repository interface.
-2024-05-19T12:47:13.158+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-19T12:47:13.271+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
-2024-05-19T12:47:13.345+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-05-19T12:47:13.767+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-19T12:47:13.808+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
-2024-05-19T12:47:14.175+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@46591e98
-2024-05-19T12:47:14.179+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-2024-05-19T12:47:14.254+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-19T12:47:15.762+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-19T12:47:15.922+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-19T12:47:16.339+02:00 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-05-19T12:47:16.995+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-19T12:47:17.575+02:00 INFO  [main] o.a.k.c.c.ConsumerConfig - ConsumerConfig values: 
+2024-05-29T17:01:36.427+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka version: 3.6.0
+2024-05-29T17:01:36.428+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka commitId: 60e845626d8a465a
+2024-05-29T17:01:36.428+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka startTimeMs: 1716994896426
+2024-05-29T17:01:36.430+02:00 INFO  [main] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Subscribed to topic(s): results_add
+2024-05-29T17:01:36.443+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Started ResultServiceApplicationTests in 5.124 seconds (process running for 6.263)
+2024-05-29T17:01:36.697+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T17:01:36.699+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T17:01:36.699+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T17:01:36.812+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T17:01:36.813+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T17:01:36.813+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T17:01:36.923+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T17:01:36.923+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T17:01:36.923+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T17:01:37.036+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-05-29T17:01:37.037+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
+2024-05-29T17:01:37.037+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Unsubscribed all topics or patterns and assigned partitions
+2024-05-29T17:01:37.038+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-05-29T17:01:37.038+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
+2024-05-29T17:01:37.040+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics scheduler closed
+2024-05-29T17:01:37.040+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-05-29T17:01:37.040+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics reporters closed
+2024-05-29T17:01:37.043+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.u.AppInfoParser - App info kafka.consumer for consumer-my-group-1 unregistered
+2024-05-29T17:01:37.043+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - my-group: Consumer stopped
+2024-05-29T17:01:37.046+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-29T17:01:37.049+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-29T17:01:37.064+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-29T17:11:26.609+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.resultservice.ResultServiceApplicationTests]: ResultServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-29T17:11:26.706+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.resultservice.ResultServiceApplication for test class htj.resultservice.ResultServiceApplicationTests
+2024-05-29T17:11:27.109+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Starting ResultServiceApplicationTests using Java 17.0.3 with PID 1120 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.3\result-service)
+2024-05-29T17:11:27.110+02:00 INFO  [main] h.r.ResultServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-05-29T17:11:27.748+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-29T17:11:27.806+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
+2024-05-29T17:11:28.305+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-29T17:11:28.379+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-05-29T17:11:28.415+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-29T17:11:28.712+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-29T17:11:28.739+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-05-29T17:11:29.068+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@638d2ce3
+2024-05-29T17:11:29.071+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-29T17:11:29.123+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-29T17:11:30.374+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-29T17:11:30.517+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-29T17:11:30.874+02:00 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-29T17:11:31.426+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-29T17:11:31.865+02:00 INFO  [main] o.a.k.c.c.ConsumerConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -633,55 +249,52 @@ Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: In
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2024-05-19T12:47:17.727+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka version: 3.6.0
-2024-05-19T12:47:17.727+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka commitId: 60e845626d8a465a
-2024-05-19T12:47:17.727+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka startTimeMs: 1716115637726
-2024-05-19T12:47:17.729+02:00 INFO  [main] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Subscribed to topic(s): results_add
-2024-05-19T12:47:17.743+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Started ResultServiceApplicationTests in 6.934 seconds (process running for 8.692)
-2024-05-19T12:47:18.054+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T12:47:18.056+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T12:47:18.056+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T12:47:18.170+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T12:47:18.170+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T12:47:18.170+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T12:47:18.280+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T12:47:18.281+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T12:47:18.281+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T12:47:18.516+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T12:47:18.517+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T12:47:18.517+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T12:47:18.769+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-05-19T12:47:18.769+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
-2024-05-19T12:47:18.769+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Unsubscribed all topics or patterns and assigned partitions
-2024-05-19T12:47:18.770+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-05-19T12:47:18.770+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
-2024-05-19T12:47:18.772+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics scheduler closed
-2024-05-19T12:47:18.772+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2024-05-19T12:47:18.772+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics reporters closed
-2024-05-19T12:47:18.775+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.u.AppInfoParser - App info kafka.consumer for consumer-my-group-1 unregistered
-2024-05-19T12:47:18.775+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - my-group: Consumer stopped
-2024-05-19T12:47:18.778+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-05-19T12:47:18.780+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2024-05-19T12:47:18.797+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-2024-05-19T13:04:27.094+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.resultservice.ResultServiceApplicationTests]: ResultServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-05-19T13:04:27.192+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.resultservice.ResultServiceApplication for test class htj.resultservice.ResultServiceApplicationTests
-2024-05-19T13:04:27.575+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Starting ResultServiceApplicationTests using Java 17.0.3 with PID 17456 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\result-service)
-2024-05-19T13:04:27.576+02:00 INFO  [main] h.r.ResultServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2024-05-19T13:04:28.191+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-19T13:04:28.248+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 1 JPA repository interface.
-2024-05-19T13:04:28.716+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-19T13:04:28.783+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
-2024-05-19T13:04:28.816+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-05-19T13:04:29.071+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-19T13:04:29.099+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
-2024-05-19T13:04:29.401+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@616f81b5
-2024-05-19T13:04:29.403+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-2024-05-19T13:04:29.451+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-19T13:04:30.697+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-19T13:04:30.841+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-19T13:04:31.181+02:00 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-05-19T13:04:31.732+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-19T13:04:32.193+02:00 INFO  [main] o.a.k.c.c.ConsumerConfig - ConsumerConfig values: 
+2024-05-29T17:11:32.015+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka version: 3.6.0
+2024-05-29T17:11:32.015+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka commitId: 60e845626d8a465a
+2024-05-29T17:11:32.015+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka startTimeMs: 1716995492014
+2024-05-29T17:11:32.018+02:00 INFO  [main] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Subscribed to topic(s): results_add
+2024-05-29T17:11:32.032+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Started ResultServiceApplicationTests in 5.171 seconds (process running for 6.368)
+2024-05-29T17:11:32.316+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T17:11:32.317+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T17:11:32.318+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T17:11:32.431+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T17:11:32.432+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T17:11:32.432+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T17:11:32.602+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T17:11:32.602+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T17:11:32.602+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T17:11:32.638+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-05-29T17:11:32.639+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
+2024-05-29T17:11:32.639+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Unsubscribed all topics or patterns and assigned partitions
+2024-05-29T17:11:32.640+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-05-29T17:11:32.640+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
+2024-05-29T17:11:32.642+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics scheduler closed
+2024-05-29T17:11:32.642+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-05-29T17:11:32.643+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics reporters closed
+2024-05-29T17:11:32.645+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.u.AppInfoParser - App info kafka.consumer for consumer-my-group-1 unregistered
+2024-05-29T17:11:32.645+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - my-group: Consumer stopped
+2024-05-29T17:11:32.649+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-29T17:11:32.652+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-29T17:11:32.668+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-29T17:33:53.428+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.resultservice.ResultServiceApplicationTests]: ResultServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-29T17:33:53.538+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.resultservice.ResultServiceApplication for test class htj.resultservice.ResultServiceApplicationTests
+2024-05-29T17:33:53.925+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Starting ResultServiceApplicationTests using Java 17.0.3 with PID 22076 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.3\result-service)
+2024-05-29T17:33:53.926+02:00 INFO  [main] h.r.ResultServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-05-29T17:33:54.548+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-29T17:33:54.601+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 1 JPA repository interface.
+2024-05-29T17:33:55.074+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-29T17:33:55.139+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-05-29T17:33:55.173+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-29T17:33:55.464+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-29T17:33:55.494+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-05-29T17:33:55.822+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3b56947a
+2024-05-29T17:33:55.825+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-29T17:33:55.876+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-29T17:33:57.163+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-29T17:33:57.316+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-29T17:33:57.669+02:00 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-29T17:33:58.250+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-29T17:33:58.754+02:00 INFO  [main] o.a.k.c.c.ConsumerConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -775,52 +388,52 @@ Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: In
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2024-05-19T13:04:32.335+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka version: 3.6.0
-2024-05-19T13:04:32.335+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka commitId: 60e845626d8a465a
-2024-05-19T13:04:32.335+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka startTimeMs: 1716116672334
-2024-05-19T13:04:32.337+02:00 INFO  [main] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Subscribed to topic(s): results_add
-2024-05-19T13:04:32.351+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Started ResultServiceApplicationTests in 5.009 seconds (process running for 6.129)
-2024-05-19T13:04:32.607+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T13:04:32.609+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T13:04:32.609+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T13:04:32.712+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T13:04:32.712+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T13:04:32.713+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T13:04:32.822+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T13:04:32.823+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T13:04:32.823+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T13:04:32.991+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-05-19T13:04:32.992+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
-2024-05-19T13:04:32.992+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Unsubscribed all topics or patterns and assigned partitions
-2024-05-19T13:04:32.993+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-05-19T13:04:32.993+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
-2024-05-19T13:04:32.997+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics scheduler closed
-2024-05-19T13:04:32.997+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2024-05-19T13:04:32.998+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics reporters closed
-2024-05-19T13:04:33.001+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.u.AppInfoParser - App info kafka.consumer for consumer-my-group-1 unregistered
-2024-05-19T13:04:33.002+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - my-group: Consumer stopped
-2024-05-19T13:04:33.006+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-05-19T13:04:33.009+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2024-05-19T13:04:33.036+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-2024-05-19T13:30:57.905+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.resultservice.ResultServiceApplicationTests]: ResultServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-05-19T13:30:58.006+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.resultservice.ResultServiceApplication for test class htj.resultservice.ResultServiceApplicationTests
-2024-05-19T13:30:58.417+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Starting ResultServiceApplicationTests using Java 17.0.3 with PID 4456 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.1\result-service)
-2024-05-19T13:30:58.418+02:00 INFO  [main] h.r.ResultServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2024-05-19T13:30:59.069+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-19T13:30:59.131+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 1 JPA repository interface.
-2024-05-19T13:30:59.644+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-19T13:30:59.716+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
-2024-05-19T13:30:59.762+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-05-19T13:31:00.069+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-19T13:31:00.097+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
-2024-05-19T13:31:00.447+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@616f81b5
-2024-05-19T13:31:00.450+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-2024-05-19T13:31:00.500+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-19T13:31:01.706+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-19T13:31:01.846+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-19T13:31:02.198+02:00 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-05-19T13:31:02.718+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-19T13:31:03.143+02:00 INFO  [main] o.a.k.c.c.ConsumerConfig - ConsumerConfig values: 
+2024-05-29T17:33:58.895+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka version: 3.6.0
+2024-05-29T17:33:58.895+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka commitId: 60e845626d8a465a
+2024-05-29T17:33:58.895+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka startTimeMs: 1716996838894
+2024-05-29T17:33:58.898+02:00 INFO  [main] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Subscribed to topic(s): results_add
+2024-05-29T17:33:58.910+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Started ResultServiceApplicationTests in 5.218 seconds (process running for 6.315)
+2024-05-29T17:33:59.176+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T17:33:59.178+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T17:33:59.179+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T17:33:59.283+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T17:33:59.284+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T17:33:59.284+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T17:33:59.453+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T17:33:59.454+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T17:33:59.454+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T17:33:59.542+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-05-29T17:33:59.542+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
+2024-05-29T17:33:59.542+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Unsubscribed all topics or patterns and assigned partitions
+2024-05-29T17:33:59.543+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-05-29T17:33:59.543+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
+2024-05-29T17:33:59.547+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics scheduler closed
+2024-05-29T17:33:59.547+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-05-29T17:33:59.547+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics reporters closed
+2024-05-29T17:33:59.551+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.u.AppInfoParser - App info kafka.consumer for consumer-my-group-1 unregistered
+2024-05-29T17:33:59.551+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - my-group: Consumer stopped
+2024-05-29T17:33:59.554+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-29T17:33:59.556+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-29T17:33:59.580+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-29T20:31:52.370+02:00 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [htj.resultservice.ResultServiceApplicationTests]: ResultServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-29T20:31:52.493+02:00 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration htj.resultservice.ResultServiceApplication for test class htj.resultservice.ResultServiceApplicationTests
+2024-05-29T20:31:52.940+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Starting ResultServiceApplicationTests using Java 17.0.3 with PID 17600 (started by t-jon in C:\Users\t-jon\OneDrive - IEPSCF Marche-en-Famenne\Bac 4 - Info de gestion\Epreuve intégrée\mémoire - code\PROJETRH.V3.3\result-service)
+2024-05-29T20:31:52.942+02:00 INFO  [main] h.r.ResultServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-05-29T20:31:53.663+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-29T20:31:53.731+02:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
+2024-05-29T20:31:54.310+02:00 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-29T20:31:54.387+02:00 INFO  [main] o.h.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-05-29T20:31:54.434+02:00 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-29T20:31:54.761+02:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-29T20:31:54.794+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2024-05-29T20:31:55.234+02:00 INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@197d5a87
+2024-05-29T20:31:55.238+02:00 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-29T20:31:55.295+02:00 WARN  [main] o.h.o.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-29T20:31:56.822+02:00 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-29T20:31:57.003+02:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-29T20:31:57.408+02:00 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-29T20:31:57.987+02:00 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-29T20:31:58.500+02:00 INFO  [main] o.a.k.c.c.ConsumerConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -914,30 +527,30 @@ Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: In
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2024-05-19T13:31:03.280+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka version: 3.6.0
-2024-05-19T13:31:03.281+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka commitId: 60e845626d8a465a
-2024-05-19T13:31:03.281+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka startTimeMs: 1716118263279
-2024-05-19T13:31:03.283+02:00 INFO  [main] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Subscribed to topic(s): results_add
-2024-05-19T13:31:03.295+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Started ResultServiceApplicationTests in 5.147 seconds (process running for 6.267)
-2024-05-19T13:31:03.503+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T13:31:03.504+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T13:31:03.504+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T13:31:03.604+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T13:31:03.604+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T13:31:03.605+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T13:31:03.714+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
-2024-05-19T13:31:03.715+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-05-19T13:31:03.715+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-05-19T13:31:03.850+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-05-19T13:31:03.850+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
-2024-05-19T13:31:03.850+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Unsubscribed all topics or patterns and assigned partitions
-2024-05-19T13:31:03.851+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-05-19T13:31:03.851+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
-2024-05-19T13:31:03.853+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics scheduler closed
-2024-05-19T13:31:03.853+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2024-05-19T13:31:03.853+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics reporters closed
-2024-05-19T13:31:03.856+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.u.AppInfoParser - App info kafka.consumer for consumer-my-group-1 unregistered
-2024-05-19T13:31:03.856+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - my-group: Consumer stopped
-2024-05-19T13:31:03.859+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-05-19T13:31:03.861+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2024-05-19T13:31:03.878+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-29T20:31:58.652+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka version: 3.6.0
+2024-05-29T20:31:58.652+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka commitId: 60e845626d8a465a
+2024-05-29T20:31:58.652+02:00 INFO  [main] o.a.k.c.u.AppInfoParser - Kafka startTimeMs: 1717007518650
+2024-05-29T20:31:58.654+02:00 INFO  [main] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Subscribed to topic(s): results_add
+2024-05-29T20:31:58.669+02:00 INFO  [main] h.r.ResultServiceApplicationTests - Started ResultServiceApplicationTests in 6.006 seconds (process running for 7.307)
+2024-05-29T20:31:58.925+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T20:31:58.926+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T20:31:58.926+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T20:31:59.037+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T20:31:59.037+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T20:31:59.037+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T20:31:59.206+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Node -1 disconnected.
+2024-05-29T20:31:59.207+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-05-29T20:31:59.207+02:00 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-my-group-1, groupId=my-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-05-29T20:31:59.304+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-05-29T20:31:59.304+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
+2024-05-29T20:31:59.304+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-my-group-1, groupId=my-group] Unsubscribed all topics or patterns and assigned partitions
+2024-05-29T20:31:59.305+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-05-29T20:31:59.305+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-my-group-1, groupId=my-group] Request joining group due to: consumer pro-actively leaving the group
+2024-05-29T20:31:59.307+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics scheduler closed
+2024-05-29T20:31:59.307+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-05-29T20:31:59.307+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.m.Metrics - Metrics reporters closed
+2024-05-29T20:31:59.310+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.u.AppInfoParser - App info kafka.consumer for consumer-my-group-1 unregistered
+2024-05-29T20:31:59.310+02:00 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - my-group: Consumer stopped
+2024-05-29T20:31:59.313+02:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-29T20:31:59.315+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-29T20:31:59.334+02:00 INFO  [SpringApplicationShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

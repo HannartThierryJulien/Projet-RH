@@ -1,8 +1,7 @@
 package htj.answerservice.model;
 
 import java.io.Serializable;
-import java.time.Duration;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,15 +24,16 @@ public class Candidate_test implements Serializable {
 	int id;
 
 	@Column(name = "assigned_at_candidate_test")
-	LocalDateTime assignedAt;
+	OffsetDateTime assignedAt;
 	
 	@Column(name = "started_at_candidate_test")
-	LocalDateTime startedAt;
+	OffsetDateTime startedAt;
 
 	@Column(name = "ended_at_candidate_test")
-	LocalDateTime endedAt;
+	OffsetDateTime endedAt;
 
-	
+	@Column(name = "results_shared_candidate_test", nullable = false)
+	boolean resultsShared;
 
 	@Column(name = "score_candidate_test")
 	double score;
@@ -53,12 +53,13 @@ public class Candidate_test implements Serializable {
 	}
 
 
-	public Candidate_test(LocalDateTime assignedAt, LocalDateTime startedAt, LocalDateTime endedAt,
-			double score, String status, Candidate candidate, Test test) {
+	public Candidate_test(OffsetDateTime assignedAt, OffsetDateTime startedAt, OffsetDateTime endedAt,
+			boolean resultsShared, double score, String status, Candidate candidate, Test test) {
 		super();
 		this.assignedAt = assignedAt;
 		this.startedAt = startedAt;
 		this.endedAt = endedAt;
+		this.resultsShared = resultsShared;
 		this.score = score;
 		this.status = status;
 		this.candidate = candidate;
@@ -78,40 +79,51 @@ public class Candidate_test implements Serializable {
 
 
 
-	public LocalDateTime getAssignedAt() {
+	public OffsetDateTime getAssignedAt() {
 		return assignedAt;
 	}
 
 
 
-	public void setAssignedAt(LocalDateTime assignedAt) {
+	public void setAssignedAt(OffsetDateTime assignedAt) {
 		this.assignedAt = assignedAt;
 	}
 
 
 
-	public LocalDateTime getStartedAt() {
+	public OffsetDateTime getStartedAt() {
 		return startedAt;
 	}
 
 
 
-	public void setStartedAt(LocalDateTime startedAt) {
+	public void setStartedAt(OffsetDateTime startedAt) {
 		this.startedAt = startedAt;
 	}
 
 
 
-	public LocalDateTime getEndedAt() {
+	public OffsetDateTime getEndedAt() {
 		return endedAt;
 	}
 
 
 
-	public void setEndedAt(LocalDateTime endedAt) {
+	public void setEndedAt(OffsetDateTime endedAt) {
 		this.endedAt = endedAt;
 	}
 
+
+
+	public boolean isResultsShared() {
+		return resultsShared;
+	}
+
+
+
+	public void setResultsShared(boolean resultsShared) {
+		this.resultsShared = resultsShared;
+	}
 
 
 

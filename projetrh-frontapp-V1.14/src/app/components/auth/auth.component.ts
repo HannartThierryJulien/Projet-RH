@@ -50,7 +50,7 @@ export class AuthComponent implements OnDestroy {
     if (this.isLoginMode) {
       authObs = this.authAPIService.login(email, password);
     } else {
-      authObs = this.authAPIService.signup(lastname, firstname, email, password);
+      authObs = this.authAPIService.signup(lastname, firstname, email, password, new Date());
     }
 
     authObs

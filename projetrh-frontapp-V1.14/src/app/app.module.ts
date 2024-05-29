@@ -80,6 +80,8 @@ import { SecondsToTimeStringPipe } from './pipes/secondsToTimeString.pipe';
 import { ChartTestsStatusComponent } from './components/charts/chart-tests-status/chart-tests-status.component';
 import { ChartAverageQuestionsResultsComponent } from './components/charts/chart-average-questions-results/chart-average-questions-results.component';
 import {MatDivider} from "@angular/material/divider";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -190,6 +192,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatAnchor,
     ClipboardModule,
     MatDivider,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     provideAnimationsAsync(),
@@ -197,7 +201,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true
-    }
+    },
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ],
   bootstrap: [AppComponent]
 })

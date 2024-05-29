@@ -1,10 +1,7 @@
 package htj.answerservice.model;
 
 import java.io.Serializable;
-import java.time.LocalTime;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

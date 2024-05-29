@@ -1,6 +1,7 @@
 package htj.resultservice.model;
 
 import java.io.Serializable;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -35,6 +36,12 @@ public class Person implements Serializable {
 	@Column(name = "archived_person", nullable = false)
 	boolean archived;
 
+	@Column(name = "consent_given_at_person")
+	OffsetDateTime consentGivenAt;
+
+	@Column(name = "data_erasure_requested_at_person")
+	OffsetDateTime dataErasureRequestedAt;
+
 	@OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
 	private List<Candidate> candidatefk1;
 
@@ -45,12 +52,13 @@ public class Person implements Serializable {
 		super();
 	}
 
-	public Person(String lastName, String firstName, String description, boolean archived) {
+	public Person(String lastName, String firstName, String description, boolean archived, OffsetDateTime consentGivenAt) {
 		super();
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.description = description;
 		this.archived = archived;
+		this.consentGivenAt = consentGivenAt;
 	}
 
 	public int getId() {
@@ -91,6 +99,22 @@ public class Person implements Serializable {
 
 	public void setArchived(boolean archived) {
 		this.archived = archived;
+	}
+
+	public OffsetDateTime getConsentGivenAt() {
+		return consentGivenAt;
+	}
+
+	public void setConsentGivenAt(OffsetDateTime consentGivenAt) {
+		this.consentGivenAt = consentGivenAt;
+	}
+
+	public OffsetDateTime getDataErasureRequestedAt() {
+		return dataErasureRequestedAt;
+	}
+
+	public void setDataErasureRequestedAt(OffsetDateTime dataErasureRequestedAt) {
+		this.dataErasureRequestedAt = dataErasureRequestedAt;
 	}
 
 }

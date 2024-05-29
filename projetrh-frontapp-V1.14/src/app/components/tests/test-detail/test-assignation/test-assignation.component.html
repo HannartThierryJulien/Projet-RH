@@ -110,6 +110,14 @@
               <span class="material-symbols-outlined"> description </span>
             </button>
           </a>
+          <button
+            mat-icon-button
+            [color]="candidateTest.resultsShared ? 'primary' : ''"
+            (click)="shareCandidateTestResults(candidateTest)"
+            [matTooltip]="'Share results' | translate"
+            [matTooltipShowDelay]="1000">
+            <span class="material-symbols-outlined"> {{ candidateTest.resultsShared ? 'visibility' : 'visibility_off'}} </span>
+          </button>
         </ng-container>
       </div>
     </td>

@@ -1,4 +1,5 @@
 {
+  "HR Project": "Projet RH",
   "Id": "Id",
   "id": "id",
   "Label": "Libellé",
@@ -101,7 +102,8 @@
     "topic": "Erreur lors du chargement des thèmes.",
     "test": "Erreur lors du chargement des tests.",
     "candidate-test": "Erreur lors du chargement des candidats assignés au test.",
-    "question-test": "Erreur lors du chargement des questions liées au test."
+    "question-test": "Erreur lors du chargement des questions liées au test.",
+    "result": "Erreur lors du chargement des résultats."
   },
   "error_msg_load_item": {
     "answer": "Erreur lors du chargement d'une réponse.",
@@ -139,6 +141,8 @@
     "topic": "Erreur lors de la suppression d'un thème.",
     "test": "Erreur lors de la suppression d'un test."
   },
+  "error_msg_anonymize_user": "Erreur lors de l'anonymisation d'un utilisateur.",
+  "success_msg_anonymize_user": "Utilisateur anonymisé avec succès.",
   "success_msg_refresh_items": {
     "answer": "Liste des réponses rafraîchie avec succès.",
     "question": "Liste des questions rafraîchie avec succès.",
@@ -187,14 +191,16 @@
       "questionnaire": "Êtes-vous sûr de vouloir supprimer ce questionnaire ?",
       "topic": "Êtes-vous sûr de vouloir supprimer ce thème ?",
       "test": "Êtes-vous sûr de vouloir supprimer ce test ?",
-      "candidate-test": "Êtes-vous sûr de vouloir supprimer supprimer cette assignation ?"
+      "candidate-test": "Êtes-vous sûr de vouloir supprimer cette assignation ?",
+      "user": "Êtes-vous sûr de vouloir supprimer votre compte ?"
     },
     "note": {
       "question": "La suppression de questions est une opération permanente et irréversible.",
       "questionnaire": "La suppression de questionnaires est une opération permanente et irréversible.",
       "topic": "La suppression de thèmes est une opération permanente et irréversible.",
       "test": "La suppression de tests est une opération permanente et irréversible.",
-      "candidate-test": "La suppression d'assignations est une opération permanente et irréversible."
+      "candidate-test": "La suppression d'assignations est une opération permanente et irréversible.",
+      "user": "La suppression d'un compte est une opération permanente et irréversible."
     }
   },
   "Link copied !": "Lien copié !",
@@ -259,11 +265,11 @@
   "Feedback & Support": "Feedback & Assistance",
   "dashboard-candidate": {
     "feedback": {
-      "txt": "J'accord de l'importance à votre avis !",
+      "txt": "J'accorde de l'importance à votre avis !",
       "btn": "Donnez votre avis"
     },
     "support": {
-      "txt": "Vous avez rencontré un problème ? Fais-moi savoir!",
+      "txt": "Vous avez rencontré un problème ? Faites-le moi savoir!",
       "btn": "Signaler un problème"
     }
   },
@@ -277,10 +283,15 @@
       "second": "Si vous changez d'onglet ou de fenêtre.",
       "third": "Si vous quittez la page de test de toute autre manière."
     },
-    "end-instruction": "Si vous êtres prêt à passer ce test, appuyez sur « Passer »."
+    "end-instruction": "Si vous êtes prêt à passer ce test, appuyez sur « Passer »."
   },
   "Take": "Passer",
   "Maximum score": "Score maximum",
   "Duplicate test to add new question.": "Dupliquez le test pour ajouter une nouvelle question.",
-  "Duplicate test to manage questions.": "Dupliquez le test pour gérer les questions."
+  "Duplicate test to manage questions.": "Dupliquez le test pour gérer les questions.",
+  "Share results": "Partager résultats",
+  "Results aren't shared.": "La consultation des résultats de ce test n'est pas authorisée.",
+  "You aren't authorized to consult this page.": "Vous n'êtes pas authorisé à consulter cette page.",
+  "used out of": "utilisées sur",
+  "Delete account": "Supprimer compte"
 }

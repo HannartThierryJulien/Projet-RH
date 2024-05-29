@@ -1,7 +1,7 @@
 <div class="row mb-4">
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="#">HR Project</a>
+      <a class="navbar-brand" href="#">{{ "HR Project" | translate }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
               aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <!--        <span class="navbar-toggler-icon"></span>-->
@@ -72,7 +72,9 @@
                 </div>
               </button>
               <mat-menu #userMenu="matMenu">
-                <button *ngIf="isHRManager" mat-menu-item routerLink="/dashboard">{{ 'Dashboard' | translate }}</button>
+                <ng-container *ngIf="isHRManager">
+                  <button mat-menu-item routerLink="/dashboard">{{ 'Dashboard' | translate }}</button>
+                </ng-container>
                 <button mat-menu-item type="button" (click)="onLogout()">{{ 'Logout' | translate }}</button>
               </mat-menu>
             </div>

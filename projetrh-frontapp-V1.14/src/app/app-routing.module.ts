@@ -75,7 +75,7 @@ const routes: Routes = [
     path: 'results/:id',
     component: ResultsCandidateComponent,
     canActivate: [CheckRoleGuard],
-    data: {allowedRoles: ['hrManager']}
+    data: {allowedRoles: ['hrManager', 'candidate']}
   },
   {path: 'auth', component: AuthComponent},
 ];

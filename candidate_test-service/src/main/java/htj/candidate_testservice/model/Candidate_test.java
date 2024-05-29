@@ -38,6 +38,9 @@ public class Candidate_test implements Serializable {
 	@Column(name = "ended_at_candidate_test")
 	OffsetDateTime endedAt;
 
+	@Column(name = "results_shared_candidate_test", nullable = false)
+	boolean resultsShared;
+
 	@Column(name = "score_candidate_test")
 	double score;
 
@@ -57,11 +60,12 @@ public class Candidate_test implements Serializable {
 
 
 	public Candidate_test(OffsetDateTime assignedAt, OffsetDateTime startedAt, OffsetDateTime endedAt,
-			double score, String status, Candidate candidate, Test test) {
+			boolean resultsShared, double score, String status, Candidate candidate, Test test) {
 		super();
 		this.assignedAt = assignedAt;
 		this.startedAt = startedAt;
 		this.endedAt = endedAt;
+		this.resultsShared = resultsShared;
 		this.score = score;
 		this.status = status;
 		this.candidate = candidate;
@@ -115,6 +119,17 @@ public class Candidate_test implements Serializable {
 		this.endedAt = endedAt;
 	}
 
+
+
+	public boolean isResultsShared() {
+		return resultsShared;
+	}
+
+
+
+	public void setResultsShared(boolean resultsShared) {
+		this.resultsShared = resultsShared;
+	}
 
 
 

@@ -1,6 +1,11 @@
 package htj.authservice.controller;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -11,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -21,7 +27,9 @@ import htj.authservice.jwt.JwtUtils;
 import htj.authservice.model.Candidate;
 import htj.authservice.model.HRManager;
 import htj.authservice.model.Person;
+import htj.authservice.model.ResponseWrapper;
 import htj.authservice.service.CandidateService;
+import htj.authservice.service.ExceptionHandler;
 import htj.authservice.service.HRManagerService;
 import htj.authservice.service.PersonService;
 import io.jsonwebtoken.io.IOException;
@@ -40,6 +48,9 @@ public class AuthController {
 
 	@Autowired
 	private HRManagerService hrManagerServ;
+	
+	@Autowired
+	private ExceptionHandler exceptionHandler;
 
 	@Autowired
 	private JwtUtils jwtUtils;
@@ -51,6 +62,7 @@ public class AuthController {
 		String firstname = candidateData.get("firstname");
 		String username = candidateData.get("username");
 	    String password = candidateData.get("password");
+	    OffsetDateTime consentGivenAt = OffsetDateTime.parse(candidateData.get("consentGivenAt"));
 	    String userRole = null;
 	    
 
@@ -58,7 +70,7 @@ public class AuthController {
 	        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already exists");
 	    }
 	    
-	    Person newPerson = new Person(lastname, firstname, "", false);
+	    Person newPerson = new Person(lastname, firstname, "", false, consentGivenAt);
 	    try {
 	    	persServ.addPerson(newPerson);
 	    } catch (IOException ie) {
@@ -149,5 +161,57 @@ public class AuthController {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		return passwordEncoder.matches(rawPassword, storedPassword);
 	}
+	
+	@PostMapping("/anonymize/{userId}")
+    public ResponseEntity<ResponseWrapper<String>> anonymizeUser(@RequestHeader(AUTH_HEADER) String authorizationHeader, @PathVariable int userId) {
+		try {
+			if ((jwtUtils.isExpired(authorizationHeader)) || (!jwtUtils.isValidToken(authorizationHeader))) {
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+		                .body(new ResponseWrapper<>(null, "Error: Invalid token provided in headers."));
+			}
+			
+			Candidate candidate = candidateServ.getById(userId);
+	        if (candidate != null) {
+	        	Person person = persServ.getById(candidate.getPerson().getId());
+	        	anonymizePerson(person);
+	            anonymizeCandidate(candidate);
+	        }
+
+	        HRManager hrManager = hrManagerServ.getById(userId);
+	        if (hrManager != null) {
+	        	Person person = persServ.getById(candidate.getPerson().getId());
+	        	anonymizePerson(person);
+	            anonymizeHRManager(hrManager);
+	        }
+
+			return ResponseEntity.ok(new ResponseWrapper<>(null, "User anonymized successfully."));
+		} catch (Exception e) {
+			return exceptionHandler.handleInternalServerError(e);
+		}
+    }
+	
+	private void anonymizeCandidate(Candidate candidate) {
+        candidate.setMail("anonymized" + String.valueOf(candidate.getId()) + "@mail.com");
+        candidate.setProfessionalProfileUrl("");
+        candidate.setPhoneNumber("");
+        candidate.setBirthDate(null);
+        candidate.setArchived(true);
+        candidateServ.updateCandidate(candidate);
+    }
+
+    private void anonymizeHRManager(HRManager hrManager) {
+        hrManager.setMail("anonymized@mail.com");
+        hrManager.setArchived(true);
+        hrManagerServ.updateHRManager(hrManager);
+    }
+    
+    private void anonymizePerson(Person person) {
+    	person.setLastName("Anonymized");
+    	person.setFirstName("Anonymized");
+    	person.setDescription("");
+    	person.setDataErasureRequestedAt(OffsetDateTime.now(ZoneOffset.UTC));
+    	person.setArchived(true);
+    	persServ.updatePerson(person);
+    }
 	
 }

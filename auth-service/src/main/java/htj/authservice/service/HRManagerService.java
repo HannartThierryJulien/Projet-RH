@@ -47,4 +47,9 @@ public class HRManagerService {
 		return hr;
 	}
 	
+	public HRManager updateHRManager(HRManager hrManager) {
+		HRManager hr = hrManagerRep.save(hrManager);
+		return hr;
+	}
+	
 }

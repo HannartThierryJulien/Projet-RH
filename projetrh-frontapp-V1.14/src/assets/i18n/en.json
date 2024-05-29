@@ -1,4 +1,5 @@
 {
+  "HR Project": "HR Project",
   "Id": "Id",
   "id": "id",
   "Label": "Label",
@@ -25,7 +26,7 @@
   "Switch to night mode": "Switch to night mode",
   "Translate": "Translate",
   "English": "English",
-  "French": "French",
+  "French": "Français",
   "Spanish": "Spanish",
   "Logout": "Logout",
   "Login": "Login",
@@ -101,7 +102,8 @@
     "topic": "Error loading topics.",
     "test": "Error loading tests.",
     "candidate-test": "Error loading candidates assigned to the test.",
-    "question-test": "Error loading questions linked to the test."
+    "question-test": "Error loading questions linked to the test.",
+    "result": "Error loading results."
   },
   "error_msg_load_item": {
     "answer": "Error loading an answer.",
@@ -139,6 +141,8 @@
     "topic": "Error deleting a topic.",
     "test": "Error deleting a test."
   },
+  "error_msg_anonymize_user": "Error anonymizing user.",
+  "success_msg_anonymize_user": "User anonymized successfully.",
   "success_msg_refresh_items": {
     "answer": "List of answers refreshed successfully.",
     "question": "List of questions refreshed successfully.",
@@ -187,14 +191,16 @@
       "questionnaire": "Are you sure you want to delete this questionnaire?",
       "topic": "Are you sure you want to delete this topic?",
       "test": "Are you sure you want to delete this test?",
-      "candidate-test": "Are you sure you want to delete this assignment?"
+      "candidate-test": "Are you sure you want to delete this assignment?",
+      "user": "Are you sure you want to delete your account?"
     },
     "note": {
       "question": "Deleting questions is a permanent and irreversible operation.",
       "questionnaire": "Deleting questionnaires is a permanent and irreversible operation.",
       "topic": "Deleting topics is a permanent and irreversible operation.",
       "test": "Deleting tests is a permanent and irreversible operation.",
-      "candidate-test": "Deleting assignments is a permanent and irreversible operation."
+      "candidate-test": "Deleting assignments is a permanent and irreversible operation.",
+      "user": "Deleting an account is a permanent and irreversible operation."
     }
   },
   "Link copied !": "Link copied!",
@@ -282,5 +288,9 @@
   "Take": "Take",
   "Maximum score": "Maximum score",
   "Duplicate test to add new question.": "Duplicate test to add new question.",
-  "Duplicate test to manage questions.": "Duplicate test to manage questions."
+  "Duplicate test to manage questions.": "Duplicate test to manage questions.",
+  "Results aren't shared.": "Consultation of the results of this test is not authorized.",
+  "You aren't authorized to consult this page.": "You aren't authorized to consult this page.",
+  "used out of": "used out of",
+  "Delete account": "Delete account"
 }

@@ -1,10 +1,15 @@
-import {Injectable} from "@angular/core";
+import {inject, Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {BehaviorSubject, catchError, Observable, Subject, tap, throwError} from "rxjs";
+import {BehaviorSubject, catchError, finalize, Observable, retry, Subject, tap, throwError} from "rxjs";
 import {Router} from "@angular/router";
 import {User} from "../../models/user.model";
 import {JwtHelperService} from '@auth0/angular-jwt';
-import {CustomJWT} from "../../models/customJWT.model"; // https://www.npmjs.com/package/@auth0/angular-jwt
+import {CustomJWT} from "../../models/customJWT.model";
+import {CandidateTest} from "../../models/candidate-test.model";
+import {GenericAPIService} from "./genericAPI.service";
+import {LoadingService} from "../loading.service";
+import {ErrorHandlerService} from "../errorHandler.service";
+import {NotificationService} from "../notification.service"; // https://www.npmjs.com/package/@auth0/angular-jwt
 
 @Injectable({providedIn: 'root'})
 export class AuthAPIService {
@@ -14,12 +19,19 @@ export class AuthAPIService {
   private localStorageName = 'userData';
   redirectUrl: string | null = null;
   isLogoutButtonClickable: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  private loadingService = inject(LoadingService);
+  private nbRequestRetry: number = 1;
+  private errorHandlerService = inject(ErrorHandlerService);
+  private notificationService = inject(NotificationService);
+  private errorMsg_anonymizeUser = "error_msg_anonymize_user";
+  private successMsg_anonymizeUser = "success_msg_anonymize_user";
+
 
   constructor(private http: HttpClient,
               private router: Router) {
   }
 
-  signup(lastname: string, firstname: string, email: string, password: string) {
+  signup(lastname: string, firstname: string, email: string, password: string, consentGivenAt: Date) {
     console.log(lastname, " ", firstname, " ", email, " ", password);
     return this.http
       .post<any>(
@@ -28,7 +40,8 @@ export class AuthAPIService {
           lastname: lastname,
           firstname: firstname,
           username: email,
-          password: password
+          password: password,
+          consentGivenAt: consentGivenAt
         }
       )
       .pipe(
@@ -107,6 +120,21 @@ export class AuthAPIService {
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, expirationDuration);
+  }
+
+  anonymizeUser(userId: number, showNotification: boolean = true) {
+    const key = `anonymize_user_${userId}`;
+    this.loadingService.setLoading(key, true);
+
+    return this.http.post<{ data: string, message: string }>(this.authBaseUrl + '/anonymize/' + userId, {}).pipe(
+      retry(this.nbRequestRetry),
+      catchError(error => this.errorHandlerService.handleError(error, this.errorMsg_anonymizeUser)),
+      finalize(() => this.loadingService.setLoading(key, false))
+    ).pipe(
+      tap(() => {
+        showNotification ? this.notificationService.showSuccess(this.successMsg_anonymizeUser) : null;
+      })
+    );
   }
 
 }

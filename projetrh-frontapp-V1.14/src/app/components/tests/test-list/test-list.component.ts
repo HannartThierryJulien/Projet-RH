@@ -17,7 +17,7 @@ export class TestListComponent implements OnInit, OnDestroy, AfterViewInit {
   searchInput: string = '';
   tests: Test[] = [];
   private unsubscribe$ = new Subject<void>();
-  displayedColumns: string[] = ['id', 'label', 'createdAt', 'actions'];
+  displayedColumns: string[] = ['label', 'createdAt', 'actions'];
   dataSource: MatTableDataSource<Test> = new MatTableDataSource<Test>();
   pageSize = 10;
   pageSizeOptions = [5, 10, 15];

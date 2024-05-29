@@ -4,11 +4,14 @@ import {Candidate} from "../../../../models/candidate.model";
 import {Subject, takeUntil} from "rxjs";
 import {CandidateAPIService} from "../../../../services/API/candidateAPI.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {DatePipe} from "@angular/common";
+import {MAT_DATE_FORMATS} from "@angular/material/core";
 
 @Component({
   selector: 'app-candidate-edit',
   templateUrl: './candidate-edit.component.html',
-  styleUrl: './candidate-edit.component.scss'
+  styleUrl: './candidate-edit.component.scss',
+  providers: [DatePipe]
 })
 export class CandidateEditComponent implements OnInit, OnDestroy {
   candidateForm!: FormGroup;
@@ -18,7 +21,8 @@ export class CandidateEditComponent implements OnInit, OnDestroy {
   constructor(private candidateAPIService: CandidateAPIService,
               private formBuilder: FormBuilder,
               public dialogRef: MatDialogRef<CandidateEditComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Candidate) {
+              @Inject(MAT_DIALOG_DATA) public data: Candidate,
+              private datepipe: DatePipe) {
   }
 
   ngOnInit(): void {
@@ -62,10 +66,11 @@ export class CandidateEditComponent implements OnInit, OnDestroy {
     }
 
     // Recover updated candidate
+    const birthDateFromForm = this.datepipe.transform(this.candidateForm.value.birthDate, 'yyyy-MM-dd');
     const updatedCandidate: Candidate = {
       id: this.candidateToEdit.id,
       mail: this.candidateForm.value.mail,
-      birthDate: this.candidateForm.value.birthDate,
+      birthDate: birthDateFromForm ? new Date(birthDateFromForm) : this.candidateToEdit.birthDate,
       phoneNumber: this.candidateForm.value.phoneNumber,
       professionalProfileUrl: this.candidateForm.value.professionalProfileUrl,
       archived: this.candidateToEdit.archived,

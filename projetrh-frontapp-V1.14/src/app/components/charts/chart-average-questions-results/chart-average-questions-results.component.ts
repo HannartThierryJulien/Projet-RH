@@ -77,7 +77,7 @@ export class ChartAverageQuestionsResultsComponent implements OnInit, OnDestroy 
   // For every candidateTest, calculate the points obtained for every question
   private calculatePoints() {
     const allResultsObservables = this.candidateTests.map(qt =>
-      this.resultAPIService.getAllResultsByCandidate_testId(qt.id).pipe(
+      this.resultAPIService.getAllResultsByCandidateTestId(qt.id).pipe(
         map(results => ({qt, results}))
       )
     );

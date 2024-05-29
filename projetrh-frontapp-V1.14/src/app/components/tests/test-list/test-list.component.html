@@ -18,11 +18,6 @@
 
   <div *ngIf="dataSource.data.length > 0; else noTest">
     <table mat-table [dataSource]="dataSource" matSort>
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "Id" | translate }}</th>
-        <td mat-cell *matCellDef="let row"> {{ row.id }}</td>
-      </ng-container>
-
       <ng-container matColumnDef="createdAt">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "Creation date" | translate }}</th>
         <td mat-cell *matCellDef="let row"> {{ row.createdAt | date: 'dd/MM/yy' }}</td>

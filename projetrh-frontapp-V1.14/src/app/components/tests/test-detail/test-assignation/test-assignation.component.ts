@@ -12,6 +12,8 @@ import {MatPaginator} from "@angular/material/paginator";
 import {Router} from "@angular/router";
 import {NotificationService} from "../../../../services/notification.service";
 import {CountdownService} from "../../../../services/countdown.service";
+import {TranslateService} from "@ngx-translate/core";
+import {DatePipe, formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-test-assignation',
@@ -37,7 +39,8 @@ export class TestAssignationComponent implements OnInit, OnDestroy, AfterViewIni
   constructor(private dialog: MatDialog,
               private candidateTestAPIService: CandidateTestAPIService,
               private notificationService: NotificationService,
-              public countdownService: CountdownService) {
+              public countdownService: CountdownService,
+              private translateService: TranslateService) {
   }
 
   ngOnInit() {
@@ -136,7 +139,19 @@ export class TestAssignationComponent implements OnInit, OnDestroy, AfterViewIni
 
       const firstName = data.candidate.person.firstName.toLowerCase();
       const lastName = data.candidate.person.lastName.toLowerCase();
-      return firstName.includes(searchTerm) || lastName.includes(searchTerm);
+      const status = this.translateService.instant(data.status).toLowerCase();
+      const assignedAt = this.formatDateString(new Date(data.assignedAt)).toLowerCase();
+      const startedAt = this.formatDateString(data.startedAt ? new Date(data.startedAt) : null).toLowerCase();
+      const endedAt = this.formatDateString(data.endedAt ? new Date(data.endedAt) : null).toLowerCase();
+      const score = ((data.score ?? 0) / this.testPointsSum * 100).toFixed(2).toLowerCase() + '%';
+
+      return firstName.includes(searchTerm) ||
+        lastName.includes(searchTerm) ||
+        assignedAt.includes(searchTerm) ||
+        startedAt.includes(searchTerm) ||
+        endedAt.includes(searchTerm) ||
+        score.includes(searchTerm) ||
+        status.includes(searchTerm);
     };
   }
 
@@ -158,16 +173,16 @@ export class TestAssignationComponent implements OnInit, OnDestroy, AfterViewIni
           return data.candidate.person.lastName;
         case 'assignedAt':
           return new Date(data.assignedAt).getTime();
-        case 'startedAt':
-          return data.startedAt !== null ? new Date(data.startedAt).getTime() : new Date(0).getTime();
+        // case 'startedAt':
+        //   return data.startedAt !== null ? this.datePipe.transform(data.startedAt, 'yyyy-dd-MM') || '': '';
         case 'endedAt':
           return data.endedAt !== null ? new Date(data.endedAt).getTime() : new Date(0).getTime();
         case 'duration':
           return this.countdownService.calculateDurationInSeconds(data.startedAt, data.endedAt);
         case 'score':
-          return data.score !== null ? data.score : 0;
+          return (data.score !== null ? (data.score / this.testPointsSum * 100) : 0);
         case 'status':
-          return data.status;
+          return this.translateService.instant(data.status);
         default:
           return '';
       }
@@ -176,6 +191,17 @@ export class TestAssignationComponent implements OnInit, OnDestroy, AfterViewIni
 
   onSearch() {
     this.isSearching = !this.isSearching;
+  }
+
+  formatDateString(date: Date | null): string {
+    return date ? formatDate(date, 'dd/MM/yy HH:mm:ss', 'en-US') : '';
+  }
+
+  shareCandidateTestResults(candidateTest: CandidateTest) {
+    candidateTest.resultsShared = !candidateTest.resultsShared;
+    this.candidateTestAPIService.editItem(candidateTest, false)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe();
   }
 
 }

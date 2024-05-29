@@ -29,7 +29,7 @@ export class ResultAPIService extends GenericAPIService<Result> {
     );
   }
 
-  getAllResultsByCandidate_testId(candidateTestId: number): Observable<Result[]> {
+  getAllResultsByCandidateTestId(candidateTestId: number): Observable<Result[]> {
     const key = `load_results_by_candidate-test_${candidateTestId}`;
     this.loadingService.setLoading(key, true);
 

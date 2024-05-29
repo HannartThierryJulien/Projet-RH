@@ -2,6 +2,8 @@ package htj.testservice.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -14,14 +16,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 /**
  *
  * @author Hannart Thierry-Julien
  */
 @Entity
-@Table(name = "candidate")
+@Table(name = "candidate", uniqueConstraints = @UniqueConstraint(columnNames = "mail_candidate"))
 public class Candidate implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -31,7 +36,7 @@ public class Candidate implements Serializable {
 	@Column(name = "id_candidate")
 	int id;
 
-	@Column(name = "mail_candidate", nullable = false, length = 50)
+	@Column(name = "mail_candidate", nullable = false, length = 50, unique = true)
 	String mail;
 	
 	@Column(name = "professionalProfileUrl_candidate", nullable = true, length = 100)
@@ -49,6 +54,12 @@ public class Candidate implements Serializable {
 
 	@Column(name = "archived_candidate", nullable = false)
 	boolean archived;
+
+	@Column(name = "created_at_candidate")
+	OffsetDateTime createdAt;
+
+	@Column(name = "updated_at_candidate")
+	OffsetDateTime updatedAt;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_person", referencedColumnName = "id_person")
@@ -133,6 +144,17 @@ public class Candidate implements Serializable {
 
 	public void setPerson(Person person) {
 		this.person = person;
+	}
+
+	@PrePersist
+	protected void onCreate() {
+		createdAt = OffsetDateTime.now(ZoneOffset.UTC);
+    	updatedAt = OffsetDateTime.now(ZoneOffset.UTC);
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+    	updatedAt = OffsetDateTime.now(ZoneOffset.UTC);
 	}
 
 }

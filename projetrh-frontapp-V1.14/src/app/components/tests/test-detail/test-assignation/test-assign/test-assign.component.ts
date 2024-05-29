@@ -92,7 +92,7 @@ export class TestAssignComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     selectedRows.forEach(row => {
-      let testToAssign = new CandidateTest(0, new Date(new Date().toISOString()), null, null, null, 'assigned', row, this.data);
+      let testToAssign = new CandidateTest(0, new Date(new Date().toISOString()), null, null, null, false, 'assigned', row, this.data);
 
       this.candidateTestAPIService.addItem(testToAssign)
         .pipe(takeUntil(this.unsubscribe$))
