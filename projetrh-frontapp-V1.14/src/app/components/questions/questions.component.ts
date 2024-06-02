@@ -1,8 +1,7 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {QuestionAPIService} from "../../services/API/questionAPI.service";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {QuestionAddComponent} from "./question-add/question-add.component";
-import {LoadingService} from "../../services/loading.service";
 import {Subject, takeUntil} from "rxjs";
 import {SelectedItemsService} from "../../services/selectedItems.service";
 
@@ -12,31 +11,20 @@ import {SelectedItemsService} from "../../services/selectedItems.service";
   styleUrl: './questions.component.scss'
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
+  private questionAPIService = inject(QuestionAPIService);
+  private selectedItemsService = inject(SelectedItemsService);
+  private dialog = inject(MatDialog);
+
   listFilters: { value: string; viewValue: string; }[] = [
     {value: 'unarchived', viewValue: 'Unarchived'},
     {value: 'archived', viewValue: 'Archived'}
   ];
   isArchivedListSelected!: boolean;
   isSearching: boolean = false;
-  isLoading: boolean = false;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(public questionAPIService: QuestionAPIService,
-              private selectedItemsService: SelectedItemsService,
-              public dialog: MatDialog,
-              public loadingService: LoadingService,
-              private changeDetectorRef: ChangeDetectorRef) {
-  }
-
   ngOnInit() {
-    // Allow to know if there is at least one element loading
-    this.loadingService.loading$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(loadingMap => {
-        this.isLoading = Array.from(loadingMap.values()).some(value => value);
-        this.changeDetectorRef.detectChanges(); // Force change detection
-      });
-
+    // Listen for selection of archived/unarchived list
     this.selectedItemsService.isArchivedQuestionsListSelected
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(isArchivedListSelected => {

@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, Inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, inject, Inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {TestAssignationComponent} from "../../test-assignation/test-assignation.component";
 import {Test} from "../../../../../models/test.model";
-import {finalize, forkJoin, of, Subject, takeUntil, tap} from "rxjs";
+import {forkJoin, of, Subject, takeUntil, tap} from "rxjs";
 import {QuestionTestAPIService} from "../../../../../services/API/question-testAPI.service";
 import {QuestionnaireAPIService} from "../../../../../services/API/questionnaireAPI.service";
 import {Questionnaire} from "../../../../../models/questionnaire.model";
@@ -18,28 +18,28 @@ import {MatPaginator} from "@angular/material/paginator";
   styleUrl: './question-test-manage.component.scss'
 })
 export class QuestionTestManageComponent implements OnInit, OnDestroy, AfterViewInit {
+  public dialogRef = inject(MatDialogRef<TestAssignationComponent>);
+  public data: Test = inject(MAT_DIALOG_DATA);
+  private questionnaireAPIService = inject(QuestionnaireAPIService);
+  private questionTestAPIService = inject(QuestionTestAPIService);
+  private questionAPIService = inject(QuestionAPIService);
+
   private unsubscribe$ = new Subject<void>();
   questionnaires: Questionnaire[] = [];
-  questionnairesTabledisplayedColumns: string[] = ['label', 'actions'];
+  questionnairesTableDisplayedColumns: string[] = ['label', 'actions'];
   questionnairesTableSource = new MatTableDataSource<Questionnaire>();
   questionnairesTablePageSize = 7;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  questionsTabledisplayedColumns: string[] = ['label', 'actions'];
+  questionsTableDisplayedColumns: string[] = ['label', 'actions'];
   questionsTableSource = new MatTableDataSource<Question>();
 
-  addedQuestionTests: QuestionTest[] = [];
-  addedQuestions: Question[] = [];
-  addedQuestionsToRemove: Question[] = [];
-  questionsToAdd: Question[] = [];
-
-  constructor(public dialogRef: MatDialogRef<TestAssignationComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Test,
-              private questionnaireAPIService: QuestionnaireAPIService,
-              private questionTestAPIService: QuestionTestAPIService,
-              private questionAPIService: QuestionAPIService) {
-  }
+  addedQuestionTests: QuestionTest[] = []; // Contains all the questionTest already linked to the test.
+  addedQuestions: Question[] = []; // Contains all the question already linked to the test.
+  addedQuestionsToRemove: Question[] = []; // Contains all the questions (already linked) that have to be removed from the test.
+  questionsToAdd: Question[] = []; // Contains all the questions that have to be linked to the test.
 
   ngOnInit() {
+    // Retrieve all unarchived questionnaires
     this.questionnaireAPIService.getItems(false)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(questionnaires => {
@@ -47,6 +47,7 @@ export class QuestionTestManageComponent implements OnInit, OnDestroy, AfterView
         this.questionnairesTableSource.data = questionnaires;
       });
 
+    // Retrieve all linked questionTests and add them to this.addedQuestions
     this.questionTestAPIService.getAllQuestionTestByTestId(this.data.id)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(addedQuestionTests => {
@@ -75,6 +76,10 @@ export class QuestionTestManageComponent implements OnInit, OnDestroy, AfterView
     this.dialogRef.close(updatedQuestionTestsArray);
   }
 
+  /**
+   * Import all unarchived questions from a questionnaire into the table (if not already added).
+   * @param idQuestionnaire
+   */
   onAddQuestionsFromQuestionnaire(idQuestionnaire: number) {
     this.questionAPIService.getQuestionsByArchivedAndQuestionnaireId(false, idQuestionnaire)
       .pipe(takeUntil(this.unsubscribe$))
@@ -90,6 +95,10 @@ export class QuestionTestManageComponent implements OnInit, OnDestroy, AfterView
       });
   }
 
+  /**
+   * Remove a question from the table.
+   * @param questionId
+   */
   onRemoveQuestion(questionId: number) {
     if (this.isQuestionPresentInArray(questionId, this.addedQuestions)) {
       const removedQuestionIndex = this.addedQuestions.findIndex(q => q.id === questionId);
@@ -103,31 +112,47 @@ export class QuestionTestManageComponent implements OnInit, OnDestroy, AfterView
     this.updateQuestionsTable();
   }
 
+  /**
+   * Update table's data with the addedQuestions and questionsToAdd
+   * @private
+   */
   private updateQuestionsTable() {
     this.questionsTableSource.data = [...this.addedQuestions, ...this.questionsToAdd];
   }
 
+  /**
+   * Used to know if a question is already present in an array.
+   * @param questionId
+   * @param questions
+   * @private
+   */
   private isQuestionPresentInArray(questionId: number, questions: Question[]): boolean {
     return questions.some(q => q.id === questionId);
   }
 
+  /**
+   * Update the linked questionTests by removing those specified for removal and adding new ones.
+   */
   onUpdateLinkedQuestions() {
     let updatedQuestionTests: QuestionTest[] = [];
 
-    // Utiliser forkJoin pour attendre que toutes les opérations avec l'API soient terminées
+    // ForkJoin used to wait for all the API operations to be completed
     forkJoin([
+      // For each question to remove, find and delete its corresponding questionTest
       ...this.addedQuestionsToRemove.map(q => {
         const questionTestToRemove = this.addedQuestionTests.find(questionTest => questionTest.question === q);
         if (questionTestToRemove) {
           return this.questionTestAPIService.deleteItem(questionTestToRemove.id, false)
             .pipe(tap(() => {
-              // Suppression réussie, retirer questionTestToRemove de addedQuestionTests
+              // Removal successful, remove questionTestToRemove from addedQuestionTests
               this.addedQuestionTests = this.addedQuestionTests.filter(qt => qt !== questionTestToRemove);
             }));
         } else {
-          return of(null); // Retourner un observable vide si aucun élément à supprimer n'est trouvé
+          // Return an empty observable if no questionTest to delete
+          return of(null);
         }
       }),
+      // For each question to add, create a new questionTest and add it
       ...this.questionsToAdd.map(q => {
         let questionTestToAdd = new QuestionTest(0, q, this.data);
         return this.questionTestAPIService.addItem(questionTestToAdd, false)
@@ -140,8 +165,9 @@ export class QuestionTestManageComponent implements OnInit, OnDestroy, AfterView
         takeUntil(this.unsubscribe$)
       )
       .subscribe(() => {
-        // Toutes les opérations avec l'API sont terminées, ajouter les éléments restants à updatedQuestionTests et appeler onClose
+        // When all API operations completed, merge the existing linked questionTests and the newly created ones
         updatedQuestionTests.push(...this.addedQuestionTests);
+        // Close dialog and send the new linked questionTests
         this.onClose(updatedQuestionTests);
       });
   }

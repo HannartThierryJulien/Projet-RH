@@ -1,6 +1,5 @@
 import {AbstractControl, ValidatorFn} from "@angular/forms";
 
-
 /**
  * Custom validation function to control that a question has a minimum timeLimit respected.
  * @param minimumSeconds
@@ -15,16 +14,17 @@ export function minimumTimeLimitValidator(minimumSeconds: number): ValidatorFn {
       return null;
     }
 
-    // Convert format 'mm:ss' to seconds
+    // Convert format mm:ss to seconds
     const [minutes, seconds] = timeLimit.split(':').map(Number);
     const totalSeconds = minutes * 60 + seconds;
 
-    // Check if minimum timeLimit is respected (depends on @minimumSeconds)
+    // Check if minimum timeLimit is respected (depends on minimumSeconds var)
     if (totalSeconds < minimumSeconds) {
-      return { 'timeLimitInvalid': { value: control.value } };
+      return {'timeLimitInvalid': {value: control.value}};
     }
 
     // Control passed
     return null;
   };
+
 }

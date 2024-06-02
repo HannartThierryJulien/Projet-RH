@@ -1,10 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {Observable, of, Subject, takeUntil, tap} from "rxjs";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogDeleteComponent} from "../../shared/dialog-delete/dialog-delete.component";
 import {Topic} from "../../../models/topic.model";
-import {TopicsComponent} from "../topics.component";
 import {TopicAPIService} from "../../../services/API/topicAPI.service";
 import {TopicEditComponent} from "../topic-edit/topic-edit.component";
 import {SelectedItemsService} from "../../../services/selectedItems.service";
@@ -15,16 +14,15 @@ import {SelectedItemsService} from "../../../services/selectedItems.service";
   styleUrl: './topic-detail.component.scss'
 })
 export class TopicDetailComponent implements OnInit, OnDestroy {
+  private topicAPIService = inject(TopicAPIService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private dialog = inject(MatDialog);
+  private selectedItemsService = inject(SelectedItemsService);
+
   topic$!: Observable<Topic>;
   topicId!: number;
   private unsubscribe$ = new Subject<void>();
-
-  constructor(private topicAPIService: TopicAPIService,
-              private route: ActivatedRoute,
-              private router: Router,
-              private dialog: MatDialog,
-              private selectedItemsService: SelectedItemsService) {
-  }
 
   ngOnInit() {
     this.route.params

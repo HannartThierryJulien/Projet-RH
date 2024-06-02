@@ -1,7 +1,6 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {BehaviorSubject, Subject, takeUntil} from "rxjs";
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {Subject, takeUntil} from "rxjs";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {LoadingService} from "../../services/loading.service";
 import {TestAPIService} from "../../services/API/testAPI.service";
 import {SelectedItemsService} from "../../services/selectedItems.service";
 import {TestAddComponent} from "./test-add/test-add.component";
@@ -12,6 +11,10 @@ import {TestAddComponent} from "./test-add/test-add.component";
   styleUrl: './tests.component.scss'
 })
 export class TestsComponent implements OnInit, OnDestroy {
+  public testAPIService = inject(TestAPIService);
+  private selectedItemsService = inject(SelectedItemsService);
+  public dialog = inject(MatDialog);
+
   listFilters: { value: string; viewValue: string; }[] = [
     {value: 'unarchived', viewValue: 'Unarchived'},
     {value: 'archived', viewValue: 'Archived'}
@@ -19,25 +22,10 @@ export class TestsComponent implements OnInit, OnDestroy {
   isArchivedListSelected!: boolean;
   isSearching: boolean = false;
   searchText: string = '';
-  isLoading: boolean = false;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(public testAPIService: TestAPIService,
-              private selectedItemsService: SelectedItemsService,
-              public dialog: MatDialog,
-              public loadingService: LoadingService,
-              private changeDetectorRef: ChangeDetectorRef) {
-  }
-
   ngOnInit() {
-    // Allow to know if there is at least one element loading
-    this.loadingService.loading$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(loadingMap => {
-        this.isLoading = Array.from(loadingMap.values()).some(value => value);
-        this.changeDetectorRef.detectChanges(); // Force change detection
-      });
-
+    // Listen for selection of archived/unarchived list
     this.selectedItemsService.isArchivedTestsListSelected
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(isArchivedListSelected => {

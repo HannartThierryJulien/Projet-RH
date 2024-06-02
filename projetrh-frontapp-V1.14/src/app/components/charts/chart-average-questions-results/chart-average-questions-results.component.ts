@@ -1,15 +1,12 @@
 import {Component, ElementRef, inject, Input, OnDestroy, OnInit} from '@angular/core';
-import {BehaviorSubject, combineLatest, finalize, forkJoin, map, Subject, switchMap, take, takeUntil} from "rxjs";
+import {BehaviorSubject, combineLatest, forkJoin, map, Subject, switchMap, takeUntil} from "rxjs";
 import {TranslateService} from "@ngx-translate/core";
 import {CandidateTest} from "../../../models/candidate-test.model";
 import {Chart, registerables} from "chart.js";
-import {ActivatedRoute} from "@angular/router";
 import {ResultAPIService} from "../../../services/API/resultAPI.service";
-import {Result} from "../../../models/result.model";
 import {QuestionTest} from "../../../models/question-test.model";
 import {Question} from "../../../models/question.model";
 import {AnswerAPIService} from "../../../services/API/answerAPI.service";
-import {Answer} from "../../../models/answer.model";
 import {TestService} from "../../../services/test.service";
 
 export class QuestionChart {
@@ -41,23 +38,22 @@ export class ChartAverageQuestionsResultsComponent implements OnInit, OnDestroy 
   @Input() candidateTestsSubject!: BehaviorSubject<CandidateTest[]>;
   private candidateTests: CandidateTest[] = [];
   private questionTests: QuestionTest[] = [];
-
-  constructor() {
-  }
+  private maxLabelLength = 20; // Maximum number of characters to display in the legend
 
   ngOnInit() {
-
-
+    // First create chart, then load data if chart creation successful
     this.createChart().then(() => {
       this.loadChartData();
     });
   }
 
   private loadChartData() {
+    // Combine latest values from candidateTestsSubject and questionTestsSubject
     combineLatest([this.testService.candidateTestsSubject, this.testService.questionTestsSubject])
       .pipe(
         takeUntil(this.unsubscribe$),
         switchMap(([candidateTests, questionTests]) => {
+          // Filter candidateTests and store the results
           this.candidateTests = this.filterCandidateTests(candidateTests);
           this.questionTests = questionTests;
 
@@ -74,23 +70,30 @@ export class ChartAverageQuestionsResultsComponent implements OnInit, OnDestroy 
     this.unsubscribe$.complete();
   }
 
-  // For every candidateTest, calculate the points obtained for every question
+  /**
+   * For every candidateTest, calculate the points obtained for every question
+   * @private
+   */
   private calculatePoints() {
+    // Map each candidate test to an observable that retrieves the results
     const allResultsObservables = this.candidateTests.map(qt =>
       this.resultAPIService.getAllResultsByCandidateTestId(qt.id).pipe(
         map(results => ({qt, results}))
       )
     );
 
+    // Use forkJoin to wait for allResultsObservables to complete
     return forkJoin(allResultsObservables)
       .pipe(
         switchMap(candidateResults => {
+          // Map each questionTest to an observable that retrieves the answers
           const allAnswersObservables = this.questionTests.map(qt =>
             this.answerAPIService.getAnswersByQuestionId(qt.question.id).pipe(
               map(answers => ({qt, answers}))
             )
           );
 
+          // Wait for allAnswersObservables to complete
           return forkJoin(allAnswersObservables).pipe(
             map(questionAnswers => {
               candidateResults.forEach(({qt: candidateTest, results}) => {
@@ -104,6 +107,7 @@ export class ChartAverageQuestionsResultsComponent implements OnInit, OnDestroy 
                   linkedAnswers.forEach(answer => {
                     const linkedResults = results.filter(result => result.answer.id === answer.id);
                     linkedResults.forEach(result => {
+                      // Calculate points based on whether the answer was correct
                       if (result.answerSelected === answer.right) {
                         totalQuestionPoint += pointsPerAnswer;
                       } else {
@@ -111,12 +115,14 @@ export class ChartAverageQuestionsResultsComponent implements OnInit, OnDestroy 
                       }
                     });
                   });
+
+                  // Ensure total points to not be negative
                   totalQuestionPoint = Math.max(totalQuestionPoint, 0);
                   this.updateQuestionsChart(questionTest.question, totalQuestionPoint);
                 });
               });
 
-              // return this.questionsChart; // Return the updated questionsChart
+              // Sort and update chart data
               this.sortChartData();
             })
           );
@@ -125,11 +131,14 @@ export class ChartAverageQuestionsResultsComponent implements OnInit, OnDestroy 
   }
 
   private updateQuestionsChart(question: Question, points: number) {
+    // Find if question already exists in chart
     const existingQuestionChart = this.questionsChart.find(qc => qc.question.id === question.id);
 
     if (existingQuestionChart) {
+      // Update points for existing question
       existingQuestionChart.points.push(points);
     } else {
+      // Add new question to the chart
       const newQuestionChart = new QuestionChart(question, [points]);
       this.questionsChart.push(newQuestionChart);
     }
@@ -192,52 +201,46 @@ export class ChartAverageQuestionsResultsComponent implements OnInit, OnDestroy 
         });
         resolve();
       } else {
-        console.error('Canvas element with ID "chartTestsStatus" not found.');
         reject();
       }
     });
   }
 
-  //
-  // private loadChartData() {
-  //   this.candidateTestsSubject
-  //     .pipe(takeUntil(this.unsubscribe$))
-  //     .subscribe(candidateTests => {
-  //       this.candidateTests = candidateTests;
-  //       // this.sortChartData(this.candidateTests);
-  //       // this.updateChart();
-  //     });
-  // }
-  //
-
-  private MAX_LABEL_LENGTH = 20; // Nombre maximum de caractères à afficher dans la légende
 
   private sortChartData() {
     let questions: string[] = [];
     let averageScore: number[] = [];
 
     this.questionsChart.forEach(questionChart => {
-      const truncatedLabel = questionChart.question.label.length > this.MAX_LABEL_LENGTH
-        ? questionChart.question.label.substring(0, this.MAX_LABEL_LENGTH) + '...'
+      // Truncate labels if they exceed the maximum length
+      const truncatedLabel = questionChart.question.label.length > this.maxLabelLength
+        ? questionChart.question.label.substring(0, this.maxLabelLength) + '...'
         : questionChart.question.label;
 
       questions.push(truncatedLabel);
 
+      // Calculate the average score for each question
       const sum = questionChart.points.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
       const calculatedAverageScore = sum / questionChart.points.length;
       averageScore.push(calculatedAverageScore);
     });
+
+    // Update chart with new data
     this.updateChart(questions, averageScore);
   }
 
 
+  /**
+   * Update chart's data and update it
+   * @param questions
+   * @param averageScore
+   * @private
+   */
   private updateChart(questions: string[], averageScore: number[]) {
     if (this.chart && this.chart.data && this.chart.data.labels && this.chart.data.datasets) {
       this.chart.data.labels = questions;
       this.chart.data.datasets[0].data = averageScore;
       this.chart.update();
-    } else {
-      console.error("Chart not initialized.");
     }
   }
 

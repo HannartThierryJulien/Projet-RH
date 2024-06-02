@@ -1,20 +1,17 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {Questionnaire} from "../../../models/questionnaire.model";
 import {CandidateTest} from "../../../models/candidate-test.model";
-import {CandidateAPIService} from "../../../services/API/candidateAPI.service";
 import {CandidateTestAPIService} from "../../../services/API/candidate-testAPI.service";
 import {BehaviorSubject, EMPTY, of, Subject, switchMap, takeUntil} from "rxjs";
 import {Candidate} from "../../../models/candidate.model";
 import {HrManager} from "../../../models/hrManager.model";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {QuestionEditComponent} from "../../questions/question-edit/question-edit.component";
 import {TestTakeConfirmationComponent} from "./test-take-confirmation/test-take-confirmation.component";
 import {CandidateEditComponent} from "./candidate-edit/candidate-edit.component";
-import {CountdownService} from "../../../services/countdown.service";
-import {TestService} from "../../../services/test.service";
+import {TimeService} from "../../../services/time.service";
 import {AuthAPIService} from "../../../services/API/authAPI.service";
 import {DialogDeleteComponent} from "../../shared/dialog-delete/dialog-delete.component";
+import {ChangePasswordComponent} from "../../shared/change-password/change-password.component";
 
 @Component({
   selector: 'app-dashboard-candidate',
@@ -24,7 +21,7 @@ import {DialogDeleteComponent} from "../../shared/dialog-delete/dialog-delete.co
 export class DashboardCandidateComponent implements OnInit, OnDestroy {
   private candidateTestAPIService = inject(CandidateTestAPIService);
   private dialog = inject(MatDialog);
-  countdownService = inject(CountdownService);
+  timeService = inject(TimeService);
   private authAPIService = inject(AuthAPIService);
 
   private unsubscribe$ = new Subject<void>();
@@ -38,30 +35,32 @@ export class DashboardCandidateComponent implements OnInit, OnDestroy {
   testsTakenTableSource: MatTableDataSource<CandidateTest> = new MatTableDataSource<CandidateTest>();
 
   ngOnInit() {
+    // Recover logged candidate, then recover all linked candidateTests
     this.candidateSubject.pipe(
       takeUntil(this.unsubscribe$),
       switchMap(user => {
         if (!user) {
           return EMPTY;
         }
-
         this.candidate = user as Candidate;
         return this.candidateTestAPIService.getAllCandidateTestByCandidateId(user.id);
       })
     ).subscribe(candidateTests => {
-      // Clear arrays to avoid duplicate data in case of user refresh
+      // Clear arrays to avoid duplicate data in case of refresh
       this.testsToTake = [];
       this.testsTaken = [];
       this.testsToTakeTableSource.data = this.testsToTake;
       this.testsTakenTableSource.data = this.testsTaken;
 
-      candidateTests.forEach(test => {
-        if (test.startedAt) {
-          this.testsTaken.push(test);
+      // Sort candidateTests by "taken" and "to take"
+      candidateTests.forEach(candidateTest => {
+        if (candidateTest.startedAt) {
+          this.testsTaken.push(candidateTest);
         } else {
-          this.testsToTake.push(test);
+          this.testsToTake.push(candidateTest);
         }
 
+        // Initialize tables with data
         this.testsToTakeTableSource.data = this.testsToTake;
         this.testsTakenTableSource.data = this.testsTaken;
       });
@@ -73,6 +72,10 @@ export class DashboardCandidateComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  /**
+   * Display dialog to confirm the start of the test
+   * @param candidateTest
+   */
   onDisplayConfirmation(candidateTest: CandidateTest) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = candidateTest;
@@ -82,6 +85,10 @@ export class DashboardCandidateComponent implements OnInit, OnDestroy {
     this.dialog.open(TestTakeConfirmationComponent, dialogConfig);
   }
 
+  /**
+   * Display dialog to edit candidate data and listen for the answer when closing dialog
+   * @param candidateToEdit
+   */
   onEditDialog(candidateToEdit: Candidate) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = candidateToEdit;
@@ -112,6 +119,7 @@ export class DashboardCandidateComponent implements OnInit, OnDestroy {
    * First, configure MatDialog settings for DialogDelete component.
    * Second, open DialogDelete component.
    * Finally, listen for response and cancel/confirm deleting action.
+   * @param candidate
    * @param enterAnimationDuration
    * @param exitAnimationDuration
    */
@@ -130,6 +138,18 @@ export class DashboardCandidateComponent implements OnInit, OnDestroy {
       .subscribe(
         data => data ? this.deleteUser(candidate.id) : null
       );
+  }
+
+  /**
+   * Display dialog to change password
+   * @param userId
+   */
+  onChangePasswordDialog(userId: number) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = userId;
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    this.dialog.open(ChangePasswordComponent, dialogConfig);
   }
 
 }

@@ -1,11 +1,11 @@
-import {AfterViewInit, Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, inject, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Question} from "../../../models/question.model";
 import {QuestionAPIService} from "../../../services/API/questionAPI.service";
 import {Subject, switchMap, takeUntil} from "rxjs";
 import {SelectedItemsService} from "../../../services/selectedItems.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-question-list',
@@ -13,9 +13,12 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrl: './question-list.component.scss'
 })
 export class QuestionListComponent implements OnInit, OnDestroy, AfterViewInit {
+  private questionAPIService = inject(QuestionAPIService);
+  private selectedItemsService = inject(SelectedItemsService);
+  private route = inject(ActivatedRoute);
+
   private unsubscribe$ = new Subject<void>();
   idSelectedQuestion!: number;
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns: string[] = ['label'];
   dataSource: MatTableDataSource<Question> = new MatTableDataSource<Question>();
@@ -23,11 +26,6 @@ export class QuestionListComponent implements OnInit, OnDestroy, AfterViewInit {
   searchInput: string = '';
   pageSize = 10;
   pageSizeOptions = [3, 5, 10];
-
-  constructor(public questionAPIService: QuestionAPIService,
-              private selectedItemsService: SelectedItemsService,
-              private route: ActivatedRoute) {
-  }
 
   ngOnInit() {
     // Recover the id of the selected question.
@@ -51,6 +49,7 @@ export class QuestionListComponent implements OnInit, OnDestroy, AfterViewInit {
         }
       });
 
+    // Recover the appropriate list of questions (unarchived/archived) based on @isArchivedListSelected from Questions component
     this.selectedItemsService.isArchivedQuestionsListSelected.pipe(
       switchMap(isArchivedListSelected =>
         this.questionAPIService.getItems(isArchivedListSelected).pipe(
@@ -76,21 +75,34 @@ export class QuestionListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.selectedItemsService.idQuestionSelected.next(id);
   }
 
+  /**
+   * Scroll to the selected question in the table
+   * @private
+   */
   private scrollToSelectedQuestion() {
     if (this.idSelectedQuestion !== null && this.paginator) {
       const index = this.dataSource.data.findIndex(q => q.id === this.idSelectedQuestion);
       if (index >= 0) {
         this.paginator.pageIndex = Math.floor(index / this.paginator.pageSize);
+        // Update paginator
         this.dataSource.paginator = this.paginator;
       }
     }
   }
 
+  /**
+   * Apply filter to table's data based on user input.
+   * @param event
+   */
   applyFilter(event: Event) {
+    // Extract filter value from input event
     const filterValue = (event.target as HTMLInputElement).value;
+    // Apply filter to data source
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    // If pagination is enabled and data source has a paginator
     if (this.dataSource.paginator) {
+      // Reset to the first page after filtering
       this.dataSource.paginator.firstPage();
     }
   }

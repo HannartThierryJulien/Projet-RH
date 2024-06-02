@@ -12,7 +12,11 @@ export class AppComponent {
   constructor(private authAPIService: AuthAPIService) {
   }
 
+  /**
+   * When app starts, check if user can be auto logged
+   */
   ngOnInit() {
     this.authAPIService.autoLogin();
   }
+
 }

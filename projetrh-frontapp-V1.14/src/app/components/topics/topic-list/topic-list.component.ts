@@ -1,12 +1,10 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, inject, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subject, switchMap, takeUntil} from "rxjs";
 import {TopicAPIService} from "../../../services/API/topicAPI.service";
-import {TopicsComponent} from "../topics.component";
 import {Topic} from "../../../models/topic.model";
 import {SelectedItemsService} from "../../../services/selectedItems.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
-import {Question} from "../../../models/question.model";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -15,9 +13,12 @@ import {ActivatedRoute} from "@angular/router";
   styleUrl: './topic-list.component.scss'
 })
 export class TopicListComponent implements OnInit, OnDestroy, AfterViewInit {
+  public topicAPIService = inject(TopicAPIService);
+  private selectedItemsService = inject(SelectedItemsService);
+  private route = inject(ActivatedRoute);
+
   private unsubscribe$ = new Subject<void>();
   idSelectedTopic!: number;
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns: string[] = ['label'];
   dataSource: MatTableDataSource<Topic> = new MatTableDataSource<Topic>();
@@ -25,11 +26,6 @@ export class TopicListComponent implements OnInit, OnDestroy, AfterViewInit {
   searchInput: string = '';
   pageSize = 10;
   pageSizeOptions = [3, 5, 10];
-
-  constructor(public topicAPIService: TopicAPIService,
-              private selectedItemsService: SelectedItemsService,
-              private route: ActivatedRoute) {
-  }
 
   ngOnInit() {
     // Recover the id of the selected topic.
@@ -62,7 +58,7 @@ export class TopicListComponent implements OnInit, OnDestroy, AfterViewInit {
       )
     ).subscribe(topics => {
       this.dataSource.data = topics;
-      this.scrollToSelectedQuestion();
+      this.scrollToSelectedTopic();
     });
   }
 
@@ -83,21 +79,35 @@ export class TopicListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.selectedItemsService.idTopicSelected.next(id);
   }
 
-  private scrollToSelectedQuestion() {
+  /**
+   * Scroll to the selected Topic in the table
+   *
+   * @private
+   */
+  private scrollToSelectedTopic() {
     if (this.idSelectedTopic !== null && this.paginator) {
       const index = this.dataSource.data.findIndex(q => q.id === this.idSelectedTopic);
       if (index >= 0) {
         this.paginator.pageIndex = Math.floor(index / this.paginator.pageSize);
+        // Update paginator
         this.dataSource.paginator = this.paginator;
       }
     }
   }
 
+  /**
+   * Apply filter to table's data based on user input.
+   * @param event
+   */
   applyFilter(event: Event) {
+    // Extract filter value from input event
     const filterValue = (event.target as HTMLInputElement).value;
+    // Apply filter to data source
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    // If pagination is enabled and data source has a paginator
     if (this.dataSource.paginator) {
+      // Reset to the first page after filtering
       this.dataSource.paginator.firstPage();
     }
   }

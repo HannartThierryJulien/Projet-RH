@@ -51,5 +51,10 @@ public class HRManagerService {
 		HRManager hr = hrManagerRep.save(hrManager);
 		return hr;
 	}
+
+	public void changePassword(HRManager hrManager, String newPassword) {
+		hrManager.setPassword(passwordEncoder.encode(newPassword));
+		hrManagerRep.save(hrManager);
+	}
 	
 }

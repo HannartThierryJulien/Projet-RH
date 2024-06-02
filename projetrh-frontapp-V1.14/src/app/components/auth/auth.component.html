@@ -58,13 +58,26 @@
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>{{ 'Password' | translate }}</mat-label>
-                <input
-                  matInput
-                  type="password"
-                  ngModel
-                  name="password"
-                  required
-                  minlength="1">
+                <ng-container *ngIf="isLoginMode; else inputForSignup">
+                  <input
+                    matInput
+                    type="{{ showPassword ? 'text' : 'password' }}"
+                    ngModel
+                    name="password"
+                    required>
+                </ng-container>
+                <ng-template #inputForSignup>
+                  <input
+                    matInput
+                    type="{{ showPassword ? 'text' : 'password' }}"
+                    ngModel
+                    name="password"
+                    required
+                    passwordValidator>
+                </ng-template>
+                <button type="button" mat-icon-button matSuffix (click)="toggleShowOldPassword()">
+                  <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
               </mat-form-field>
 
               <ng-container *ngIf="!isLoginMode">

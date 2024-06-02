@@ -5,11 +5,8 @@ import {
   EMPTY,
   finalize,
   forkJoin,
-  interval,
   Observable,
   Subject,
-  Subscription,
-  switchMap,
   takeUntil
 } from "rxjs";
 import {QuestionTestAPIService} from "../../../services/API/question-testAPI.service";
@@ -24,7 +21,7 @@ import {ResultAPIService} from "../../../services/API/resultAPI.service";
 import {CandidateTest} from "../../../models/candidate-test.model";
 import {CandidateTestChecksService} from "../../../services/candidateTestChecks.service";
 import {QuestionTest} from "../../../models/question-test.model";
-import {CountdownService} from "../../../services/countdown.service";
+import {TimeService} from "../../../services/time.service";
 import {TestService} from "../../../services/test.service";
 
 @Component({
@@ -43,7 +40,7 @@ export class TestTakeComponent implements OnInit, OnDestroy {
   private formBuilder = inject(FormBuilder);
   private resultAPIService = inject(ResultAPIService);
   private candidateTestChecksService = inject(CandidateTestChecksService);
-  private countdownService = inject(CountdownService);
+  private timeService = inject(TimeService);
   private testService = inject(TestService)
 
   private unsubscribe$ = new Subject<void>();
@@ -55,26 +52,19 @@ export class TestTakeComponent implements OnInit, OnDestroy {
   timeRemaining: number = 0;
   private score!: number;
 
-  private editingCandidateTest$ = new Subject<void>();
-
-
   ngOnInit() {
+    // Create form
     this.form = this.formBuilder.group({});
 
     this.subscribeToUser();
   }
 
   ngOnDestroy() {
-    this.countdownService.stopCountdown();
+    this.timeService.stopCountdown();
 
     if (!this.formSubmitted) {
       this.updateCandidateTestOnEvent('fraudSuspicion');
     }
-
-    // this.editingCandidateTest$.subscribe(() => {
-    //   this.unsubscribe$.next();
-    //   this.unsubscribe$.complete();
-    // });
   }
 
   @HostListener('document:visibilitychange', ['$event'])
@@ -84,32 +74,47 @@ export class TestTakeComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Retrieve logged user, then retrieveCandidateTestId().
+   * If no logged user, handleTestIssue().
+   * @private
+   */
   private subscribeToUser() {
     this.authAPIService.user
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(user => {
         if (user) {
-          this.checkAndLoadTest(+user.id);
+          this.retrieveCandidateTestId(+user.id);
         } else {
           this.handleTestIssue();
         }
       });
   }
 
-  private checkAndLoadTest(candidateId: number) {
-    const idAssignedTest = this.route.snapshot.paramMap.get('id');
-    if (idAssignedTest && !isNaN(+idAssignedTest)) {
-      this.loadTest(+idAssignedTest, candidateId);
+  /**
+   * Retrieve candidateTestId from route and check it's a number.
+   * @param candidateId
+   * @private
+   */
+  private retrieveCandidateTestId(candidateId: number) {
+    const candidateTestId = this.route.snapshot.paramMap.get('id');
+    if (candidateTestId && !isNaN(+candidateTestId)) {
+      this.checkCandidateTestAndLoadQuestions(+candidateTestId, candidateId);
     } else {
       this.handleTestIssue();
     }
   }
 
-  loadTest(idAssignedTest: number, candidateId: number) {
+  /**
+   * First retrieve candidateTest from database and do some checks.
+   * Then, execute loadQuestions() if checks are good.
+   * @param idAssignedTest
+   * @param candidateId
+   */
+  checkCandidateTestAndLoadQuestions(idAssignedTest: number, candidateId: number) {
     this.candidateTestAPIService.getItem(idAssignedTest)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(candidateTest => {
-        console.log("this.candidateTest : ", this.candidateTest)
         this.candidateTest = candidateTest;
         if (this.candidateTestChecksService.areSecurityChecksGood(candidateTest, candidateId)) {
           this.loadQuestions(candidateTest.test.id);
@@ -119,6 +124,10 @@ export class TestTakeComponent implements OnInit, OnDestroy {
       });
   }
 
+  /**
+   * Retrieve questions from this test and call loadAnswers().
+   * @param testId
+   */
   loadQuestions(testId: number) {
     this.questionTestAPIService.getAllQuestionTestByTestId(testId)
       .pipe(
@@ -137,6 +146,12 @@ export class TestTakeComponent implements OnInit, OnDestroy {
       });
   }
 
+  /**
+   * First load the anwers for every linked questions.
+   * Then, initialize a question's array.
+   * Finally, execute FillFormAndStartTest().
+   * @param questionTests
+   */
   loadAnswers(questionTests: QuestionTest[]) {
     forkJoin(questionTests.map(qt =>
       this.answerAPIService.getAnswersByQuestionId(qt.question.id)
@@ -151,20 +166,30 @@ export class TestTakeComponent implements OnInit, OnDestroy {
         this.answers.push(...answerList);
       });
 
-      // Check if all data are loaded
-      const allDataLoaded = this.questions.length === questionTests.length;
-      if (allDataLoaded) {
-        this.fillForm();
-        this.startTest();
-      }
+      // When all answers loaded from API, intialize question's array and execute FillFormAndStarTest()
+      this.questions = questionTests.map(qt => qt.question);
+      this.FillFormAndStartTest();
     });
-    this.questions = questionTests.map(qt => qt.question);
+  }
+
+  /**
+   * Fill form and start the test.
+   * @constructor
+   * @private
+   */
+  private FillFormAndStartTest() {
+      this.fillForm();
+      this.startTest();
   }
 
   private handleTestIssue() {
     this.router.navigate(['/dashboard']);
   }
 
+  /**
+   * Fill the form with every answer previously loaded.
+   * @private
+   */
   private fillForm() {
     this.answers.forEach(answer => {
       const control = new FormControl(false);
@@ -172,6 +197,10 @@ export class TestTakeComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Start the test by disabling logout button, starting coutdown and updating the test's test.
+   * @private
+   */
   private startTest() {
     this.authAPIService.isLogoutButtonClickable.next(false);
 
@@ -179,6 +208,9 @@ export class TestTakeComponent implements OnInit, OnDestroy {
     this.updateCandidateTestOnEvent('started');
   }
 
+  /**
+   * Submit the form and create a result object for every answer.
+   */
   submitForm() {
     if (this.formSubmitted) {
       return;
@@ -203,6 +235,7 @@ export class TestTakeComponent implements OnInit, OnDestroy {
       });
     });
 
+    // Wait for every result to be pushed to database before ending submitting form actions
     forkJoin(apiCalls).pipe(
       finalize(() => {
         this.score = this.calculateScore(results);
@@ -213,14 +246,22 @@ export class TestTakeComponent implements OnInit, OnDestroy {
     ).subscribe();
   }
 
+  /**
+   * Search for every answer linked to a given question.
+   * @param question
+   */
   getAnswersForQuestion(question: Question): Answer[] {
     return this.answers.filter(answer => answer.question.id === question.id);
   }
 
+  /**
+   * Start countdown and update this.timeRemaining.
+   * When this.timeRemaining is ended, execute submitForm().
+   */
   startCountdown() {
     const maxDurationInSeconds = this.testService.calculateCandidateTestMaxDurationInSecondsByQuestions(this.questions);
 
-    this.countdownService.startCountdown(
+    this.timeService.startCountdown(
       maxDurationInSeconds,
       (timeRemainingInSeconds: number) => {
         this.timeRemaining = timeRemainingInSeconds;
@@ -231,6 +272,11 @@ export class TestTakeComponent implements OnInit, OnDestroy {
     );
   }
 
+  /**
+   * Calculate the obtained score for this candidateTest.
+   * @param results
+   * @private
+   */
   private calculateScore(results: Result[]): number {
     let totalPoints = 0;
 
@@ -262,6 +308,11 @@ export class TestTakeComponent implements OnInit, OnDestroy {
     return totalPoints;
   }
 
+  /**
+   * Update candidateTest based on event.
+   * @param event
+   * @private
+   */
   private updateCandidateTestOnEvent(event: string) {
     let showNotification: boolean = false;
     let redirect: boolean = false;

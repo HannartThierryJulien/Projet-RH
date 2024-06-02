@@ -1,4 +1,4 @@
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, Inject, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Subject, takeUntil} from "rxjs";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
@@ -11,15 +11,14 @@ import {TestAPIService} from "../../../services/API/testAPI.service";
   styleUrl: './test-edit.component.scss'
 })
 export class TestEditComponent implements OnInit, OnDestroy {
+  private testAPIService = inject(TestAPIService);
+  private formBuilder = inject(FormBuilder);
+  private dialogRef = inject(MatDialogRef<TestEditComponent>);
+  public data: any = inject(MAT_DIALOG_DATA);
+
   testForm!: FormGroup;
   testToEdit!: Test;
   private unsubscribe$ = new Subject<void>();
-
-  constructor(private testAPIService: TestAPIService,
-              private formBuilder: FormBuilder,
-              public dialogRef: MatDialogRef<TestEditComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Test) {
-  }
 
   ngOnInit(): void {
     // Recover test to edit

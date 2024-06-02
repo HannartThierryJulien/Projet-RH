@@ -1,11 +1,10 @@
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, Inject, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Candidate} from "../../../../models/candidate.model";
 import {Subject, takeUntil} from "rxjs";
 import {CandidateAPIService} from "../../../../services/API/candidateAPI.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {DatePipe} from "@angular/common";
-import {MAT_DATE_FORMATS} from "@angular/material/core";
 
 @Component({
   selector: 'app-candidate-edit',
@@ -14,16 +13,15 @@ import {MAT_DATE_FORMATS} from "@angular/material/core";
   providers: [DatePipe]
 })
 export class CandidateEditComponent implements OnInit, OnDestroy {
+  private candidateAPIService = inject(CandidateAPIService);
+  private formBuilder = inject(FormBuilder);
+  public dialogRef = inject(MatDialogRef<CandidateEditComponent>);
+  public data: Candidate = inject(MAT_DIALOG_DATA);
+  private datepipe = inject(DatePipe);
+
   candidateForm!: FormGroup;
   candidateToEdit!: Candidate;
   private unsubscribe$ = new Subject<void>();
-
-  constructor(private candidateAPIService: CandidateAPIService,
-              private formBuilder: FormBuilder,
-              public dialogRef: MatDialogRef<CandidateEditComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Candidate,
-              private datepipe: DatePipe) {
-  }
 
   ngOnInit(): void {
     // Recover candidate to edit
@@ -65,7 +63,7 @@ export class CandidateEditComponent implements OnInit, OnDestroy {
       return;
     }
 
-    // Recover updated candidate
+    // Recover updated candidate data (and format date)
     const birthDateFromForm = this.datepipe.transform(this.candidateForm.value.birthDate, 'yyyy-MM-dd');
     const updatedCandidate: Candidate = {
       id: this.candidateToEdit.id,

@@ -1,11 +1,8 @@
 package htj.authservice.controller;
 
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -13,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -69,6 +66,11 @@ public class AuthController {
 	    if (usernameExists(username)) {
 	        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already exists");
 	    }
+	    
+	    if (!isValidPassword(password)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new ResponseWrapper<>(null, "Error: Password does not meet complexity requirements."));
+        }
 	    
 	    Person newPerson = new Person(lastname, firstname, "", false, consentGivenAt);
 	    try {
@@ -212,6 +214,59 @@ public class AuthController {
     	person.setDataErasureRequestedAt(OffsetDateTime.now(ZoneOffset.UTC));
     	person.setArchived(true);
     	persServ.updatePerson(person);
+    }
+    
+    @PostMapping("/change-password/{userId}")
+    @ResponseBody
+    public ResponseEntity<ResponseWrapper<String>> changePassword(@RequestHeader(AUTH_HEADER) String authorizationHeader, 
+    		@RequestBody Map<String, String> passwordData, @PathVariable int userId) {
+		try {
+			if ((jwtUtils.isExpired(authorizationHeader)) || (!jwtUtils.isValidToken(authorizationHeader))) {
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+		                .body(new ResponseWrapper<>(null, "Error: Invalid token provided in headers."));
+			}
+			
+			String oldPassword = passwordData.get("oldPassword");
+	        String newPassword = passwordData.get("newPassword");
+	        
+	        if (!isValidPassword(newPassword)) {
+	            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+	                    .body(new ResponseWrapper<>(null, "Error: New password does not meet complexity requirements."));
+	        }
+	        
+	        Candidate candidate = candidateServ.getById(userId);
+	        if (candidate != null) {
+	            if (doesPasswordMatch(oldPassword, candidate.getPassword())) {
+	                candidateServ.changePassword(candidate, newPassword);
+	                return ResponseEntity.ok(new ResponseWrapper<>(null, "Password changed successfully."));
+	            } else {
+	                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+	                        .body(new ResponseWrapper<>(null, "Error: Old password is incorrect."));
+	            }
+	        }
+
+	        HRManager hrManager = hrManagerServ.getById(userId);
+	        if (hrManager != null) {
+	            if (doesPasswordMatch(oldPassword, hrManager.getPassword())) {
+	                hrManagerServ.changePassword(hrManager, newPassword);
+	                return ResponseEntity.ok(new ResponseWrapper<>(null, "Password changed successfully."));
+	            } else {
+	                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+	                        .body(new ResponseWrapper<>(null, "Error: Old password is incorrect."));
+	            }
+	        }
+
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+	                .body(new ResponseWrapper<>(null, "Error: User not found."));
+		} catch (Exception e) {
+			return exceptionHandler.handleInternalServerError(e);
+		}
+    }
+    
+    private boolean isValidPassword(String password) {
+        // Minimum 8 characters, at least one uppercase letter, one lowercase letter, one digit, and one special character
+        String passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
+        return password.matches(passwordPattern);
     }
 	
 }

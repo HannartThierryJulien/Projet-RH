@@ -1,0 +1,7 @@
+{
+  "/aubay-HRProject/**": {
+    "target": "http://gateway-service:2001",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

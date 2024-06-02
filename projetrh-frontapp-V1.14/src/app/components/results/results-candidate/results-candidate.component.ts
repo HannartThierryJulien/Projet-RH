@@ -1,11 +1,11 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {ResultAPIService} from "../../../services/API/resultAPI.service";
-import {Observable, Subject, takeUntil} from "rxjs";
+import {Subject, takeUntil} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Result} from "../../../models/result.model";
 import {Question} from "../../../models/question.model";
 import {CandidateTest} from "../../../models/candidate-test.model";
-import {CountdownService} from "../../../services/countdown.service";
+import {TimeService} from "../../../services/time.service";
 import {TestService} from "../../../services/test.service";
 import {AuthAPIService} from "../../../services/API/authAPI.service";
 import {NotificationService} from "../../../services/notification.service";
@@ -25,7 +25,7 @@ interface QuestionWithScoreAndResults {
 export class ResultsCandidateComponent implements OnInit, OnDestroy {
   private resultAPIService = inject(ResultAPIService);
   private route = inject(ActivatedRoute);
-  countdownService = inject(CountdownService);
+  protected timeService = inject(TimeService);
   private testService = inject(TestService);
   private authAPIService = inject(AuthAPIService);
   private router = inject(Router);
@@ -43,9 +43,6 @@ export class ResultsCandidateComponent implements OnInit, OnDestroy {
     const candidateTestId = this.route.snapshot.paramMap.get('id');
     if (candidateTestId && !isNaN(+candidateTestId)) {
       this.getResults(+candidateTestId);
-    } else {
-      // handle error
-      console.log("error ds la route !")
     }
   }
 
@@ -54,6 +51,13 @@ export class ResultsCandidateComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  /**
+   * First, retrieve results from candidateTest id and sort them
+   * Then, retrieve candidateTest from one of the results
+   * Finally, check if logged candidate is authorized to consult these results
+   * @param candidateTestId
+   * @private
+   */
   private getResults(candidateTestId: number) {
     this.resultAPIService.getAllResultsByCandidateTestId(candidateTestId)
       .pipe(takeUntil(this.unsubscribe$))
@@ -62,12 +66,18 @@ export class ResultsCandidateComponent implements OnInit, OnDestroy {
         this.questions = this.sortResults(results);
         this.candidateTest = results[0].candidateTest;
         if (this.results.length > 0) {
-          this.isCandidateAuthorized(this.results[0]);
+          this.checkIfCandidateAuthorized(this.results[0]);
         }
       });
   }
 
+  /**
+   * Sort results to create a map of QuestionWithScoreAndResults object to easily use in template
+   * @param results
+   * @private
+   */
   private sortResults(results: Result[]) {
+    // Map to store every question once
     const questionMap = new Map<number, QuestionWithScoreAndResults>();
 
     results.forEach(result => {
@@ -81,15 +91,22 @@ export class ResultsCandidateComponent implements OnInit, OnDestroy {
       }
       const questionWithScoreAndResults = questionMap.get(questionId)!;
       questionWithScoreAndResults.results.push(result);
-      // questionWithScoreAndResults.score += result.score;
     });
 
+    // Calculate some data
     this.calculateData(Array.from(questionMap.values()));
+
+    // Return QuestionWithScoreAndResults array
     return Array.from(questionMap.values());
   }
 
 
-  private isCandidateAuthorized(result: Result) {
+  /**
+   * Checks some things before displaying results
+   * @param result
+   * @private
+   */
+  private checkIfCandidateAuthorized(result: Result) {
     this.authAPIService.user
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(user => {
@@ -117,6 +134,13 @@ export class ResultsCandidateComponent implements OnInit, OnDestroy {
       });
   }
 
+  /**
+   * First, calculate the obtained score of every question
+   * Then, calculate the maximum duration a candidate can take for this test
+   * Finally, calculate the maximum points a candidate can have for this test
+   * @param questions
+   * @private
+   */
   private calculateData(questions: QuestionWithScoreAndResults[]) {
     questions.forEach(q => {
       const maxQuestionScore = q.question.points * q.question.weight;

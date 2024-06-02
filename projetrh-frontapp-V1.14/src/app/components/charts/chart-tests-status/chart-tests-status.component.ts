@@ -22,10 +22,8 @@ export class ChartTestsStatusComponent implements OnInit, OnDestroy {
   nbrTestsAssigned: number = 0;
   chart: any;
 
-  constructor() {
-  }
-
   ngOnInit() {
+    // First create chart, then load data if chart creation successful
     this.createChart().then(() => {
       this.loadChartData();
     });
@@ -36,6 +34,10 @@ export class ChartTestsStatusComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  /**
+   * Create the chart
+   * @private
+   */
   private async createChart() {
     return new Promise<void>((resolve, reject) => {
       Chart.register(...registerables);
@@ -45,10 +47,20 @@ export class ChartTestsStatusComponent implements OnInit, OnDestroy {
         this.chart = new Chart(canvas, {
           type: 'bar',
           data: {
-            labels: [this.translateService.instant('assigned'), this.translateService.instant('started'), this.translateService.instant('ended'), this.translateService.instant('fraudSuspicion')],
+            labels: [
+              this.translateService.instant('assigned'),
+              this.translateService.instant('started'),
+              this.translateService.instant('ended'),
+              this.translateService.instant('fraudSuspicion')
+            ],
             datasets: [{
               // label: '# of tests',
-              data: [this.nbrTestsAssigned, this.nbrTestsStarted, this.nbrTestsEnded, this.nbrTestsFraudSuspicion],
+              data: [
+                this.nbrTestsAssigned,
+                this.nbrTestsStarted,
+                this.nbrTestsEnded,
+                this.nbrTestsFraudSuspicion
+              ],
               backgroundColor: [
                 '#70A1D7',
                 '#FFC55A',
@@ -56,15 +68,15 @@ export class ChartTestsStatusComponent implements OnInit, OnDestroy {
                 '#F47C7C'
               ],
               borderWidth: 1,
-              barThickness: 20, // Fixed thickness for each bar
-              categoryPercentage: 0.05, // Reduces space between categories
-              barPercentage: 0.08
+              barThickness: 20,  // Fixed thickness for each bar
+              categoryPercentage: 0.05,  // Reduces space between categories
+              barPercentage: 0.08  // Reduces space between bars
             }]
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
-            indexAxis: 'y',
+            indexAxis: 'y', // Horizontal bar chart
             scales: {
               x: {
                 beginAtZero: true,
@@ -87,14 +99,18 @@ export class ChartTestsStatusComponent implements OnInit, OnDestroy {
             }
           }
         });
-        resolve();
+        resolve();  // Resolve the promise if the chart is created successfully
       } else {
-        console.error('Canvas element with ID "chartTestsStatus" not found.');
-        reject();
+        reject();  // Reject the promise if the canvas element is not found
       }
     });
   }
 
+  /**
+   * Listen for every candidateTests change, then load and sort data
+   * Finally, update the chart with the new data
+   * @private
+   */
   private loadChartData() {
     this.candidateTestsSubject
       .pipe(takeUntil(this.unsubscribe$))
@@ -105,6 +121,11 @@ export class ChartTestsStatusComponent implements OnInit, OnDestroy {
       });
   }
 
+  /**
+   * Sort candidateTests by status type
+   * @param candidateTests
+   * @private
+   */
   private sortData(candidateTests: CandidateTest[]) {
     this.nbrTestsEnded = 0;
     this.nbrTestsStarted = 0;
@@ -133,14 +154,23 @@ export class ChartTestsStatusComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Update chart with new data
+   * @private
+   */
   private updateChart() {
     if (this.chart && this.chart.data && this.chart.data.datasets) {
-      this.chart.data.datasets[0].data = [this.nbrTestsAssigned, this.nbrTestsStarted, this.nbrTestsEnded, this.nbrTestsFraudSuspicion];
+      this.chart.data.datasets[0].data = [
+        this.nbrTestsAssigned,
+        this.nbrTestsStarted,
+        this.nbrTestsEnded,
+        this.nbrTestsFraudSuspicion
+      ];
+
       this.chart.update();
-    } else {
-      console.error("Chart not initialized.");
     }
   }
+
 }
 
 

@@ -1,16 +1,17 @@
-import {Injectable} from "@angular/core";
+import {inject, Injectable} from "@angular/core";
 import {Observable, throwError} from "rxjs";
 import {NotificationService} from "./notification.service";
 import {TranslateService} from "@ngx-translate/core";
 
+/**
+ * Service used to handle http errors with backend.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class ErrorHandlerService {
-
-  constructor(private notificationService: NotificationService,
-              private translateService: TranslateService) {
-  }
+  private notificationService = inject(NotificationService);
+  private translateService = inject(TranslateService);
 
   public handleError(error: any, errorMessage: string): Observable<never> {
     const errorDetail = `Backend returned code ${error.status}, body was: ${JSON.stringify(error.error)}`;
@@ -19,31 +20,31 @@ export class ErrorHandlerService {
 
     switch (error.status) {
       case 0: {
-        messageDetail = this.translateService.instant('Connection error: Unable to reach the server.');
+        messageDetail = 'Connection error: Unable to reach the server.';
         break;
       }
       case 400: {
-        messageDetail = this.translateService.instant('Bad request.');
+        messageDetail = 'Bad request.';
         break;
       }
       case 401: {
-        messageDetail = this.translateService.instant('Unauthorized.');
+        messageDetail = 'Unauthorized.';
         break;
       }
       case 403: {
-        messageDetail = this.translateService.instant('Forbidden.');
+        messageDetail = 'Forbidden.';
         break;
       }
       case 404: {
-        messageDetail = this.translateService.instant('Item not found.');
+        messageDetail = 'Item not found.';
         break;
       }
       case 409: {
-        messageDetail = this.translateService.instant('Conflict.');
+        messageDetail = 'Conflict.';
         break;
       }
       case 500: {
-        messageDetail = this.translateService.instant('Internal server error.');
+        messageDetail = 'Internal server error.';
         break;
       }
       default: {
@@ -53,7 +54,8 @@ export class ErrorHandlerService {
     }
 
     messageDetail = this.translateService.instant(messageDetail);
-    errorMessage = this.translateService.instant(errorMessage) + ' ' + messageDetail;
+    errorMessage = this.translateService.instant(errorMessage);
+    errorMessage = errorMessage + ' ' + messageDetail;
 
     this.notificationService.showError(errorMessage);
     return throwError(() => new Error(errorMessage));

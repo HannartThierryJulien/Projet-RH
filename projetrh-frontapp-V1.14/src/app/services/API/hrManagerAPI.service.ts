@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {GenericAPIService} from "./genericAPI.service";
-import {Test} from "../../models/test.model";
 import {HrManager} from "../../models/hrManager.model";
 
 @Injectable({

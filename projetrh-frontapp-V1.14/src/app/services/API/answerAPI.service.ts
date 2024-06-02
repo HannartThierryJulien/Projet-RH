@@ -1,12 +1,7 @@
-import {inject, Injectable, OnInit} from "@angular/core";
-import {catchError, finalize, map, Observable, retry, throwError} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import {catchError, finalize, map, Observable, retry} from "rxjs";
 import {Answer} from "../../models/answer.model";
 import {GenericAPIService} from "./genericAPI.service";
-import {Question} from "../../models/question.model";
-import {LoadingService} from "../loading.service";
-import {NotificationService} from "../notification.service";
-import {ErrorHandlerService} from "../errorHandler.service";
 
 @Injectable({
   providedIn: 'root',

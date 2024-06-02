@@ -48,40 +48,53 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatTableModule} from "@angular/material/table";
-import { QuestionStartComponent } from './components/questions/question-start/question-start.component';
-import { LanguageSelectorComponent } from './components/header/language-selector/language-selector.component';
-import { LoaderComponent } from './components/shared/loader/loader.component';
-import { QuestionnaireStartComponent } from './components/questionnaires/questionnaire-start/questionnaire-start.component';
-import { QuestionnaireEditComponent } from './components/questionnaires/questionnaire-edit/questionnaire-edit.component';
-import { QuestionnaireAddComponent } from './components/questionnaires/questionnaire-add/questionnaire-add.component';
-import { TopicAddComponent } from './components/topics/topic-add/topic-add.component';
-import { TopicEditComponent } from './components/topics/topic-edit/topic-edit.component';
-import { TopicStartComponent } from './components/topics/topic-start/topic-start.component';
-import { TestListComponent } from './components/tests/test-list/test-list.component';
+import {QuestionStartComponent} from './components/questions/question-start/question-start.component';
+import {LanguageSelectorComponent} from './components/header/language-selector/language-selector.component';
+import {HamsterLoaderComponent} from './components/shared/hamster-loader/hamster-loader.component';
+import {
+  QuestionnaireStartComponent
+} from './components/questionnaires/questionnaire-start/questionnaire-start.component';
+import {QuestionnaireEditComponent} from './components/questionnaires/questionnaire-edit/questionnaire-edit.component';
+import {QuestionnaireAddComponent} from './components/questionnaires/questionnaire-add/questionnaire-add.component';
+import {TopicAddComponent} from './components/topics/topic-add/topic-add.component';
+import {TopicEditComponent} from './components/topics/topic-edit/topic-edit.component';
+import {TopicStartComponent} from './components/topics/topic-start/topic-start.component';
+import {TestListComponent} from './components/tests/test-list/test-list.component';
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
-import { TestDetailComponent } from './components/tests/test-detail/test-detail.component';
-import { TestDetailsComponent } from './components/tests/test-detail/test-details/test-details.component';
-import { TestAssignationComponent } from './components/tests/test-detail/test-assignation/test-assignation.component';
-import { TestAssignComponent } from './components/tests/test-detail/test-assignation/test-assign/test-assign.component';
-import { QuestionTestManageComponent } from './components/tests/test-detail/test-details/question-test-manage/question-test-manage.component';
-import { HasRoleDirective } from './directives/has-role.directive';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DashboardCandidateComponent } from './components/dashboard/dashboard-candidate/dashboard-candidate.component';
-import { DashboardHrManagerComponent } from './components/dashboard/dashboard-hr-manager/dashboard-hr-manager.component';
-import { TestTakeComponent } from './components/tests/test-take/test-take.component';
-import { TestTakeConfirmationComponent } from './components/dashboard/dashboard-candidate/test-take-confirmation/test-take-confirmation.component';
-import { TestEditComponent } from './components/tests/test-edit/test-edit.component';
+import {TestDetailComponent} from './components/tests/test-detail/test-detail.component';
+import {TestDetailsComponent} from './components/tests/test-detail/test-details/test-details.component';
+import {TestAssignationComponent} from './components/tests/test-detail/test-assignation/test-assignation.component';
+import {TestAssignComponent} from './components/tests/test-detail/test-assignation/test-assign/test-assign.component';
+import {
+  QuestionTestManageComponent
+} from './components/tests/test-detail/test-details/question-test-manage/question-test-manage.component';
+import {HasRoleDirective} from './directives/has-role.directive';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {DashboardCandidateComponent} from './components/dashboard/dashboard-candidate/dashboard-candidate.component';
+import {DashboardHrManagerComponent} from './components/dashboard/dashboard-hr-manager/dashboard-hr-manager.component';
+import {TestTakeComponent} from './components/tests/test-take/test-take.component';
+import {
+  TestTakeConfirmationComponent
+} from './components/dashboard/dashboard-candidate/test-take-confirmation/test-take-confirmation.component';
+import {TestEditComponent} from './components/tests/test-edit/test-edit.component';
 import {ClipboardModule} from "@angular/cdk/clipboard";
-import { TestAddComponent } from './components/tests/test-add/test-add.component';
-import { CandidateEditComponent } from './components/dashboard/dashboard-candidate/candidate-edit/candidate-edit.component';
-import { ResultsCandidateComponent } from './components/results/results-candidate/results-candidate.component';
-import { SecondsToTimeStringPipe } from './pipes/secondsToTimeString.pipe';
-import { ChartTestsStatusComponent } from './components/charts/chart-tests-status/chart-tests-status.component';
-import { ChartAverageQuestionsResultsComponent } from './components/charts/chart-average-questions-results/chart-average-questions-results.component';
+import {TestAddComponent} from './components/tests/test-add/test-add.component';
+import {
+  CandidateEditComponent
+} from './components/dashboard/dashboard-candidate/candidate-edit/candidate-edit.component';
+import {ResultsCandidateComponent} from './components/results/results-candidate/results-candidate.component';
+import {SecondsToTimeStringPipe} from './pipes/secondsToTimeString.pipe';
+import {ChartTestsStatusComponent} from './components/charts/chart-tests-status/chart-tests-status.component';
+import {
+  ChartAverageQuestionsResultsComponent
+} from './components/charts/chart-average-questions-results/chart-average-questions-results.component';
 import {MatDivider} from "@angular/material/divider";
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
+import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
+import {LoadingBarComponent} from './components/shared/loading-bar/loading-bar.component';
+import { PasswordValidatorDirective } from './directives/password-validator.directive';
+import { ChangePasswordComponent } from './components/shared/change-password/change-password.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -109,7 +122,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     QuestionEditComponent,
     QuestionStartComponent,
     LanguageSelectorComponent,
-    LoaderComponent,
+    HamsterLoaderComponent,
     QuestionnaireStartComponent,
     QuestionnaireEditComponent,
     QuestionnaireAddComponent,
@@ -134,6 +147,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SecondsToTimeStringPipe,
     ChartTestsStatusComponent,
     ChartAverageQuestionsResultsComponent,
+    LoadingBarComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -193,7 +208,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ClipboardModule,
     MatDivider,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    PasswordValidatorDirective
   ],
   providers: [
     provideAnimationsAsync(),
@@ -202,7 +218,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       useClass: AuthInterceptorService,
       multi: true
     },
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
   ],
   bootstrap: [AppComponent]
 })

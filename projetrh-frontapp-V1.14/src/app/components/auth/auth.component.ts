@@ -1,9 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy} from '@angular/core';
 import {AuthAPIService} from "../../services/API/authAPI.service";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {Observable, Subject, takeUntil} from "rxjs";
-import {CustomJWT} from "../../models/customJWT.model";
 import {NotificationService} from "../../services/notification.service";
 
 @Component({
@@ -12,17 +11,17 @@ import {NotificationService} from "../../services/notification.service";
   styleUrl: './auth.component.scss'
 })
 export class AuthComponent implements OnDestroy {
+  private authAPIService = inject(AuthAPIService);
+  private router = inject(Router);
+  private notificationService = inject(NotificationService);
+
   isLoginMode = true;
   isLoading = false;
   private _userType: string[] = ['candidate', 'hrManager'];
   private unsubscribe$ = new Subject<void>();
   errorMessage: string = '';
   errorHappened: boolean = false;
-
-  constructor(private authAPIService: AuthAPIService,
-              private router: Router,
-              private notificationService: NotificationService) {
-  }
+  showPassword = false;
 
   ngOnDestroy() {
     this.unsubscribe$.next();
@@ -85,7 +84,7 @@ export class AuthComponent implements OnDestroy {
   private redirectToAppropriatePage() {
     this.authAPIService.user
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe( user => {
+      .subscribe(user => {
         if (user == null) {
           return;
         }
@@ -98,6 +97,13 @@ export class AuthComponent implements OnDestroy {
           //this.router.navigate(['/tests']);
         }
       });
+  }
+
+  /**
+   * Used to display, or not, the password in text.
+   */
+  toggleShowOldPassword() {
+    this.showPassword = !this.showPassword;
   }
 
 }

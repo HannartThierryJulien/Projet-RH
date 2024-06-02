@@ -1,13 +1,11 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subject, switchMap, takeUntil} from "rxjs";
-import {QuestionnairesComponent} from "../questionnaires.component";
 import {QuestionnaireAPIService} from "../../../services/API/questionnaireAPI.service";
 import {Questionnaire} from "../../../models/questionnaire.model";
 import {SelectedItemsService} from "../../../services/selectedItems.service";
 import {ActivatedRoute} from "@angular/router";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
-import {Question} from "../../../models/question.model";
 
 @Component({
   selector: 'app-questionnaire-list',
@@ -82,21 +80,34 @@ export class QuestionnaireListComponent implements OnInit, OnDestroy, AfterViewI
     this.selectedItemsService.idQuestionnaireSelected.next(id);
   }
 
+  /**
+   * Scroll to the selected questionnaire in the table
+   * @private
+   */
   private scrollToSelectedQuestionnaire() {
     if (this.idSelectedQuestionnaire !== null && this.paginator) {
       const index = this.dataSource.data.findIndex(q => q.id === this.idSelectedQuestionnaire);
       if (index >= 0) {
         this.paginator.pageIndex = Math.floor(index / this.paginator.pageSize);
+        // Update paginator
         this.dataSource.paginator = this.paginator;
       }
     }
   }
 
+  /**
+   * Apply filter to table's data based on user input.
+   * @param event
+   */
   applyFilter(event: Event) {
+    // Extract filter value from input event
     const filterValue = (event.target as HTMLInputElement).value;
+    // Apply filter to data source
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    // If pagination is enabled and data source has a paginator
     if (this.dataSource.paginator) {
+      // Reset to the first page after filtering
       this.dataSource.paginator.firstPage();
     }
   }

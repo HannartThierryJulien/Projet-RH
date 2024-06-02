@@ -1,4 +1,4 @@
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Topic} from "../../../models/topic.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Subject, takeUntil} from "rxjs";
@@ -11,15 +11,14 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
   styleUrl: './topic-edit.component.scss'
 })
 export class TopicEditComponent implements OnInit, OnDestroy {
+  private topicAPIService = inject(TopicAPIService);
+  private formBuilder = inject(FormBuilder);
+  public dialogRef: MatDialogRef<TopicEditComponent> = inject(MatDialogRef);
+  public data: any = inject(MAT_DIALOG_DATA);
+
   topicForm!: FormGroup;
   topicToEdit!: Topic;
   private unsubscribe$ = new Subject<void>();
-
-  constructor(private topicAPIService: TopicAPIService,
-              private formBuilder: FormBuilder,
-              public dialogRef: MatDialogRef<TopicEditComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) {
-  }
 
   ngOnInit(): void {
     // Recover topic to edit

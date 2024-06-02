@@ -52,11 +52,19 @@ export class TestListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  /**
+   * Apply filter to table's data based on user input.
+   * @param event
+   */
   applyFilter(event: Event) {
+    // Extract filter value from input event
     const filterValue = (event.target as HTMLInputElement).value;
+    // Apply filter to data source
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    // If pagination is enabled and data source has a paginator
     if (this.dataSource.paginator) {
+      // Reset to the first page after filtering
       this.dataSource.paginator.firstPage();
     }
   }

@@ -82,13 +82,15 @@
     "question": "Modifier une question",
     "questionnaire": "Modifier un questionnaire",
     "topic": "Modifier un thème",
-    "test": "Modifier un test"
+    "test": "Modifier un test",
+    "password": "Changer de mot de passe"
   },
   "Add answer": "Ajouter une réponse",
   "Cancel": "Annuler",
   "Close": "Fermer",
   "btn_Create": "Créer",
   "btn_Update": "Modifier",
+  "btn_Change": "Changer",
   "btn_Assign": "Assigner",
   "Delete": "Supprimer",
   "Refresh": "Rafraîchir",
@@ -142,6 +144,8 @@
     "test": "Erreur lors de la suppression d'un test."
   },
   "error_msg_anonymize_user": "Erreur lors de l'anonymisation d'un utilisateur.",
+  "error_msg_change_user_password": "Erreur lors de la modification du mot de passe.",
+  "success_msg_change_user_password": "Mot de passe modifié avec succès.",
   "success_msg_anonymize_user": "Utilisateur anonymisé avec succès.",
   "success_msg_refresh_items": {
     "answer": "Liste des réponses rafraîchie avec succès.",
@@ -293,5 +297,10 @@
   "Results aren't shared.": "La consultation des résultats de ce test n'est pas authorisée.",
   "You aren't authorized to consult this page.": "Vous n'êtes pas authorisé à consulter cette page.",
   "used out of": "utilisées sur",
-  "Delete account": "Supprimer compte"
+  "Delete account": "Supprimer compte",
+  "No data found": "Aucune donnée disponible.",
+  "Change password": "Modifier mot de passe",
+  "Edit profile": "Modifier profil",
+  "Old password": "Ancien mot de passe",
+  "New password": "Nouveau mot de passe"
 }

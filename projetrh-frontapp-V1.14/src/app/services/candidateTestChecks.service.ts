@@ -1,10 +1,14 @@
 import {Injectable} from "@angular/core";
 import {CandidateTest} from "../models/candidate-test.model";
 
+/**
+ * Service used to execute some verifications before a candidate can take his test.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class CandidateTestChecksService {
+  private maxDurationToTakeATest = (7 * 24 * 60 * 60 * 1000); // 7 days in milliseconds
 
   public areSecurityChecksGood(candidateTest: CandidateTest, candidateId: number): boolean {
     if (!this.isLoggedUserAssigned(candidateTest, candidateId)) {
@@ -15,7 +19,7 @@ export class CandidateTestChecksService {
       return false;
     }
 
-    if (this.isTestExpired((candidateTest))) {
+    if (this.isTestExpired(candidateTest)) {
       return false;
     }
 
@@ -42,8 +46,7 @@ export class CandidateTestChecksService {
     // convert string to Date
     let convertedAssignationDate = new Date(candidateTest.assignedAt);
     const assignationTime = convertedAssignationDate.getTime();
-    // 7 days in milliseconds
-    const expirationTime = assignationTime + (7 * 24 * 60 * 60 * 1000);
+    const expirationTime = assignationTime + this.maxDurationToTakeATest;
     const currentTime = Date.now();
 
     if (currentTime >= assignationTime && currentTime <= expirationTime) {

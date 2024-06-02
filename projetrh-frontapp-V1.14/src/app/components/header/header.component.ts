@@ -1,8 +1,7 @@
-import {Component, OnDestroy} from '@angular/core';
-import {BehaviorSubject, Subject, Subscription, takeUntil} from "rxjs";
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {Subject, takeUntil} from "rxjs";
 import {AuthAPIService} from "../../services/API/authAPI.service";
 import {NavigationEnd, Router} from "@angular/router";
-import {TranslateService} from "@ngx-translate/core";
 import {NotificationService} from "../../services/notification.service";
 
 @Component({
@@ -13,7 +12,11 @@ import {NotificationService} from "../../services/notification.service";
     '../../../assets/bootstrap.min.css'
   ]
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
+  private authAPIService = inject(AuthAPIService);
+  private router = inject(Router);
+  private notificationService = inject(NotificationService);
+
   private unsubscribe$ = new Subject<void>();
   isHRManager = false;
   isCandidate = false;
@@ -21,21 +24,17 @@ export class HeaderComponent implements OnDestroy {
   isAuthPage: boolean = false;
   isLogoutButtonClickableSubject: boolean = true;
 
-  constructor(private authAPIService: AuthAPIService,
-              private router: Router,
-              private notificationService: NotificationService) {
-  }
-
   ngOnInit() {
+    // Detect user's role and extract username from mail
     this.authAPIService.user
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(user => {
-
         this.isHRManager = user?.role == 'hrManager';
         this.isCandidate = user?.role == 'candidate';
         this.username = user ? this.extractUsername(user.email) : '';
       });
 
+    // Subscribe to router's events to know if user is on auth page (to hide the "login" button)
     this.router.events
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((event) => {
@@ -44,6 +43,7 @@ export class HeaderComponent implements OnDestroy {
         }
       });
 
+    // Subscribe to behaviorSubject to know when to disable logout button
     this.authAPIService.isLogoutButtonClickable
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(isClickable => this.isLogoutButtonClickableSubject = isClickable);
@@ -54,6 +54,9 @@ export class HeaderComponent implements OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  /**
+   * Logout user, except if it's prohibited (during a test for example)
+   */
   onLogout() {
     if (this.isLogoutButtonClickableSubject) {
       this.authAPIService.logout();
@@ -62,6 +65,11 @@ export class HeaderComponent implements OnDestroy {
     }
   }
 
+  /**
+   * Extract a username from the mail
+   * @param email
+   * @private
+   */
   private extractUsername(email: string): string {
     const usernameParts = email.split('@');
     return usernameParts.length > 0 ? usernameParts[0] : '';

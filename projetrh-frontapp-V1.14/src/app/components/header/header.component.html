@@ -4,14 +4,13 @@
       <a class="navbar-brand" href="#">{{ "HR Project" | translate }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
               aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <!--        <span class="navbar-toggler-icon"></span>-->
         <span class="material-symbols-outlined"> menu </span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <ng-container *ngIf="isHRManager">
             <li class="nav-item" routerLinkActive="active-link">
-              <a class="nav-link" routerLink="/questions" >
+              <a class="nav-link" routerLink="/questions">
                 <h5 class="mb-0">{{ 'Questions' | translate }}</h5>
               </a>
             </li>
@@ -72,9 +71,9 @@
                 </div>
               </button>
               <mat-menu #userMenu="matMenu">
-                <ng-container *ngIf="isHRManager">
-                  <button mat-menu-item routerLink="/dashboard">{{ 'Dashboard' | translate }}</button>
-                </ng-container>
+<!--                <ng-container *ngIf="isHRManager">-->
+<!--                  <button mat-menu-item routerLink="/dashboard">{{ 'Dashboard' | translate }}</button>-->
+<!--                </ng-container>-->
                 <button mat-menu-item type="button" (click)="onLogout()">{{ 'Logout' | translate }}</button>
               </mat-menu>
             </div>

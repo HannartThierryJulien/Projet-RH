@@ -10,13 +10,6 @@
         required
         maxlength="50">
     </mat-form-field>
-<!--    <mat-form-field appearance="outline" class="w-100">-->
-<!--      <mat-label>{{ 'Birth date' | translate }}</mat-label>-->
-<!--      <input-->
-<!--        matInput-->
-<!--        type="date"-->
-<!--        formControlName="birthDate">-->
-<!--    </mat-form-field>-->
     <mat-form-field>
       <mat-label>{{ 'Birth date' | translate }}</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="birthDate">

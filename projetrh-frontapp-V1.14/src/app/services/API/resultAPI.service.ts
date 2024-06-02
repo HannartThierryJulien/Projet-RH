@@ -2,7 +2,6 @@ import {Injectable} from "@angular/core";
 import {GenericAPIService} from "./genericAPI.service";
 import {Result} from "../../models/result.model";
 import {catchError, finalize, map, Observable, retry, tap} from "rxjs";
-import {Question} from "../../models/question.model";
 
 @Injectable({
   providedIn: 'root',

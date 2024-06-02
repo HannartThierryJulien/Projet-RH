@@ -51,4 +51,9 @@ public class CandidateService {
 		return candidate1;
 	}
 	
+	public void changePassword(Candidate candidate, String newPassword) {
+		candidate.setPassword(passwordEncoder.encode(newPassword));
+		candidateRep.save(candidate);
+	}
+	
 }

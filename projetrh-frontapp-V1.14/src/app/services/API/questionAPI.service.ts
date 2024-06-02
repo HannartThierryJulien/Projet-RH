@@ -1,11 +1,7 @@
-import {inject, Injectable} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {catchError, finalize, map, Observable, retry} from "rxjs";
 import {Question} from "../../models/question.model";
-import {HttpClient} from "@angular/common/http";
-import {LoadingService} from "../loading.service";
 import {GenericAPIService} from "./genericAPI.service";
-import {NotificationService} from "../notification.service";
-import {ErrorHandlerService} from "../errorHandler.service";
 
 @Injectable({
   providedIn: 'root',

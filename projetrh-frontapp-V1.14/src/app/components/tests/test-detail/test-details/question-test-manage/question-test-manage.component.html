@@ -21,8 +21,8 @@
           </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="questionnairesTabledisplayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: questionnairesTabledisplayedColumns;"></tr>
+        <tr mat-header-row *matHeaderRowDef="questionnairesTableDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: questionnairesTableDisplayedColumns;"></tr>
       </table>
       <mat-paginator [pageSize]="questionnairesTablePageSize" hidePageSize
                      [style]="questionnairesTableSource.data.length<=questionnairesTablePageSize ? 'display: none' : ''">
@@ -49,8 +49,8 @@
             </td>
           </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="questionsTabledisplayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: questionsTabledisplayedColumns;"></tr>
+          <tr mat-header-row *matHeaderRowDef="questionsTableDisplayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: questionsTableDisplayedColumns;"></tr>
         </table>
       </div>
     </div>

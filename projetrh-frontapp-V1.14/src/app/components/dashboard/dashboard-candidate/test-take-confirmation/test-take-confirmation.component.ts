@@ -5,7 +5,7 @@ import {TestService} from "../../../../services/test.service";
 import {Validators} from "@angular/forms";
 import {Subject, takeUntil} from "rxjs";
 import {QuestionTestAPIService} from "../../../../services/API/question-testAPI.service";
-import {CountdownService} from "../../../../services/countdown.service";
+import {TimeService} from "../../../../services/time.service";
 
 @Component({
   selector: 'app-test-take-confirmation',
@@ -24,6 +24,7 @@ export class TestTakeConfirmationComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // Recover all the questions linked to this test, then calculate the max duration that the candidate can take to complete it
     this.questionTestAPIService.getAllQuestionTestByTestId(this.data.test.id)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(questionTests => {
@@ -40,7 +41,4 @@ export class TestTakeConfirmationComponent implements OnInit, OnDestroy {
     this.dialogRef.close();
   }
 
-  onTakeTest() {
-    this.dialogRef.close();
-  }
 }

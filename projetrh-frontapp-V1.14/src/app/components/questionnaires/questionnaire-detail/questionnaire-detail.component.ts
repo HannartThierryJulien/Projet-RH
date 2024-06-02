@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Observable, of, Subject, takeUntil, tap} from "rxjs";
 import {Question} from "../../../models/question.model";
 import {QuestionAPIService} from "../../../services/API/questionAPI.service";
@@ -7,7 +7,6 @@ import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogDeleteComponent} from "../../shared/dialog-delete/dialog-delete.component";
 import {Questionnaire} from "../../../models/questionnaire.model";
 import {QuestionnaireEditComponent} from "../questionnaire-edit/questionnaire-edit.component";
-import {QuestionnairesComponent} from "../questionnaires.component";
 import {QuestionnaireAPIService} from "../../../services/API/questionnaireAPI.service";
 import {SelectedItemsService} from "../../../services/selectedItems.service";
 import {MatPaginator} from "@angular/material/paginator";
@@ -19,6 +18,13 @@ import {MatTableDataSource} from "@angular/material/table";
   styleUrl: './questionnaire-detail.component.scss'
 })
 export class QuestionnaireDetailComponent implements OnInit, OnDestroy, AfterViewInit {
+  private questionnaireAPIService = inject(QuestionnaireAPIService);
+  private selectedItemsService = inject(SelectedItemsService);
+  private questionAPIService = inject(QuestionAPIService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  public dialog = inject(MatDialog);
+
   questionnaire$!: Observable<Questionnaire>;
   questionnaireId!: number;
   private unsubscribe$ = new Subject<void>();
@@ -26,14 +32,6 @@ export class QuestionnaireDetailComponent implements OnInit, OnDestroy, AfterVie
   displayedColumns: string[] = ['label'];
   dataSource: MatTableDataSource<Question> = new MatTableDataSource<Question>();
   pageSize = 5;
-
-  constructor(private questionnaireAPIService: QuestionnaireAPIService,
-              private selectedItemsService: SelectedItemsService,
-              private questionAPIService: QuestionAPIService,
-              private route: ActivatedRoute,
-              private router: Router,
-              public dialog: MatDialog) {
-  }
 
   ngOnInit() {
     this.route.params

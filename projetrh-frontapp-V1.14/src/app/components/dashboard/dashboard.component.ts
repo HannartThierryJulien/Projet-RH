@@ -1,7 +1,6 @@
 import {ChangeDetectorRef, Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {AuthAPIService} from "../../services/API/authAPI.service";
-import {BehaviorSubject, EMPTY, Observable, of, Subject, switchMap, take, takeUntil, tap} from "rxjs";
-import {User} from "../../models/user.model";
+import {BehaviorSubject, EMPTY, Subject, switchMap, take, takeUntil, tap} from "rxjs";
 import {LoadingService} from "../../services/loading.service";
 import {Candidate} from "../../models/candidate.model";
 import {CandidateAPIService} from "../../services/API/candidateAPI.service";
@@ -14,28 +13,15 @@ import {HrManager} from "../../models/hrManager.model";
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit, OnDestroy {
+  private candidateAPIService = inject(CandidateAPIService);
+  private hrManagerAPIService = inject(HrManagerAPIService);
+  private authAPIService = inject(AuthAPIService);
+
   private unsubscribe$ = new Subject<void>();
   role: string = '';
   userSubject: BehaviorSubject<Candidate | HrManager | null> = new BehaviorSubject<Candidate | HrManager | null>(null);
-  isLoading: boolean = false;
-
-  private authAPIService = inject(AuthAPIService);
-  private loadingService = inject(LoadingService);
-  private changeDetectorRef = inject(ChangeDetectorRef);
-
-  constructor(private candidateAPIService: CandidateAPIService,
-              private hrManagerAPIService: HrManagerAPIService) {
-  }
 
   ngOnInit() {
-    // Allow to know if there is at least one element loading
-    this.loadingService.loading$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(loadingMap => {
-        this.isLoading = Array.from(loadingMap.values()).some(value => value);
-        this.changeDetectorRef.detectChanges(); // Force change detection
-      });
-
     this.onRefresh();
   }
 
@@ -44,9 +30,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  /**
+   * First recover logged user.
+   * Then recover candidate/hrManager as observable for the child component to react when refresh
+   */
   onRefresh() {
     this.authAPIService.user.pipe(
-      take(1), // Take only the first emitted value to avoid multiple subscriptions
+      take(1), // Take only first emitted value (to avoid multiple subscriptions)
       switchMap(user => {
         if (!user) {
           return EMPTY;
@@ -63,7 +53,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         }
       }),
       tap(user => {
-        this.userSubject.next(user); // Update userSubject with the new data
+        // Update userSubject
+        this.userSubject.next(user);
       })
     ).subscribe();
   }

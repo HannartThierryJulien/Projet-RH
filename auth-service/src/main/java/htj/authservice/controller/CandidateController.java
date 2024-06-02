@@ -1,6 +1,5 @@
 package htj.authservice.controller;
 
-import java.nio.file.AccessDeniedException;
 import java.util.List;
 
 import org.slf4j.Logger;

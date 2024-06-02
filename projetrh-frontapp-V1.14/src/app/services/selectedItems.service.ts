@@ -1,8 +1,10 @@
-import {EventEmitter, Injectable} from "@angular/core";
-import {QuestionAPIService} from "./API/questionAPI.service";
+import {Injectable} from "@angular/core";
 import {BehaviorSubject} from "rxjs";
-import {Test} from "../models/test.model";
 
+/**
+ * Service used to handle and listen to the selection of item and archived/unarchived list in many components.
+ * An "item" means a Question/Questionnaire/Topic/Test object.
+ */
 @Injectable({
   providedIn: 'root',
 })

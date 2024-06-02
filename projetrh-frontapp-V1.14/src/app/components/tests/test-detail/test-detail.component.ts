@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {
   concatMap,
   forkJoin,
@@ -11,9 +11,7 @@ import {
 import {Test} from "../../../models/test.model";
 import {TestAPIService} from "../../../services/API/testAPI.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {LoadingService} from "../../../services/loading.service";
 import {QuestionTestAPIService} from "../../../services/API/question-testAPI.service";
-import {CandidateTestAPIService} from "../../../services/API/candidate-testAPI.service";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {TestEditComponent} from "../test-edit/test-edit.component";
 import {DialogDeleteComponent} from "../../shared/dialog-delete/dialog-delete.component";
@@ -26,47 +24,31 @@ import {TestService} from "../../../services/test.service";
   providers: [TestService]
 })
 export class TestDetailComponent implements OnInit, OnDestroy {
+  private testAPIService = inject(TestAPIService);
+  private route = inject(ActivatedRoute);
+  private questionTestAPIService = inject(QuestionTestAPIService);
+  private dialog = inject(MatDialog);
+  private router = inject(Router);
+  private testService = inject(TestService);
+
   test$ = this.testService.test$;
   questionTestsSubject = this.testService.questionTestsSubject;
   candidateTestsSubject = this.testService.candidateTestsSubject;
   private unsubscribe$ = new Subject<void>();
-  isLoading!: boolean;
-  // Starts directly, then every 10 seconds
-  private refreshInterval$ = interval(10000).pipe(startWith(0));
+  private refreshInterval$ = interval(10000).pipe(startWith(0)); // Starts directly, then every 10 seconds
   private refreshSubscription!: Subscription;
   testMaxDurationInSeconds = 0;
   testPointsSum = 0;
 
-  constructor(private testAPIService: TestAPIService,
-              private route: ActivatedRoute,
-              private loadingService: LoadingService,
-              private questionTestAPIService: QuestionTestAPIService,
-              private changeDetectorRef: ChangeDetectorRef,
-              private dialog: MatDialog,
-              private router: Router,
-              private testService: TestService) {
-  }
-
   ngOnInit() {
-    // Allow to know if there is at least one element loading
-    this.loadingService.loading$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(loadingMap => {
-        this.isLoading = Array.from(loadingMap.values()).some(value => value);
-        this.changeDetectorRef.detectChanges(); // Force change detection
-      });
-
+    // Every x seconds, refresh page's data
     this.refreshSubscription = this.refreshInterval$
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(() => {
         this.onRefresh();
       });
 
-    const testId = this.route.snapshot.paramMap.get('id');
-    if (testId) {
-      this.testService.loadTestDetails(+testId);
-    }
-
+    // Calculate max duration a candidate can take and max points a candidate can get.
     this.questionTestsSubject
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(questionTests => {
@@ -80,6 +62,9 @@ export class TestDetailComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  /**
+   * Refresh page's data
+   */
   onRefresh() {
     const testId = this.route.snapshot.paramMap.get('id');
     if (testId !== null) {
@@ -87,6 +72,10 @@ export class TestDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Display dialog to edit label of the test.
+   * @param testToEdit
+   */
   onEdit(testToEdit: Test) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = testToEdit;
@@ -99,6 +88,7 @@ export class TestDetailComponent implements OnInit, OnDestroy {
     dialogRef.afterClosed()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(response => {
+        // If test updated, inform testService.
         if (response) {
           this.testService.test$.next(response.updatedTest);
         }
@@ -127,6 +117,10 @@ export class TestDetailComponent implements OnInit, OnDestroy {
       );
   }
 
+  /**
+   * Delete test and linked questionTests
+   * @param testId
+   */
   deleteTest(testId: number) {
     const questionTests = this.questionTestsSubject.getValue();
 

@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {BehaviorSubject, forkJoin, map, Subject, switchMap, takeUntil} from "rxjs";
 import {Test} from "../../../../models/test.model";
 import {QuestionTest} from "../../../../models/question-test.model";
@@ -8,7 +8,6 @@ import {QuestionTestManageComponent} from "./question-test-manage/question-test-
 import {QuestionAddComponent} from "../../../questions/question-add/question-add.component";
 import {QuestionTestAPIService} from "../../../../services/API/question-testAPI.service";
 import {TestAPIService} from "../../../../services/API/testAPI.service";
-import {Question} from "../../../../models/question.model";
 import {Router} from "@angular/router";
 import {NotificationService} from "../../../../services/notification.service";
 
@@ -18,30 +17,31 @@ import {NotificationService} from "../../../../services/notification.service";
   styleUrl: './test-details.component.scss'
 })
 export class TestDetailsComponent implements OnInit, OnDestroy {
+  private dialog = inject(MatDialog);
+  private questionTestAPIService = inject(QuestionTestAPIService);
+  private testAPIService = inject(TestAPIService);
+  private router = inject(Router);
+  private notificationService = inject(NotificationService);
+
   private unsubscribe$ = new Subject<void>();
   displayedColumns: string[] = ['label', 'points', 'weight', 'maxScore', 'timeLimit'];
   dataSource = new MatTableDataSource<QuestionTest>();
   @Input() questionTestsSubject: BehaviorSubject<QuestionTest[]> = new BehaviorSubject<QuestionTest[]>([]);
-  @Input() testSubject  = new BehaviorSubject<Test | null>(null);
+  @Input() testSubject = new BehaviorSubject<Test | null>(null);
   test!: Test;
   @Input() testAssignedAtLeastOnce!: boolean;
   @Input() testMaxDurationInSeconds!: number;
   @Input() testPointsSum!: number;
 
-  constructor(private dialog: MatDialog,
-              private questionTestAPIService: QuestionTestAPIService,
-              private testAPIService : TestAPIService,
-              private router: Router,
-              private notificationService: NotificationService) {
-  }
-
   ngOnInit() {
+    // Retrieve all questionTests linked to populate table.
     this.questionTestsSubject
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(questionTests => {
         this.dataSource.data = questionTests;
       });
 
+    // Retrieve test.
     this.testSubject
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(test => test ? this.test = test : null);
@@ -52,6 +52,9 @@ export class TestDetailsComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  /**
+   * Manage (add or remove) linked questionTests for this test.
+   */
   onManageQuestionTests() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = this.test;
@@ -70,6 +73,11 @@ export class TestDetailsComponent implements OnInit, OnDestroy {
       });
   }
 
+  /**
+   * Create a new question that will automatically be added to this test.
+   * @param enterAnimationDuration
+   * @param exitAnimationDuration
+   */
   openAddQuestionDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = this.test;
@@ -93,6 +101,10 @@ export class TestDetailsComponent implements OnInit, OnDestroy {
       });
   }
 
+  /**
+   * Duplicate a test and all the linked questionTests.
+   * Method used if hrManager want to update linked questionTests, but candidate already assigned to this test.
+   */
   onDuplicateTest() {
     let testDuplicate: Test = new Test(0, new Date(), this.test.label + " - DUPLICATA", false);
     this.testAPIService.addItem(testDuplicate)

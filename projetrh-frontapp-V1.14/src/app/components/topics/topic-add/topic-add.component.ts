@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {Topic} from "../../../models/topic.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Subject, takeUntil} from "rxjs";
@@ -11,13 +11,12 @@ import {MatDialogRef} from "@angular/material/dialog";
   styleUrl: './topic-add.component.scss'
 })
 export class TopicAddComponent implements OnInit, OnDestroy {
+  private topicAPIService = inject(TopicAPIService);
+  private formBuilder = inject(FormBuilder);
+  public dialogRef = inject(MatDialogRef<TopicAddComponent>);
+
   topicForm!: FormGroup;
   private unsubscribe$ = new Subject<void>();
-
-  constructor(private topicAPIService: TopicAPIService,
-              private formBuilder: FormBuilder,
-              public dialogRef: MatDialogRef<TopicAddComponent>) {
-  }
 
   ngOnInit(): void {
     // questionnaireForm initialization
@@ -65,7 +64,6 @@ export class TopicAddComponent implements OnInit, OnDestroy {
       .subscribe(addedTopic => {
         this.onClose();
       });
-
   }
 
 }

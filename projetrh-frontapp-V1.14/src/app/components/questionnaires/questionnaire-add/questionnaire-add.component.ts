@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {Questionnaire} from "../../../models/questionnaire.model";
 import {Topic} from "../../../models/topic.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
@@ -13,15 +13,14 @@ import {MatDialogRef} from "@angular/material/dialog";
   styleUrl: './questionnaire-add.component.scss'
 })
 export class QuestionnaireAddComponent implements OnInit, OnDestroy {
+  private questionnaireAPIService = inject(QuestionnaireAPIService);
+  private topicAPIService = inject(TopicAPIService);
+  private formBuilder = inject(FormBuilder);
+  private dialogRef = inject(MatDialogRef<QuestionnaireAddComponent>);
+
   topics: Topic[] = [];
   questionnaireForm!: FormGroup;
   private unsubscribe$ = new Subject<void>();
-
-  constructor(private questionnaireAPIService: QuestionnaireAPIService,
-              private topicAPIService: TopicAPIService,
-              private formBuilder: FormBuilder,
-              public dialogRef: MatDialogRef<QuestionnaireAddComponent>) {
-  }
 
   ngOnInit(): void {
     // questionnaireForm initialization

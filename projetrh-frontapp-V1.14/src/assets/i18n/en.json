@@ -82,13 +82,15 @@
     "question": "Update a question",
     "questionnaire": "Update a questionnaire",
     "topic": "Update a topic",
-    "test": "Update a test"
+    "test": "Update a test",
+    "password": "Change the password"
   },
   "Add answer": "Add an answer",
   "Cancel": "Cancel",
   "Close": "Close",
   "btn_Create": "Create",
   "btn_Update": "Update",
+  "btn_Change": "Change",
   "btn_Assign": "Assign",
   "Delete": "Delete",
   "Refresh": "Refresh",
@@ -142,6 +144,8 @@
     "test": "Error deleting a test."
   },
   "error_msg_anonymize_user": "Error anonymizing user.",
+  "error_msg_change_user_password": "Error changing password.",
+  "success_msg_change_user_password": "Password changed successfully.",
   "success_msg_anonymize_user": "User anonymized successfully.",
   "success_msg_refresh_items": {
     "answer": "List of answers refreshed successfully.",
@@ -292,5 +296,10 @@
   "Results aren't shared.": "Consultation of the results of this test is not authorized.",
   "You aren't authorized to consult this page.": "You aren't authorized to consult this page.",
   "used out of": "used out of",
-  "Delete account": "Delete account"
+  "Delete account": "Delete account",
+  "No data found": "No data found.",
+  "Change password": "Change password",
+  "Edit profile": "Edit profile",
+  "Old password": "Old password",
+  "New password": "New password"
 }

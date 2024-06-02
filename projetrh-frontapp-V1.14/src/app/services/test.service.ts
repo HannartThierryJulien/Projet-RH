@@ -1,4 +1,4 @@
-import {Injectable, OnDestroy} from "@angular/core";
+import {inject, Injectable, OnDestroy} from "@angular/core";
 import {BehaviorSubject, Subject, takeUntil} from "rxjs";
 import {Test} from "../models/test.model";
 import {QuestionTest} from "../models/question-test.model";
@@ -9,22 +9,22 @@ import {CandidateTestAPIService} from "./API/candidate-testAPI.service";
 import {Question} from "../models/question.model";
 
 /**
- * Service but not a singleton
- * https://dev.to/ussdlover/best-practice-for-subscribing-to-observables-in-services-with-angular-1712
+ * Service used to load a test, his questionTests and his candidateTests at once and used to refresh easily these data.
+ * It's also used to calculate some information like the maxDuration or the pointsSum of a given test.
+ *
+ * ⚠️⚠️ Particular attention to the fact that this service is not a singleton, it can therefore be instantiated several times. ⚠️⚠️
+ * Cf. https://dev.to/ussdlover/best-practice-for-subscribing-to-observables-in-services-with-angular-1712
  */
 @Injectable()
 export class TestService implements OnDestroy {
+  private testAPIService = inject(TestAPIService);
+  private questionTestAPIService = inject(QuestionTestAPIService);
+  private candidateTestAPIService = inject(CandidateTestAPIService);
+
   test$ = new BehaviorSubject<Test | null>(null);
   questionTestsSubject = new BehaviorSubject<QuestionTest[]>([]);
   candidateTestsSubject = new BehaviorSubject<CandidateTest[]>([]);
   private unsubscribe$ = new Subject<void>();
-
-  constructor(
-    private testAPIService: TestAPIService,
-    private questionTestAPIService: QuestionTestAPIService,
-    private candidateTestAPIService: CandidateTestAPIService
-  ) {
-  }
 
   loadTestDetails(testId: number) {
     // Load test details
@@ -49,24 +49,40 @@ export class TestService implements OnDestroy {
       });
   }
 
+  /**
+   * Calculate the max duration a candidate can get to take a specific test, based on the provided parameter.
+   * @param questions
+   */
   calculateCandidateTestMaxDurationInSecondsByQuestions(questions: Question[]) {
     let maxDurationInSeconds = 0;
     questions.forEach(q => maxDurationInSeconds += q.maxDurationInSeconds);
     return maxDurationInSeconds
   }
 
-  calculateCandidateTestPointsSumByQuestions(questions: Question[]) {
-    let pointsSum = 0;
-    questions.forEach(q => pointsSum += (q.points * q.weight));
-    return pointsSum
-  }
-
+  /**
+   * Calculate the max duration a candidate can get to take a specific test, based on the provided parameter.
+   * @param questionTests
+   */
   calculateCandidateTestMaxDurationInSecondsByQuestionTests(questionTests: QuestionTest[]) {
     let maxDurationInSeconds = 0;
     questionTests.forEach(qt => maxDurationInSeconds += qt.question.maxDurationInSeconds);
     return maxDurationInSeconds
   }
 
+  /**
+   * Calculate the biggest score a candidate can get to take a specific test, based on the provided parameter.
+   * @param questions
+   */
+  calculateCandidateTestPointsSumByQuestions(questions: Question[]) {
+    let pointsSum = 0;
+    questions.forEach(q => pointsSum += (q.points * q.weight));
+    return pointsSum
+  }
+
+  /**
+   * Calculate the biggest score a candidate can get to take a specific test, based on the provided parameter.
+   * @param questionTests
+   */
   calculateCandidateTestPointsSumByQuestionTests(questionTests: QuestionTest[]) {
     let pointsSum = 0;
     questionTests.forEach(qt => pointsSum += (qt.question.points * qt.question.weight));
@@ -74,9 +90,8 @@ export class TestService implements OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log("test-service.ts destroyed")
-
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+
 }

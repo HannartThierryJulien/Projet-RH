@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, Inject, OnDestroy, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Question} from "../../../models/question.model";
 import {Questionnaire} from "../../../models/questionnaire.model";
@@ -12,7 +12,7 @@ import {Answer} from "../../../models/answer.model";
 import {Subject, takeUntil} from "rxjs";
 import {atLeastOneRightAnswerValidator} from "../../../validators/atLeastOneRightAnswer.validator";
 import {minimumTimeLimitValidator} from "../../../validators/minimumTimeLimit.validator";
-import {CountdownService} from "../../../services/countdown.service";
+import {TimeService} from "../../../services/time.service";
 
 @Component({
   selector: 'app-question-edit',
@@ -20,6 +20,15 @@ import {CountdownService} from "../../../services/countdown.service";
   styleUrl: './question-edit.component.scss'
 })
 export class QuestionEditComponent implements OnInit, OnDestroy {
+  private questionnaireAPIService = inject(QuestionnaireAPIService);
+  private questionAPIService = inject(QuestionAPIService);
+  private answerAPIService = inject(AnswerAPIService);
+  private topicAPIService = inject(TopicAPIService);
+  private formBuilder = inject(FormBuilder);
+  public dialogRef = inject(MatDialogRef<QuestionEditComponent>);
+  public data: any = inject(MAT_DIALOG_DATA);
+  private timeService = inject(TimeService);
+
   questionnaires: Questionnaire[] = [];
   topics: Topic[] = [];
   questionForm!: FormGroup;
@@ -30,16 +39,6 @@ export class QuestionEditComponent implements OnInit, OnDestroy {
   defaultQuestionnaire: Questionnaire | undefined;
   idAnswersToDelete: number[] = [];
   private unsubscribe$ = new Subject<void>();
-
-  constructor(private questionnaireAPIService: QuestionnaireAPIService,
-              private questionAPIService: QuestionAPIService,
-              private answerAPIService: AnswerAPIService,
-              private topicAPIService: TopicAPIService,
-              private formBuilder: FormBuilder,
-              public dialogRef: MatDialogRef<QuestionEditComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any,
-              private countdownService: CountdownService) {
-  }
 
   ngOnInit(): void {
     // Recover data (question and answer) to edit
@@ -53,7 +52,7 @@ export class QuestionEditComponent implements OnInit, OnDestroy {
         label: [this.questionToEdit.label, Validators.required],
         points: [this.questionToEdit.points, [Validators.required, Validators.min(0.01)]],
         weight: [this.questionToEdit.weight, [Validators.required, Validators.min(0.01)]],
-        maxDurationInSeconds: [this.countdownService.convertSecondsToTimeBis(this.questionToEdit.maxDurationInSeconds).substring(3), [Validators.required, minimumTimeLimitValidator(30)]],
+        maxDurationInSeconds: [this.timeService.convertSecondsToTimeBis(this.questionToEdit.maxDurationInSeconds).substring(3), [Validators.required, minimumTimeLimitValidator(30)]],
         archived: [this.questionToEdit.archived],
         topic: [this.questionToEdit.topic.id, Validators.required],
         questionnaire: [this.questionToEdit.questionnaire.id, Validators.required],
@@ -160,7 +159,7 @@ export class QuestionEditComponent implements OnInit, OnDestroy {
       label: this.questionForm.value.label,
       points: this.questionForm.value.points,
       weight: this.questionForm.value.weight,
-      maxDurationInSeconds: this.countdownService.convertTimeToSeconds('00:' + this.questionForm.value.maxDurationInSeconds),
+      maxDurationInSeconds: this.timeService.convertTimeToSeconds('00:' + this.questionForm.value.maxDurationInSeconds),
       archived: this.questionToEdit.archived,
       topic: selectedTopic,
       questionnaire: selectedQuestionnaire

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Inject, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, inject, Inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {TestAssignationComponent} from "../test-assignation.component";
 import {Test} from "../../../../../models/test.model";
@@ -10,7 +10,6 @@ import {Subject, takeUntil} from "rxjs";
 import {CandidateTest} from "../../../../../models/candidate-test.model";
 import {CandidateTestAPIService} from "../../../../../services/API/candidate-testAPI.service";
 import {MatPaginator} from "@angular/material/paginator";
-import {Questionnaire} from "../../../../../models/questionnaire.model";
 
 @Component({
   selector: 'app-test-assign',
@@ -18,6 +17,12 @@ import {Questionnaire} from "../../../../../models/questionnaire.model";
   styleUrl: './test-assign.component.scss'
 })
 export class TestAssignComponent implements OnInit, OnDestroy, AfterViewInit {
+  public dialogRef = inject(MatDialogRef<TestAssignationComponent>);
+  public data: Test = inject(MAT_DIALOG_DATA);
+  private candidateAPIService = inject(CandidateAPIService);
+  private candidateTestAPIService = inject(CandidateTestAPIService);
+
+
   private unsubscribe$ = new Subject<void>();
   candidates: Candidate[] = [];
   displayedColumns: string[] = ['select', 'lastname', 'firstname'];
@@ -30,13 +35,8 @@ export class TestAssignComponent implements OnInit, OnDestroy, AfterViewInit {
   selection = new SelectionModel<Candidate>(true, []);
   newCandidateTests: CandidateTest[] = [];
 
-  constructor(public dialogRef: MatDialogRef<TestAssignationComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Test,
-              private candidateAPIService: CandidateAPIService,
-              private candidateTestAPIService: CandidateTestAPIService) {
-  }
-
   ngOnInit() {
+    // Retrieve unarchived candidates and display table
     this.candidateAPIService.getItems(false)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(candidates => {
@@ -54,14 +54,18 @@ export class TestAssignComponent implements OnInit, OnDestroy, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
+  /**
+   * Whether the number of selected elements matches the total number of rows.
+   */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
   }
 
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  /**
+   * Selects all rows if they are not all selected; otherwise clear selection.
+   */
   toggleAllRows() {
     if (this.isAllSelected()) {
       this.selection.clear();
@@ -71,7 +75,10 @@ export class TestAssignComponent implements OnInit, OnDestroy, AfterViewInit {
     this.selection.select(...this.dataSource.data);
   }
 
-  /** The label for the checkbox on the passed row */
+  /**
+   * The label for the checkbox on the passed row.
+   * @param row
+   */
   checkboxLabel(row?: Candidate): string {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
@@ -81,15 +88,17 @@ export class TestAssignComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   /**
-   * Close the MatDialog of the test-assign component
+   * Close the MatDialog of the test-assign component.
    */
   onClose(newCandidaTests?: CandidateTest[]): void {
     this.dialogRef.close(newCandidaTests);
   }
 
+  /**
+   * For every selected rows, create a new candidateTest and add it to database.
+   */
   onAssign() {
     const selectedRows = this.selection.selected;
-
 
     selectedRows.forEach(row => {
       let testToAssign = new CandidateTest(0, new Date(new Date().toISOString()), null, null, null, false, 'assigned', row, this.data);
@@ -103,11 +112,19 @@ export class TestAssignComponent implements OnInit, OnDestroy, AfterViewInit {
     this.onClose(this.newCandidateTests);
   }
 
+  /**
+   * Apply filter to table's data based on user input.
+   * @param event
+   */
   applyFilter(event: Event) {
+    // Extract filter value from input event
     const filterValue = (event.target as HTMLInputElement).value;
+    // Apply filter to data source
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    // If pagination is enabled and data source has a paginator
     if (this.dataSource.paginator) {
+      // Reset to the first page after filtering
       this.dataSource.paginator.firstPage();
     }
   }

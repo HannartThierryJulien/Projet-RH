@@ -1,16 +1,16 @@
 import {Injectable} from "@angular/core";
 import {interval, Subscription} from "rxjs";
 
+/**
+ * Service used to manage countdown, calculate time vars and format time vars.
+ */
 @Injectable({
   providedIn: 'root',
 })
-export class CountdownService {
+export class TimeService {
   private countdownSubscription: Subscription | undefined;
   private maxDurationInSeconds!: number;
   private timeRemainingInSeconds!: number;
-
-  constructor() {
-  }
 
   startCountdown(maxDurationInSeconds: number, onTick: (timeRemainingInSeconds: number) => void, onFinish: () => void) {
     this.maxDurationInSeconds = maxDurationInSeconds;
@@ -100,7 +100,7 @@ export class CountdownService {
   calculateDurationInSeconds(startedAt: Date | null, endedAt: Date | null): number {
     if (startedAt && endedAt) {
       const durationInMilliSeconds = new Date(endedAt).getTime() - new Date(startedAt).getTime();
-      return Math.floor(durationInMilliSeconds/1000);
+      return Math.floor(durationInMilliSeconds / 1000);
     } else {
       return 0;
     }

@@ -9,20 +9,29 @@
               <!--        <mat-card-subtitle></mat-card-subtitle>-->
             </div>
             <div>
-              <button mat-icon-button
-                      color="warn"
-                      (click)="onDeleteDialog(candidate)"
-                      [matTooltip]="'Delete account' | translate"
-                      [matTooltipShowDelay]="1000">
-                <span class="material-symbols-outlined"> delete_forever </span>
-              </button>
-              <button mat-icon-button
-                      color="primary"
-                      (click)="onEditDialog(candidate)"
-                      [matTooltip]="'Edit' | translate"
-                      [matTooltipShowDelay]="1000">
-                <span class="material-symbols-outlined"> edit </span>
-              </button>
+              <div>
+                <button mat-icon-button
+                        [matMenuTriggerFor]="menu"
+                        color="primary"
+                        [matTooltip]="'Options' | translate"
+                        [matTooltipShowDelay]="1000">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <div mat-menu-item (click)="onEditDialog(candidate)">
+                    <mat-icon color="primary"><span class="material-symbols-outlined">edit</span></mat-icon>
+                    <p>{{ 'Edit profile' | translate }}</p>
+                  </div>
+                  <div mat-menu-item (click)="onChangePasswordDialog(candidate.id)">
+                    <mat-icon color="primary"><span class="material-symbols-outlined">password</span></mat-icon>
+                    <p>{{ 'Change password' | translate }}</p>
+                  </div>
+                  <div mat-menu-item (click)="onDeleteDialog(candidate)">
+                    <mat-icon color="warn"><span class="material-symbols-outlined">delete_forever</span></mat-icon>
+                    <p>{{ 'Delete account' | translate }}</p>
+                  </div>
+                </mat-menu>
+              </div>
             </div>
           </div>
         </mat-card-header>
@@ -114,7 +123,7 @@
               <ng-container matColumnDef="duration">
                 <th mat-header-cell *matHeaderCellDef>{{ "Duration" | translate }}</th>
                 <td mat-cell
-                    *matCellDef="let candidateTest"> {{ countdownService.calculateDurationInSeconds(candidateTest.startedAt, candidateTest.endedAt) | secondsToTimeString }}
+                    *matCellDef="let candidateTest"> {{ timeService.calculateDurationInSeconds(candidateTest.startedAt, candidateTest.endedAt) | secondsToTimeString }}
                 </td>
               </ng-container>
 

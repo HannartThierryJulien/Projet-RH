@@ -5,7 +5,7 @@ services:
   gateway-service:
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-gateway-service
+    container_name: gateway-service
     build: ./gateway-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
@@ -35,7 +35,7 @@ services:
   auth-service:
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-auth-service
+    container_name: auth-service
     build: ./auth-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
@@ -56,7 +56,7 @@ services:
   test-service:
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-test-service
+    container_name: test-service
     build: ./test-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
@@ -76,7 +76,7 @@ services:
   answer-service:
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-answer-service
+    container_name: answer-service
     build: ./answer-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
@@ -96,7 +96,7 @@ services:
   question-service:
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-question-service
+    container_name: question-service
     build: ./question-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
@@ -116,7 +116,7 @@ services:
   question-test-service:
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-question-test-service
+    container_name: question-test-service
     build: ./question_test-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
@@ -136,7 +136,7 @@ services:
   candidate-test-service:
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-candidate-test-service
+    container_name: candidate-test-service
     build: ./candidate_test-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
@@ -156,7 +156,7 @@ services:
   result-service:
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-result-service
+    container_name: result-service
     build: ./result-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
@@ -178,7 +178,7 @@ services:
   topic-service:
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-topic-service
+    container_name: topic-service
     build: ./topic-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
@@ -199,7 +199,7 @@ services:
   questionnaire-service:
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-questionnaire-service
+    container_name: questionnaire-service
     build: ./questionnaire-service
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:$MYSQL_DOCKER_PORT/$MYSQL_DB_NAME
@@ -220,7 +220,7 @@ services:
   front:
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-front
+    container_name: front
     build: ./projetrh-frontapp-V1.14
     ports:
       - "$FRONT_LOCAL_PORT:$FRONT_DOCKER_PORT"
@@ -244,7 +244,7 @@ services:
     image: mysql:latest
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-db_mysql
+    container_name: db_mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: $MYSQL_DB_NAME
@@ -265,7 +265,7 @@ services:
     image: phpmyadmin/phpmyadmin
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-db_phpmyadmin
+    container_name: db_phpmyadmin
     ports:
       - "$PHPMYADMIN_LOCAL_PORT:$PHPMYADMIN_DOCKER_PORT"
     environment:
@@ -283,7 +283,7 @@ services:
     image: bitnami/zookeeper:latest
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-kafka_zookeeper
+    container_name: kafka_zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -301,7 +301,7 @@ services:
     image: bitnami/kafka:latest
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-kafka_kafka
+    container_name: kafka_kafka
     links:
       - zookeeper
     ports:
@@ -323,7 +323,7 @@ services:
     image: obsidiandynamics/kafdrop
     restart: unless-stopped
     env_file: ./.env
-    container_name: v3.1-kafka_kafdrop
+    container_name: kafka_kafdrop
     environment:
       KAFKA_BROKERCONNECT: "kafka:29092"
       # JVM_OPTS: "-Xms16M -Xmx512M -Xss180K -XX:-TieredCompilation -XX:+UseStringDeduplication -noverify"

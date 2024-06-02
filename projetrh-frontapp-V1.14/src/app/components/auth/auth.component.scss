@@ -17,17 +17,18 @@
   font-size: calc(1.2rem + 1.5vw);
 }
 
-.wrapper-disable{
+.wrapper-disable {
   z-index: -1 !important;
   position: relative;
   opacity: 0.5;
-  pointer-events:none;
+  pointer-events: none;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 }
-.wrapper-disable *{
-  pointer-events:none;
+
+.wrapper-disable * {
+  pointer-events: none;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */

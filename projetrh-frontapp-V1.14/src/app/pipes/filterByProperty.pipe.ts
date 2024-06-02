@@ -1,5 +1,10 @@
 import {Pipe, PipeTransform} from "@angular/core";
 
+/**
+ * Pipe not user anymore (01/06/2024) cause lists were replaced by table (with embedded search/filter methods).
+ *
+ * Was previously used to search in a list, using a specific filter or not.
+ */
 @Pipe({
   name: 'filterByProperty'
 })
@@ -8,9 +13,10 @@ export class FilterByPropertyPipe implements PipeTransform {
     if (!items || !searchText) return items;
 
     return items.filter(item => {
-      if (!filterProperty) { // Si aucun filtre n'est sélectionné
+      // If no filter selected, search in all objet's attribute
+      if (!filterProperty) {
         return this.searchInObject(item, searchText);
-      } else { // Si un filtre est sélectionné
+      } else { // If a filter is selected, search value for a specific attribute
         const itemValue = this.getPropertyValue(item[filterProperty]);
         return itemValue && itemValue.includes(searchText.toLowerCase());
       }
@@ -21,11 +27,11 @@ export class FilterByPropertyPipe implements PipeTransform {
     for (const key in obj) {
       if (obj.hasOwnProperty(key)) {
         const value = obj[key];
-        if (typeof value === 'object') { // Si l'attribut est un objet
+        if (typeof value === 'object') { // If attribute is an object
           if (this.getPropertyValue(value).includes(searchText.toLowerCase())) {
             return true;
           }
-        } else if (typeof value === 'string' || typeof value === 'number') { // Si l'attribut est une chaîne de caractères ou un nombre
+        } else if (typeof value === 'string' || typeof value === 'number') { // If the attribute is a string or a number
           if (this.getPropertyValue(value).includes(searchText.toLowerCase())) {
             return true;
           }
@@ -36,6 +42,8 @@ export class FilterByPropertyPipe implements PipeTransform {
   }
 
   /**
+   * Flemme de traduire :)
+   *
    * Si l'objet ("item") qu'on filtre a des attributs autres que string/number, alors on vérifie si ces attributs sont
    * des objets ayant eux même des attributs 'label'.
    *

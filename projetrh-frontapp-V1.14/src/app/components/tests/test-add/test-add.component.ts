@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Subject, takeUntil} from "rxjs";
 import {TestAPIService} from "../../../services/API/testAPI.service";
@@ -12,14 +12,13 @@ import {Router} from "@angular/router";
   styleUrl: './test-add.component.scss'
 })
 export class TestAddComponent implements OnInit, OnDestroy {
+  private testAPIService = inject(TestAPIService);
+  private formBuilder = inject(FormBuilder);
+  private dialogRef = inject(MatDialogRef<TestAddComponent>);
+  private router = inject(Router);
+
   testForm!: FormGroup;
   private unsubscribe$ = new Subject<void>();
-
-  constructor(private testAPIService: TestAPIService,
-              private formBuilder: FormBuilder,
-              public dialogRef: MatDialogRef<TestAddComponent>,
-              private router: Router) {
-  }
 
   ngOnInit(): void {
     // form initialization

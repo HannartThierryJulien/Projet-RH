@@ -1,8 +1,7 @@
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {Questionnaire} from "../../../models/questionnaire.model";
 import {Topic} from "../../../models/topic.model";
-import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Answer} from "../../../models/answer.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Subject, takeUntil} from "rxjs";
 import {QuestionnaireAPIService} from "../../../services/API/questionnaireAPI.service";
 import {TopicAPIService} from "../../../services/API/topicAPI.service";
@@ -20,12 +19,12 @@ export class QuestionnaireEditComponent implements OnInit, OnDestroy {
   defaultTopic: Topic | undefined;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private questionnaireAPIService: QuestionnaireAPIService,
-              private topicAPIService: TopicAPIService,
-              private formBuilder: FormBuilder,
-              public dialogRef: MatDialogRef<QuestionnaireEditComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) {
-  }
+
+  private questionnaireAPIService = inject(QuestionnaireAPIService);
+  private topicAPIService = inject(TopicAPIService);
+  private formBuilder = inject(FormBuilder);
+  private dialogRef = inject(MatDialogRef<QuestionnaireEditComponent>);
+  private data: any = inject(MAT_DIALOG_DATA);
 
   ngOnInit(): void {
     // Recover questionnaire to edit

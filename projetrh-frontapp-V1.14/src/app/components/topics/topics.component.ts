@@ -1,7 +1,6 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {BehaviorSubject, Subject, takeUntil} from "rxjs";
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {Subject, takeUntil} from "rxjs";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {LoadingService} from "../../services/loading.service";
 import {TopicAddComponent} from "./topic-add/topic-add.component";
 import {TopicAPIService} from "../../services/API/topicAPI.service";
 import {SelectedItemsService} from "../../services/selectedItems.service";
@@ -12,31 +11,20 @@ import {SelectedItemsService} from "../../services/selectedItems.service";
   styleUrl: './topics.component.scss'
 })
 export class TopicsComponent implements OnInit, OnDestroy {
+  public topicAPIService = inject(TopicAPIService);
+  private selectedItemsService = inject(SelectedItemsService);
+  public dialog = inject(MatDialog);
+
   listFilters: { value: string; viewValue: string; }[] = [
     {value: 'unarchived', viewValue: 'Unarchived'},
     {value: 'archived', viewValue: 'Archived'}
   ];
   isArchivedListSelected!: boolean;
   isSearching: boolean = false;
-  isLoading: boolean = false;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(public topicAPIService: TopicAPIService,
-              private selectedItemsService: SelectedItemsService,
-              public dialog: MatDialog,
-              public loadingService: LoadingService,
-              private changeDetectorRef: ChangeDetectorRef) {
-  }
-
   ngOnInit() {
-    // Allow to know if there is at least one element loading
-    this.loadingService.loading$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(loadingMap => {
-        this.isLoading = Array.from(loadingMap.values()).some(value => value);
-        this.changeDetectorRef.detectChanges(); // Force change detection
-      });
-
+    // Listen for selection of archived/unarchived list
     this.selectedItemsService.isArchivedTopicsListSelected
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(isArchivedListSelected => {
@@ -89,4 +77,5 @@ export class TopicsComponent implements OnInit, OnDestroy {
       this.selectedItemsService.isArchivedTopicsListSelected.next(selectedValue);
     }
   }
+
 }

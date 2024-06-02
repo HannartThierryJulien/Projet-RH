@@ -10,9 +10,13 @@ import {ErrorHandlerService} from "../errorHandler.service";
   providedIn: 'root',
 })
 export class GenericAPIService<T> {
+  protected http = inject(HttpClient)
+  protected loadingService = inject(LoadingService);
+  protected notificationService = inject(NotificationService);
+  protected errorHandlerService = inject(ErrorHandlerService);
+
   protected itemName!: string;
   protected apiUrl!: string;
-
   public readonly nbRequestRetry: number = 1;
   public unarchivedItemsSubject: BehaviorSubject<T[]> = new BehaviorSubject<T[]>([]);
   public archivedItemsSubject: BehaviorSubject<T[]> = new BehaviorSubject<T[]>([]);
@@ -26,11 +30,6 @@ export class GenericAPIService<T> {
   public successMsg_addItem!: string;
   private successMsg_editItem!: string;
   private successMsg_deleteItem!: string;
-
-  protected http = inject(HttpClient)
-  protected loadingService = inject(LoadingService);
-  protected notificationService = inject(NotificationService);
-  protected errorHandlerService = inject(ErrorHandlerService);
 
   initializeMessages(): void {
     this.errorMsg_loadItems = "error_msg_load_items" + "." + this.itemName;
@@ -195,23 +194,23 @@ export class GenericAPIService<T> {
 
     return this.editItem(item).pipe(
       finalize(() => {
-        // Mise à jour de la liste appropriée en fonction de la valeur "archived" de l'élément
+        // Update the appropriate list based on the item's "archived" value
         if (item.archived) {
-          // Retirer l'élément de la liste des éléments non archivés
+          // Remove the item from the unarchived items list
           const currentUnarchivedItems: any[] = this.unarchivedItemsSubject.getValue();
           const updatedUnarchivedItems = currentUnarchivedItems.filter(i => i.id !== item.id);
           this.unarchivedItemsSubject.next(updatedUnarchivedItems);
 
-          // Ajouter l'élément à la liste des éléments archivés
+          // Add the item to the archived items list
           const currentArchivedItems: any[] = this.archivedItemsSubject.getValue();
           this.archivedItemsSubject.next([...currentArchivedItems, item]);
         } else {
-          // Retirer l'élément de la liste des éléments archivés
+          // Remove the item from the archived items list
           const currentArchivedItems: any[] = this.archivedItemsSubject.getValue();
           const updatedArchivedItems = currentArchivedItems.filter(i => i.id !== item.id);
           this.archivedItemsSubject.next(updatedArchivedItems);
 
-          // Ajouter l'élément à la liste des éléments non archivés
+          // Add the item to the unarchived items list
           const currentUnarchivedItems: any[] = this.unarchivedItemsSubject.getValue();
           this.unarchivedItemsSubject.next([...currentUnarchivedItems, item]);
         }

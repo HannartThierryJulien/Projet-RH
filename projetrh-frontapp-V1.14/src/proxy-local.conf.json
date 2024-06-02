@@ -1,0 +1,7 @@
+{
+  "/aubay-HRProject/**": {
+    "target": "http://localhost:2001",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

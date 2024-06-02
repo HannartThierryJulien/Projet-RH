@@ -1,6 +1,5 @@
-import {Component, Inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {DialogRef} from "@angular/cdk/dialog";
 
 @Component({
   selector: 'app-dialog-delete',
@@ -8,10 +7,8 @@ import {DialogRef} from "@angular/cdk/dialog";
   styleUrl: './dialog-delete.component.scss'
 })
 export class DialogDeleteComponent {
-
-  constructor(public dialogRef: MatDialogRef<DialogDeleteComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) {
-  }
+  public dialogRef = inject(MatDialogRef<DialogDeleteComponent>);
+  public data: any = inject(MAT_DIALOG_DATA);
 
   onClose() {
     this.dialogRef.close(false);

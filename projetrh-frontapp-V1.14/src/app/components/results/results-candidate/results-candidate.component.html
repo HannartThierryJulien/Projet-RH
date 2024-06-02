@@ -14,7 +14,7 @@
           <div class="col-6 text-end">
             <h1 class="m-0">{{ "Score" | translate }} : {{ ((candidateTest.score ?? 0) / testPointsSum * 100) | number:'1.2-2' }}%</h1>
             <h3 class="m-0">
-              {{ countdownService.calculateDurationInSeconds(candidateTest.startedAt, candidateTest.endedAt) | secondsToTimeString }}
+              {{ timeService.calculateDurationInSeconds(candidateTest.startedAt, candidateTest.endedAt) | secondsToTimeString }}
               {{ "used out of" | translate }}
               {{ testMaxDurationInSeconds | secondsToTimeString }}
             </h3>

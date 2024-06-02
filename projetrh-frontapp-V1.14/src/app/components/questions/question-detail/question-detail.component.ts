@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {AnswerAPIService} from "../../../services/API/answerAPI.service";
 import {Observable, of, Subject, takeUntil, tap} from "rxjs";
 import {Question} from "../../../models/question.model";
@@ -8,7 +8,6 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogDeleteComponent} from "../../shared/dialog-delete/dialog-delete.component";
 import {QuestionEditComponent} from "../question-edit/question-edit.component";
-import {QuestionsComponent} from "../questions.component";
 import {SelectedItemsService} from "../../../services/selectedItems.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
@@ -19,6 +18,13 @@ import {MatTableDataSource} from "@angular/material/table";
   styleUrl: './question-detail.component.scss'
 })
 export class QuestionDetailComponent implements OnInit, OnDestroy, AfterViewInit {
+  private questionAPIService = inject(QuestionAPIService);
+  private answerAPIService = inject(AnswerAPIService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private dialog = inject(MatDialog);
+  private selectedItemsService = inject(SelectedItemsService);
+
   question$!: Observable<Question>;
   answers: Answer[] = [];
   questionId!: number;
@@ -27,14 +33,6 @@ export class QuestionDetailComponent implements OnInit, OnDestroy, AfterViewInit
   displayedColumns: string[] = ['right', 'label'];
   dataSource: MatTableDataSource<Answer> = new MatTableDataSource<Answer>();
   pageSize = 3;
-
-  constructor(private questionAPIService: QuestionAPIService,
-              private answerAPIService: AnswerAPIService,
-              private route: ActivatedRoute,
-              private router: Router,
-              private dialog: MatDialog,
-              private selectedItemsService: SelectedItemsService) {
-  }
 
   ngOnInit() {
     this.route.params

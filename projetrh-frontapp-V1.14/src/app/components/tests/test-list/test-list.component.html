@@ -1,14 +1,4 @@
 <div class="container">
-  <!--  <div class="row">-->
-  <!--    <div class="col">-->
-  <!--      @for (test of tests | filterByProperty: searchText: selectedFilterProperty; track test) {-->
-  <!--        <app-test-item [test]="test"-->
-  <!--                        (click)="onSelectTest(test.id)">-->
-  <!--        </app-test-item>-->
-  <!--      }-->
-  <!--    </div>-->
-  <!--  </div>-->
-
   <ng-container *ngIf="isSearching">
     <mat-form-field>
       <mat-label>{{ "Search" | translate }}</mat-label>
@@ -43,9 +33,8 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-      <!-- Row shown when there is no matching data. -->
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{ searchInput }}"</td>
+        <td class="mat-cell" colspan="4">{{ "No data found" | translate }}</td>
       </tr>
     </table>
     <mat-paginator [pageSize]="pageSize"

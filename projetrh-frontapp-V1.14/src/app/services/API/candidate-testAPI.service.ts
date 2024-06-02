@@ -1,9 +1,5 @@
-import {inject, Injectable} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {GenericAPIService} from "./genericAPI.service";
-import {HttpClient} from "@angular/common/http";
-import {LoadingService} from "../loading.service";
-import {NotificationService} from "../notification.service";
-import {ErrorHandlerService} from "../errorHandler.service";
 import {CandidateTest} from "../../models/candidate-test.model";
 import {catchError, finalize, map, Observable, retry} from "rxjs";
 

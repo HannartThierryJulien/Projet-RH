@@ -82,13 +82,15 @@
     "question": "Modificar una pregunta",
     "questionnaire": "Modificar un cuestionario",
     "topic": "Modificar un tema",
-    "test": "Modificar un test"
+    "test": "Modificar un test",
+    "password": "Cambiar la contraseña"
   },
   "Add answer": "Agregar una respuesta",
   "Cancel": "Cancelar",
   "Close": "Cerrar",
   "btn_Create": "Crear",
   "btn_Update": "Modificar",
+  "btn_Change": "Cambiar",
   "btn_Assign": "Asignar",
   "Delete": "Eliminar",
   "Refresh": "Actualizar",
@@ -143,6 +145,8 @@
     "test": "Error al eliminar un test."
   },
   "error_msg_anonymize_user": "Error al anonimizar al usuario.",
+  "error_msg_change_user_password": "Error al cambiar la contraseña.",
+  "success_msg_change_user_password": "La contraseña se cambió correctamente.",
   "success_msg_anonymize_user": "Usuario anonimizado exitosamente.",
   "success_msg_refresh_items": {
     "answer": "Lista de respuestas actualizada correctamente.",
@@ -294,5 +298,10 @@
   "Results aren't shared.": "No se autoriza la consulta de los resultados de esta prueba.",
   "You aren't authorized to consult this page.": "No estás autorizado a consultar esta página.",
   "used out of": "usados de",
-  "Delete account": "Borrar cuenta"
+  "Delete account": "Borrar cuenta",
+  "No data found": "Datos no encontrados.",
+  "Change password": "Cambiar la contraseña",
+  "Edit profile": "Editar perfil",
+  "Old password": "Contraseña antigua",
+  "New password": "Nueva contraseña"
 }
